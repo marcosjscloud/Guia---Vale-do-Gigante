@@ -406,11 +406,13 @@
       
       <header class="w-full flex items-center justify-between mb-4">
         <h2 class="text-2xl sm:text-3xl font-extrabold tracking-wide text-white flex items-center gap-2.5">
-          <svg class="w-6 h-6 text-emerald-400 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <span class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-400 shrink-0">
+            <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          </span>
           Aventuras
         </h2>
         <button type="button" onclick="shareProfile('Aventuras - Vale do Gigante', 'Confira os parceiros oficiais de aventura do Vale do Gigante:')" aria-label="Compartilhar Aventuras" class="p-2.5 rounded-full glass-panel hover:bg-emerald-950/70 text-emerald-300 hover:text-white transition-colors">
-          <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" /></svg>
+          <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
         </button>
       </header>
 
@@ -419,39 +421,95 @@
       </p>
 
       <div class="w-full flex flex-col gap-3.5 mb-8">
-        <a href="https://antonina-adventure.mymento.site/?u=5mq" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
-          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">🛶 CAIAQUE</span>
-          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium">Antonina Adventure</span>
+        <a href="https://antonina-adventure.mymento.site/?u=5mq" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 18c2 0 4-2 6-2s4 2 6 2 4-2 6-2"/><path d="M3 13l9-9 9 9"/><path d="M5 13c2 2 12 2 14 0"/></svg>
+          </div>
+          <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
+            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">CAIAQUE</span>
+            <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Antonina Adventure</span>
+          </div>
+          <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </div>
         </a>
 
-        <a href="https://rafting.valedogigante.com.br" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
-          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">🌊 RAFTING</span>
-          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium">Icatú Rafting</span>
+        <a href="https://rafting.valedogigante.com.br" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg>
+          </div>
+          <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
+            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">RAFTING</span>
+            <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Icatú Rafting</span>
+          </div>
+          <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </div>
         </a>
 
-        <a href="https://valedogigante.com.br/cicloturismo/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
-          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">🚵 CICLOTURISMO</span>
-          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium">Gaturamo</span>
+        <a href="https://valedogigante.com.br/cicloturismo/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18.5" cy="17.5" r="3.5"/><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="15" cy="5" r="1"/><path d="M12 17.5V14l-3-3 4-3 2 3h2"/></svg>
+          </div>
+          <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
+            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">CICLOTURISMO</span>
+            <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Gaturamo</span>
+          </div>
+          <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </div>
         </a>
 
-        <a href="https://wa.me/5541992426549?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20observa%C3%A7%C3%A3o%20de%20aves.%20Vim%20pelo%20guia%20Vale%20do%20Gigante." target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
-          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">🦜 OBSERVAÇÃO DE AVES</span>
-          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium">Luciano Breves (Guia Especializado)</span>
+        <a href="https://wa.me/5541992426549?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20observa%C3%A7%C3%A3o%20de%20aves.%20Vim%20pelo%20guia%20Vale%20do%20Gigante." target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 7h.01"/><path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20"/><path d="m20 7 2 .5-2 .5"/><path d="M10 18v3"/><path d="M14 17.75V21"/><path d="M7 18a6 6 0 0 0 3.84-10.61"/></svg>
+          </div>
+          <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
+            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">OBSERVAÇÃO DE AVES</span>
+            <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Luciano Breves (Guia Especializado)</span>
+          </div>
+          <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </div>
         </a>
 
-        <a href="https://valedogigante.com.br/cafeaventuras/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
-          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">🥾 TRILHAS GUIADAS</span>
-          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium">Café e Aventuras</span>
+        <a href="https://valedogigante.com.br/cafeaventuras/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4"/><path d="M4 13h4"/></svg>
+          </div>
+          <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
+            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">TRILHAS GUIADAS</span>
+            <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Café e Aventuras</span>
+          </div>
+          <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </div>
         </a>
 
-        <a href="https://boiacross.valedogigante.com.br/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
-          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">🛟 BOIA CROSS</span>
-          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium">Boia do Vale</span>
+        <a href="https://boiacross.valedogigante.com.br/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="4.93" x2="9.17" y1="4.93" y2="9.17"/><line x1="14.83" x2="19.07" y1="14.83" y2="19.07"/><line x1="14.83" x2="19.07" y1="9.17" y2="4.93"/><line x1="4.93" x2="9.17" y1="19.07" y2="14.83"/></svg>
+          </div>
+          <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
+            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">BOIA CROSS</span>
+            <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Boia do Vale</span>
+          </div>
+          <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </div>
         </a>
 
-        <a href="mailto:contato@valedogigante.com.br" class="glass-button w-full min-h-[64px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group mt-2 border-dashed">
-          <span class="text-sm font-bold text-emerald-100 group-hover:text-emerald-300 transition-colors">Dúvidas ou Parcerias? Envie um E-mail</span>
-          <span class="text-xs text-emerald-400 mt-1">contato@valedogigante.com.br</span>
+        <a href="mailto:contato@valedogigante.com.br" class="glass-button w-full min-h-[68px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group mt-2 border-dashed">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </div>
+          <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
+            <span class="text-sm font-bold text-emerald-100 group-hover:text-emerald-300 transition-colors">Dúvidas ou Parcerias? Envie um E-mail</span>
+            <span class="text-xs text-emerald-400 mt-0.5">contato@valedogigante.com.br</span>
+          </div>
+          <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 transition-all shrink-0">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
         </a>
       </div>
     </section>
@@ -463,11 +521,13 @@
       
       <header class="w-full flex items-center justify-between mb-4">
         <h2 class="text-2xl sm:text-3xl font-extrabold tracking-wide text-white flex items-center gap-2.5">
-          <svg class="w-6 h-6 text-emerald-400 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+          <span class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-400 shrink-0">
+            <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>
+          </span>
           Hospedagem
         </h2>
         <button type="button" onclick="shareProfile('Hospedagem - Vale do Gigante', 'Confira onde se hospedar no Vale do Gigante em Antonina-PR:')" aria-label="Compartilhar Hospedagem" class="p-2.5 rounded-full glass-panel hover:bg-emerald-950/70 text-emerald-300 hover:text-white transition-colors">
-          <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" /></svg>
+          <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
         </button>
       </header>
 
@@ -476,34 +536,100 @@
       </p>
 
       <div class="w-full flex flex-col gap-3.5 mb-8">
-        <a href="https://www.casadamata.eco.br/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
-          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider text-center">CASA DA MATA ECOLODGE</span>
-          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium text-center">📍 Bairro Alto</span>
+        <a href="https://www.casadamata.eco.br/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
+          </div>
+          <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
+            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">CASA DA MATA ECOLODGE</span>
+            <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium inline-flex items-center gap-1">
+              <svg class="w-3.5 h-3.5 text-emerald-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Bairro Alto
+            </span>
+          </div>
+          <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </div>
         </a>
 
-        <a href="https://valedogigante.com.br/pousadas/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
-          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider text-center">GRAJAGAN MATA ATLÂNTICA</span>
-          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium text-center">📍 Bairro Alto</span>
+        <a href="https://valedogigante.com.br/pousadas/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m17 14 3 3.3a1 1 0 0 1-.7 1.7H4.7a1 1 0 0 1-.7-1.7L7 14h-.3a1 1 0 0 1-.7-1.7L9 9h-.2A1 1 0 0 1 8 7.3L12 3l4 4.3a1 1 0 0 1-.8 1.7H15l3 3.3a1 1 0 0 1-.7 1.7H17Z"/><path d="M12 22v-3"/></svg>
+          </div>
+          <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
+            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">GRAJAGAN MATA ATLÂNTICA</span>
+            <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium inline-flex items-center gap-1">
+              <svg class="w-3.5 h-3.5 text-emerald-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Bairro Alto
+            </span>
+          </div>
+          <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </div>
         </a>
 
-        <a href="https://santuariovitoriaregia.com.br/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
-          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider text-center">SANTUÁRIO VITÓRIA RÉGIA</span>
-          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium text-center">📍 Bairro Alto</span>
+        <a href="https://santuariovitoriaregia.com.br/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7.5a4.5 4.5 0 1 1 4.5 4.5M12 7.5A4.5 4.5 0 1 0 7.5 12M12 7.5V9m-4.5 3a4.5 4.5 0 1 0 4.5 4.5M7.5 12H9m7.5 0a4.5 4.5 0 1 1-4.5 4.5m4.5-4.5H15m-3 4.5V15"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
+            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">SANTUÁRIO VITÓRIA RÉGIA</span>
+            <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium inline-flex items-center gap-1">
+              <svg class="w-3.5 h-3.5 text-emerald-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Bairro Alto
+            </span>
+          </div>
+          <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </div>
         </a>
 
-        <a href="https://valedogigante.com.br/pousadas/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
-          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider text-center">CHÁCARA COLÔNIA CACATU</span>
-          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium text-center">📍 Cacatu</span>
+        <a href="https://valedogigante.com.br/pousadas/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><path d="m5 20 7-14 7 14"/><path d="M9.5 15h5"/></svg>
+          </div>
+          <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
+            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">CHÁCARA COLÔNIA CACATU</span>
+            <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium inline-flex items-center gap-1">
+              <svg class="w-3.5 h-3.5 text-emerald-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Cacatu
+            </span>
+          </div>
+          <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </div>
         </a>
 
-        <a href="https://valedogigante.com.br/pousadas/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
-          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider text-center">CHÁCARA NATUREZA</span>
-          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium text-center">📍 Rio do Nunes</span>
+        <a href="https://valedogigante.com.br/pousadas/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+          </div>
+          <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
+            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">CHÁCARA NATUREZA</span>
+            <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium inline-flex items-center gap-1">
+              <svg class="w-3.5 h-3.5 text-emerald-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Rio do Nunes
+            </span>
+          </div>
+          <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </div>
         </a>
 
-        <a href="https://valedogigante.com.br/pousadas/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
-          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider text-center">CHÁCARA DO LIMOEIRO</span>
-          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium text-center">📍 Estrada de Guaraqueçaba</span>
+        <a href="https://valedogigante.com.br/pousadas/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>
+          </div>
+          <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
+            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">CHÁCARA DO LIMOEIRO</span>
+            <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium inline-flex items-center gap-1">
+              <svg class="w-3.5 h-3.5 text-emerald-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Estrada de Guaraqueçaba
+            </span>
+          </div>
+          <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </div>
         </a>
       </div>
     </section>
@@ -515,11 +641,13 @@
       
       <header class="w-full flex items-center justify-between mb-4">
         <h2 class="text-2xl sm:text-3xl font-extrabold tracking-wide text-white flex items-center gap-2.5">
-          <svg class="w-6 h-6 text-emerald-400 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+          <span class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-400 shrink-0">
+            <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+          </span>
           Atrativos
         </h2>
         <button type="button" onclick="shareProfile('Atrativos - Vale do Gigante', 'Confira os principais atrativos naturais do Vale do Gigante:')" aria-label="Compartilhar Atrativos" class="p-2.5 rounded-full glass-panel hover:bg-emerald-950/70 text-emerald-300 hover:text-white transition-colors">
-          <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" /></svg>
+          <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
         </button>
       </header>
 
@@ -528,34 +656,82 @@
       </p>
 
       <div class="w-full flex flex-col gap-3.5 mb-8">
-        <a href="https://valedogigante.com.br/2025/07/17/pico-parana/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
-          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider text-center">⛰️ PICO PARANÁ</span>
-          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium text-center">A montanha mais alta do Sul do Brasil (1.877m)</span>
+        <a href="https://valedogigante.com.br/2025/07/17/pico-parana/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/><path d="M4.14 15.08c2.62-1.57 5.24-1.43 7.86.42 2.74 1.94 5.49 2 8.23.19"/></svg>
+          </div>
+          <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
+            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">PICO PARANÁ</span>
+            <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">A montanha mais alta do Sul do Brasil (1.877m)</span>
+          </div>
+          <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </div>
         </a>
          
-        <a href="https://valedogigante.com.br/trilhas/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
-          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider text-center">🌿 TRILHAS DO VALE</span>
-          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium text-center">História colonial e caminhadas ecológicas</span>
+        <a href="https://valedogigante.com.br/trilhas/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m17 14 3 3.3a1 1 0 0 1-.7 1.7H4.7a1 1 0 0 1-.7-1.7L7 14h-.3a1 1 0 0 1-.7-1.7L9 9h-.2A1 1 0 0 1 8 7.3L12 3l4 4.3a1 1 0 0 1-.8 1.7H15l3 3.3a1 1 0 0 1-.7 1.7H17Z"/><path d="M12 22v-3"/></svg>
+          </div>
+          <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
+            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">TRILHAS DO VALE</span>
+            <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">História colonial e caminhadas ecológicas</span>
+          </div>
+          <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </div>
         </a>
         
-        <a href="https://valedogigante.com.br/experiencia-guaricica/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
-          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider text-center">🦋 EXPERIÊNCIA GUARICICA</span>
-          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium text-center">Imersão na Reserva Natural Guaricica (SPVS)</span>
+        <a href="https://valedogigante.com.br/experiencia-guaricica/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+          </div>
+          <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
+            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">EXPERIÊNCIA GUARICICA</span>
+            <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Imersão na Reserva Natural Guaricica (SPVS)</span>
+          </div>
+          <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </div>
         </a>
         
-        <a href="https://rafting.valedogigante.com.br" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
-          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider text-center">🏞️ RIO CACHOEIRA</span>
-          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium text-center">Corredeiras, rafting e piscinas naturais</span>
+        <a href="https://rafting.valedogigante.com.br" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg>
+          </div>
+          <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
+            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">RIO CACHOEIRA</span>
+            <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Corredeiras, rafting e piscinas naturais</span>
+          </div>
+          <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </div>
         </a>
         
-        <a href="https://boiacross.valedogigante.com.br/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
-          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider text-center">💧 RIO DO NUNES</span>
-          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium text-center">Boia cross e banhos refrescantes em família</span>
+        <a href="https://boiacross.valedogigante.com.br/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
+          </div>
+          <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
+            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">RIO DO NUNES</span>
+            <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Boia cross e banhos refrescantes em família</span>
+          </div>
+          <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </div>
         </a>
         
-        <a href="https://valedogigante.com.br/observacaoaves/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
-          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider text-center">🔭 OBSERVAÇÃO DE AVES</span>
-          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium text-center">Mais de 500 espécies catalogadas em Antonina</span>
+        <a href="https://valedogigante.com.br/observacaoaves/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 10h4"/><path d="M19 7V4a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v3"/><path d="M20 21a2 2 0 0 0 2-2v-3.851c0-1.39-2-2.962-2-4.829V8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v11a2 2 0 0 0 2 2z"/><path d="M 22 16 L 2 16"/><path d="M4 21a2 2 0 0 1-2-2v-3.851c0-1.39 2-2.962 2-4.829V8a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v11a2 2 0 0 1-2 2z"/><path d="M9 7V4a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v3"/></svg>
+          </div>
+          <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
+            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">OBSERVAÇÃO DE AVES</span>
+            <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Mais de 500 espécies catalogadas em Antonina</span>
+          </div>
+          <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </div>
         </a>
       </div>
     </section>
@@ -567,11 +743,13 @@
       
       <header class="w-full flex items-center justify-between mb-4">
         <h2 class="text-2xl sm:text-3xl font-extrabold tracking-wide text-white flex items-center gap-2.5">
-          <svg class="w-6 h-6 text-emerald-400 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" /></svg>
+          <span class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-400 shrink-0">
+            <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+          </span>
           Sabores Locais
         </h2>
         <button type="button" onclick="shareProfile('Gastronomia - Vale do Gigante', 'Confira os sabores autênticos do Vale do Gigante:')" aria-label="Compartilhar Gastronomia" class="p-2.5 rounded-full glass-panel hover:bg-emerald-950/70 text-emerald-300 hover:text-white transition-colors">
-          <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" /></svg>
+          <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
         </button>
       </header>
 
@@ -580,24 +758,56 @@
       </p>
 
       <div class="w-full flex flex-col gap-3.5 mb-8">
-        <a href="https://valedogigante.com.br/gastronomia/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
-          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider text-center">🍲 RESTAURANTES TÍPICOS</span>
-          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium text-center">O autêntico Barreado, comida caseira e Frutos do Mar</span>
+        <a href="https://valedogigante.com.br/gastronomia/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+          </div>
+          <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
+            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">RESTAURANTES TÍPICOS</span>
+            <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">O autêntico Barreado, comida caseira e Frutos do Mar</span>
+          </div>
+          <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </div>
         </a>
 
-        <a href="https://valedogigante.com.br/gastronomia/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
-          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider text-center">🍌 PRODUTORES LOCAIS</span>
-          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium text-center">Balas de Banana 100% naturais e doces artesanais</span>
+        <a href="https://valedogigante.com.br/gastronomia/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13c3.5-2 8-2 10 2a5.5 5.5 0 0 1 8 5"/><path d="M5.15 17.89c5.52-1.52 8.65-6.89 7-12C11.55 4 11.5 2 13 2c3.22 0 5 5.5 5 8 0 6.5-4.2 12-10.49 12C5.11 22 2 22 2 20c0-1.5 1.14-1.55 3.15-2.11Z"/></svg>
+          </div>
+          <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
+            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">PRODUTORES LOCAIS</span>
+            <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Balas de Banana 100% naturais e doces artesanais</span>
+          </div>
+          <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </div>
         </a>
 
-        <a href="https://valedogigante.com.br/gastronomia/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
-          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider text-center">🥃 CACHAÇARIAS ARTESANAIS</span>
-          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium text-center">Bebidas e licores premiados da região</span>
+        <a href="https://valedogigante.com.br/gastronomia/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 22h8"/><path d="M7 10h10"/><path d="M12 15v7"/><path d="M12 15a5 5 0 0 0 5-5c0-2-.5-4-2-8H9c-1.5 4-2 6-2 8a5 5 0 0 0 5 5Z"/></svg>
+          </div>
+          <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
+            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">CACHAÇARIAS ARTESANAIS</span>
+            <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Bebidas e licores premiados da região</span>
+          </div>
+          <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </div>
         </a>
 
-        <a href="https://valedogigante.com.br/cafeaventuras/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
-          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider text-center">☕ CAFÉS & LANCHONETES</span>
-          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium text-center">Paradas aconchegantes no coração do Vale</span>
+        <a href="https://valedogigante.com.br/cafeaventuras/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2v2"/><path d="M14 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/><path d="M6 2v2"/></svg>
+          </div>
+          <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
+            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">CAFÉS & LANCHONETES</span>
+            <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Paradas aconchegantes no coração do Vale</span>
+          </div>
+          <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </div>
         </a>
       </div>
     </section>
