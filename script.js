@@ -460,6 +460,75 @@ function clearAtrativosSearch() {
   }
 }
 
+function openGalleryModal() {
+  const modal = document.getElementById('gallery-modal');
+  const panel = document.getElementById('gallery-modal-panel');
+  if (!modal) return;
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+  modal.setAttribute('aria-hidden', 'false');
+  requestAnimationFrame(() => {
+    modal.classList.remove('opacity-0');
+    modal.classList.add('opacity-100');
+    if (panel) {
+      panel.classList.remove('scale-95');
+      panel.classList.add('scale-100');
+    }
+  });
+}
+
+function closeGalleryModal() {
+  const modal = document.getElementById('gallery-modal');
+  const panel = document.getElementById('gallery-modal-panel');
+  if (!modal) return;
+  modal.classList.remove('opacity-100');
+  modal.classList.add('opacity-0');
+  if (panel) {
+    panel.classList.remove('scale-100');
+    panel.classList.add('scale-95');
+  }
+  setTimeout(() => {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    modal.setAttribute('aria-hidden', 'true');
+    closeGalleryLightbox();
+  }, 250);
+}
+
+function handleGalleryBackdropClick(event) {
+  if (event.target && event.target.id === 'gallery-modal') {
+    closeGalleryModal();
+  }
+}
+
+function openGalleryLightbox(src, title, subtitle) {
+  const box = document.getElementById('gallery-lightbox');
+  const img = document.getElementById('gallery-lightbox-img');
+  const titleEl = document.getElementById('gallery-lightbox-title');
+  const subEl = document.getElementById('gallery-lightbox-sub');
+  if (!box || !img) return;
+  img.src = src;
+  img.alt = title || 'Foto ampliada do Vale do Gigante';
+  if (titleEl) titleEl.textContent = title || '';
+  if (subEl) subEl.textContent = subtitle || '';
+  box.classList.remove('hidden');
+  box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function closeGalleryLightbox() {
+  const box = document.getElementById('gallery-lightbox');
+  if (box) box.classList.add('hidden');
+}
+
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    const modal = document.getElementById('gallery-modal');
+    if (modal && !modal.classList.contains('hidden')) {
+      closeGalleryModal();
+    }
+  }
+});
+
 window.addEventListener('DOMContentLoaded', () => {
   updateWeatherFavicon(currentWindyLat, currentWindyLon, false);
   setInterval(() => {
@@ -476,5 +545,13 @@ window.changeWindyLocation = changeWindyLocation;
 window.updateWeatherFavicon = updateWeatherFavicon;
 window.filterAtrativos = filterAtrativos;
 window.clearAtrativosSearch = clearAtrativosSearch;
+window.openGalleryModal = openGalleryModal;
+window.closeGalleryModal = closeGalleryModal;
+window.handleGalleryBackdropClick = handleGalleryBackdropClick;
+window.openGalleryLightbox = openGalleryLightbox;
+window.closeGalleryLightbox = closeGalleryLightbox;
+
+
+
 
 

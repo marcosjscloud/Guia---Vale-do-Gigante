@@ -371,12 +371,22 @@
           </div>
         </a>
 
+        <button type="button" onclick="openGalleryModal()" class="glass-button w-full min-h-[58px] px-4 py-3.5 rounded-2xl flex items-center justify-between group relative overflow-hidden cursor-pointer">
+          <div class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+          </div>
+          <span class="text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors tracking-wide relative z-10">GALERIA DE FOTOS</span>
+          <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 transition-all shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+        </button>
+
         <button type="button" onclick="switchTab('clima')" class="glass-button w-full min-h-[58px] px-4 py-3.5 rounded-2xl flex items-center justify-between group relative overflow-hidden cursor-pointer">
           <div id="home-weather-icon-box" class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="M20 12h2"/><path d="m19.07 4.93-1.41 1.41"/><path d="M15.947 12.65a4 4 0 0 0-5.925-4.128"/><path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z"/></svg>
           </div>
           <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0 px-2">
-            <span class="text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors tracking-wide relative z-10">PREVISÃO DO TEMPO & SEGURANÇA</span>
+            <span class="text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors tracking-wide relative z-10">PREVISÃO DO TEMPO</span>
             <span id="home-weather-live-badge" class="text-[11px] text-emerald-400/90 font-medium mt-0.5 hidden">Consultando clima ao vivo...</span>
           </div>
           <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 transition-all shrink-0">
@@ -1095,6 +1105,207 @@
     </div>
   </nav>
 
+  <!-- Modal: Galeria de Fotos do Vale do Gigante -->
+  <div
+    id="gallery-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="gallery-modal-title"
+    aria-hidden="true"
+    onclick="handleGalleryBackdropClick(event)"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 transition-opacity duration-300"
+  >
+    <div class="glass-panel w-full max-w-2xl max-h-[88vh] rounded-3xl border border-emerald-500/30 shadow-2xl flex flex-col overflow-hidden transform scale-95 transition-transform duration-300" id="gallery-modal-panel">
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between px-5 py-4 border-b border-emerald-500/20 bg-[#081711]/90">
+        <div class="flex items-center gap-3">
+          <span class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-400 shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+          </span>
+          <div>
+            <h2 id="gallery-modal-title" class="text-base sm:text-lg font-extrabold text-white tracking-wide">Galeria de Fotos</h2>
+            <p class="text-xs text-emerald-300/80">Paisagens e experiências no Vale do Gigante • Antonina - PR</p>
+          </div>
+        </div>
+        <button
+          type="button"
+          onclick="closeGalleryModal()"
+          aria-label="Fechar galeria de fotos"
+          class="w-9 h-9 rounded-full bg-emerald-500/15 hover:bg-emerald-500/30 border border-emerald-400/30 text-emerald-200 hover:text-white flex items-center justify-center transition-colors cursor-pointer shrink-0"
+        >
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- Modal Body: Photo Grid -->
+      <div class="p-4 sm:p-5 overflow-y-auto scrollbar-hide">
+        <!-- Lightbox Preview (when a photo is clicked) -->
+        <div id="gallery-lightbox" class="hidden mb-4 rounded-2xl overflow-hidden border border-emerald-400/40 bg-[#05100b] relative">
+          <img id="gallery-lightbox-img" src="" alt="" referrerpolicy="no-referrer" class="w-full max-h-[320px] sm:max-h-[380px] object-cover" />
+          <button
+            type="button"
+            onclick="closeGalleryLightbox()"
+            aria-label="Fechar visualização ampliada"
+            class="absolute top-3 right-3 px-2.5 py-1 rounded-lg bg-black/70 hover:bg-black/90 text-emerald-200 text-xs font-semibold border border-emerald-400/30 backdrop-blur-sm flex items-center gap-1 cursor-pointer"
+          >
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            Fechar zoom
+          </button>
+          <div class="p-3 bg-gradient-to-t from-black/90 via-black/70 to-transparent">
+            <h3 id="gallery-lightbox-title" class="text-sm font-bold text-white"></h3>
+            <p id="gallery-lightbox-sub" class="text-xs text-emerald-300/90"></p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <!-- Foto 1: Pico Paraná -->
+          <button
+            type="button"
+            onclick="openGalleryLightbox('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=80', 'Pico Paraná (1.877m)', 'Serra do Mar • A montanha mais alta do Sul do Brasil')"
+            class="group relative h-44 sm:h-48 rounded-2xl overflow-hidden border border-emerald-500/25 bg-[#0a1c14] text-left focus:outline-none focus:ring-2 focus:ring-emerald-400 cursor-pointer"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80"
+              alt="Pico Paraná e cumes da Serra do Mar"
+              referrerpolicy="no-referrer"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 400%22><rect width=%22600%22 height=%22400%22 fill=%22%23064e3b%22/><path d=%22M0 320 L180 110 L320 240 L450 80 L600 290 L600 400 L0 400 Z%22 fill=%22%23047857%22/><circle cx=%22140%22 cy=%2290%22 r=%2240%22 fill=%22%23fbbf24%22 opacity=%220.4%22/></svg>';"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+            <div class="absolute bottom-0 inset-x-0 p-3.5">
+              <span class="inline-block px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-emerald-500/30 text-emerald-200 border border-emerald-400/30 mb-1">Montanhismo</span>
+              <h3 class="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">Pico Paraná (1.877m)</h3>
+              <p class="text-[11px] text-emerald-200/80">Cumes imponentes na Serra do Mar</p>
+            </div>
+          </button>
+
+          <!-- Foto 2: Rio Cachoeira & Cachoeiras -->
+          <button
+            type="button"
+            onclick="openGalleryLightbox('https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1000&q=80', 'Rio Cachoeira & Corredeiras', 'Águas cristalinas para rafting e banho de natureza')"
+            class="group relative h-44 sm:h-48 rounded-2xl overflow-hidden border border-emerald-500/25 bg-[#0a1c14] text-left focus:outline-none focus:ring-2 focus:ring-emerald-400 cursor-pointer"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=800&q=80"
+              alt="Rio Cachoeira e quedas d'água na Mata Atlântica"
+              referrerpolicy="no-referrer"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 400%22><rect width=%22600%22 height=%22400%22 fill=%22%230f766e%22/><path d=%22M0 260 Q150 220 300 260 T600 250 L600 400 L0 400 Z%22 fill=%22%2314b8a6%22 opacity=%220.5%22/></svg>';"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+            <div class="absolute bottom-0 inset-x-0 p-3.5">
+              <span class="inline-block px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-teal-500/30 text-teal-200 border border-teal-400/30 mb-1">Aventura & Rios</span>
+              <h3 class="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">Rio Cachoeira & Corredeiras</h3>
+              <p class="text-[11px] text-emerald-200/80">Cenário perfeito para rafting e ecoturismo</p>
+            </div>
+          </button>
+
+          <!-- Foto 3: Reserva Natural Guaricica -->
+          <button
+            type="button"
+            onclick="openGalleryLightbox('https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1000&q=80', 'Reserva Natural Guaricica', 'Imersão na maior área contínua de Mata Atlântica')"
+            class="group relative h-44 sm:h-48 rounded-2xl overflow-hidden border border-emerald-500/25 bg-[#0a1c14] text-left focus:outline-none focus:ring-2 focus:ring-emerald-400 cursor-pointer"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=800&q=80"
+              alt="Floresta densa da Mata Atlântica na Reserva Guaricica"
+              referrerpolicy="no-referrer"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 400%22><rect width=%22600%22 height=%22400%22 fill=%22%23052e16%22/><circle cx=%22300%22 cy=%22200%22 r=%22120%22 fill=%22%2310b981%22 opacity=%220.25%22/></svg>';"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+            <div class="absolute bottom-0 inset-x-0 p-3.5">
+              <span class="inline-block px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-emerald-500/30 text-emerald-200 border border-emerald-400/30 mb-1">Mata Atlântica</span>
+              <h3 class="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">Reserva Natural Guaricica</h3>
+              <p class="text-[11px] text-emerald-200/80">Trilhas ecológicas e conservação ambiental</p>
+            </div>
+          </button>
+
+          <!-- Foto 4: Rio do Nunes & Boia Cross -->
+          <button
+            type="button"
+            onclick="openGalleryLightbox('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1000&q=80', 'Rio do Nunes & Piscinas Naturais', 'Águas calmas e cristalinas para toda a família')"
+            class="group relative h-44 sm:h-48 rounded-2xl overflow-hidden border border-emerald-500/25 bg-[#0a1c14] text-left focus:outline-none focus:ring-2 focus:ring-emerald-400 cursor-pointer"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80"
+              alt="Águas cristalinas do Rio do Nunes cercadas por montanhas"
+              referrerpolicy="no-referrer"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 400%22><rect width=%22600%22 height=%22400%22 fill=%22%23065f46%22/></svg>';"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+            <div class="absolute bottom-0 inset-x-0 p-3.5">
+              <span class="inline-block px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-cyan-500/30 text-cyan-200 border border-cyan-400/30 mb-1">Lazer & Família</span>
+              <h3 class="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">Rio do Nunes & Piscinas Naturais</h3>
+              <p class="text-[11px] text-emerald-200/80">Boia cross e banhos refrescantes no Vale</p>
+            </div>
+          </button>
+
+          <!-- Foto 5: Observação de Aves -->
+          <button
+            type="button"
+            onclick="openGalleryLightbox('https://images.unsplash.com/photo-1444464666168-49d633b86797?auto=format&fit=crop&w=1000&q=80', 'Observação de Aves (Birdwatching)', 'Mais de 500 espécies catalogadas em Antonina-PR')"
+            class="group relative h-44 sm:h-48 rounded-2xl overflow-hidden border border-emerald-500/25 bg-[#0a1c14] text-left focus:outline-none focus:ring-2 focus:ring-emerald-400 cursor-pointer"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1444464666168-49d633b86797?auto=format&fit=crop&w=800&q=80"
+              alt="Aves silvestres da Mata Atlântica em Antonina"
+              referrerpolicy="no-referrer"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 400%22><rect width=%22600%22 height=%22400%22 fill=%22%23064e3b%22/></svg>';"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+            <div class="absolute bottom-0 inset-x-0 p-3.5">
+              <span class="inline-block px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-amber-500/30 text-amber-200 border border-amber-400/30 mb-1">Biodiversidade</span>
+              <h3 class="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">Observação de Aves</h3>
+              <p class="text-[11px] text-emerald-200/80">Santuário ornitológico na Mata Atlântica</p>
+            </div>
+          </button>
+
+          <!-- Foto 6: Ecolodges & Refúgios -->
+          <button
+            type="button"
+            onclick="openGalleryLightbox('https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=1000&q=80', 'Ecolodges & Chácaras no Vale', 'Hospedagem aconchegante integrada à floresta')"
+            class="group relative h-44 sm:h-48 rounded-2xl overflow-hidden border border-emerald-500/25 bg-[#0a1c14] text-left focus:outline-none focus:ring-2 focus:ring-emerald-400 cursor-pointer"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=800&q=80"
+              alt="Chalé e ecolodge em meio à floresta em Antonina"
+              referrerpolicy="no-referrer"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 400%22><rect width=%22600%22 height=%22400%22 fill=%22%23047857%22/></svg>';"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+            <div class="absolute bottom-0 inset-x-0 p-3.5">
+              <span class="inline-block px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-lime-500/30 text-lime-200 border border-lime-400/30 mb-1">Hospedagem</span>
+              <h3 class="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">Ecolodges & Refúgios</h3>
+              <p class="text-[11px] text-emerald-200/80">Bairro Alto, Cacatu e Rio do Nunes</p>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="px-5 py-3 border-t border-emerald-500/20 bg-[#081711]/90 flex items-center justify-between">
+        <span class="text-xs text-emerald-300/80">Toque em qualquer foto para ampliar</span>
+        <button
+          type="button"
+          onclick="closeGalleryModal()"
+          class="px-4 py-1.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/35 border border-emerald-400/35 text-xs font-bold text-emerald-100 transition-colors cursor-pointer"
+        >
+          Fechar
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Toast Notification -->
   <div id="toast" role="status" aria-live="polite" class="fixed bottom-20 left-1/2 -translate-x-1/2 px-4 py-2.5 rounded-full bg-[#0b1c14]/95 text-emerald-100 text-xs font-medium border border-emerald-600/70 shadow-2xl flex items-center gap-2 transition-all duration-300 pointer-events-none opacity-0 translate-y-3 z-50 backdrop-blur-md">
     <svg class="w-4 h-4 text-emerald-400 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
@@ -1575,6 +1786,76 @@
         input.focus();
       }
     }
+
+    // 8. Photo Gallery Modal Logic
+    function openGalleryModal() {
+      const modal = document.getElementById('gallery-modal');
+      const panel = document.getElementById('gallery-modal-panel');
+      if (!modal) return;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      modal.setAttribute('aria-hidden', 'false');
+      requestAnimationFrame(() => {
+        modal.classList.remove('opacity-0');
+        modal.classList.add('opacity-100');
+        if (panel) {
+          panel.classList.remove('scale-95');
+          panel.classList.add('scale-100');
+        }
+      });
+    }
+
+    function closeGalleryModal() {
+      const modal = document.getElementById('gallery-modal');
+      const panel = document.getElementById('gallery-modal-panel');
+      if (!modal) return;
+      modal.classList.remove('opacity-100');
+      modal.classList.add('opacity-0');
+      if (panel) {
+        panel.classList.remove('scale-100');
+        panel.classList.add('scale-95');
+      }
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        modal.setAttribute('aria-hidden', 'true');
+        closeGalleryLightbox();
+      }, 250);
+    }
+
+    function handleGalleryBackdropClick(event) {
+      if (event.target && event.target.id === 'gallery-modal') {
+        closeGalleryModal();
+      }
+    }
+
+    function openGalleryLightbox(src, title, subtitle) {
+      const box = document.getElementById('gallery-lightbox');
+      const img = document.getElementById('gallery-lightbox-img');
+      const titleEl = document.getElementById('gallery-lightbox-title');
+      const subEl = document.getElementById('gallery-lightbox-sub');
+      if (!box || !img) return;
+      img.src = src;
+      img.alt = title || 'Foto ampliada do Vale do Gigante';
+      if (titleEl) titleEl.textContent = title || '';
+      if (subEl) subEl.textContent = subtitle || '';
+      box.classList.remove('hidden');
+      box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function closeGalleryLightbox() {
+      const box = document.getElementById('gallery-lightbox');
+      if (box) box.classList.add('hidden');
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const modal = document.getElementById('gallery-modal');
+        if (modal && !modal.classList.contains('hidden')) {
+          closeGalleryModal();
+        }
+      }
+    });
 
     // Fetch live weather and update browser favicon on load and every 10 minutes
     window.addEventListener('DOMContentLoaded', () => {
