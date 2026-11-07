@@ -1,0 +1,139 @@
+/* Safe areas for modern mobile devices */
+.safe-top { padding-top: max(1.25rem, env(safe-area-inset-top)); }
+.pb-safe-bottom { padding-bottom: env(safe-area-inset-bottom, 0px); }
+
+/* Hide scrollbar for clean app look */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Base Glass Styles */
+.glass-card, .glass-panel {
+  background: rgba(12, 26, 20, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(52, 211, 153, 0.14);
+}
+
+/* Enhanced Button Styles */
+.glass-button {
+  background: linear-gradient(145deg, rgba(18, 38, 29, 0.85), rgba(8, 20, 14, 0.95));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(52, 211, 153, 0.25);
+  box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-button:hover, .glass-button:focus-visible {
+  background: linear-gradient(145deg, rgba(22, 54, 38, 0.9), rgba(12, 30, 20, 0.98));
+  border-color: rgba(52, 211, 153, 0.65);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px -5px rgba(16, 185, 129, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  outline: none;
+}
+
+.glass-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px -2px rgba(16, 185, 129, 0.2);
+}
+
+/* Active Control Button (Clima/Mapas) */
+.glass-button.control-active {
+  background: linear-gradient(145deg, rgba(16, 185, 129, 0.28), rgba(5, 150, 105, 0.18));
+  border-color: #34d399;
+  box-shadow: 0 0 18px -3px rgba(52, 211, 153, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.glass-submenu-item {
+  background: rgba(15, 32, 24, 0.88);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(52, 211, 153, 0.16);
+  transition: all 0.2s ease;
+}
+
+.glass-submenu-item:hover, .glass-submenu-item:focus-visible {
+  background: rgba(20, 60, 40, 0.92);
+  border-color: rgba(52, 211, 153, 0.55);
+  color: #ffffff;
+  transform: translateX(4px);
+  outline: none;
+}
+
+/* Bottom Navigation Styles */
+.glass-nav {
+  background: rgba(4, 13, 9, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-top: 1px solid rgba(52, 211, 153, 0.2);
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.65);
+}
+
+.nav-btn {
+  position: relative;
+  color: rgba(110, 231, 183, 0.55);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-btn:hover {
+  color: rgba(52, 211, 153, 0.95);
+}
+
+.nav-btn svg {
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.nav-btn span {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-btn.active {
+  color: #34d399;
+}
+
+.nav-btn.active svg {
+  transform: translateY(-4px) scale(1.14);
+  filter: drop-shadow(0 5px 8px rgba(16, 185, 129, 0.75));
+}
+
+.nav-btn.active span {
+  color: #ffffff;
+  font-weight: 700;
+  transform: translateY(-1px);
+}
+
+.nav-btn.active::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 3.5px;
+  background: #34d399;
+  border-radius: 0 0 6px 6px;
+  box-shadow: 0 3px 12px 1px rgba(52, 211, 153, 0.9);
+}
+
+/* Tab Transition Logic */
+.tab-content {
+  display: none;
+  opacity: 0;
+  animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.tab-content.active {
+  display: flex;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Submenu Accessibility & Smooth Collapse */
+#site-submenu[aria-hidden="true"] {
+  visibility: hidden;
+  transition: visibility 0s 0.3s, max-height 0.3s ease-in-out, opacity 0.25s ease-in-out, margin-top 0.25s ease-in-out;
+}
+#site-submenu[aria-hidden="false"] {
+  visibility: visible;
+  transition: max-height 0.35s ease-in-out, opacity 0.3s ease-in-out, margin-top 0.25s ease-in-out;
+}

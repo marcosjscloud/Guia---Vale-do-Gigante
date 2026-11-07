@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta name="theme-color" content="#07130e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Vale do Gigante">
+  
+  <!-- SEO and Open Graph Meta Tags -->
+  <title>Vale do Gigante | Ecoturismo em Antonina - PR</title>
+  
+  <!-- Favicon / Ícones do app -->
+  <link rel="icon" type="image/png" href="https://valedogigante.com.br/wp-content/uploads/2026/09/Logo_vale_500x500.png">
+  <link rel="apple-touch-icon" href="https://valedogigante.com.br/wp-content/uploads/2026/09/Logo_vale_500x500.png">
+
+  <meta name="description" content="Descubra o Vale do Gigante em Antonina-PR. Ecoturismo, hospedagem, gastronomia, aventuras (caiaque, rafting, trilhas, boia cross) e monitoramento climático ao vivo na Serra do Mar.">
+  <meta property="og:title" content="Vale do Gigante | Ecoturismo em Antonina - PR">
+  <meta property="og:description" content="Explore o coração da Mata Atlântica. Guias de acesso, clima ao vivo, pousadas, gastronomia e os melhores parceiros de aventura em Antonina.">
+  <meta property="og:image" content="https://valedogigante.com.br/wp-content/uploads/2026/09/Logo_vale_500x500.png">
+  <meta property="og:url" content="https://valedogigante.com.br">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Structured Data (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TouristDestination",
+    "name": "Vale do Gigante",
+    "description": "Ecoturismo no coração da Mata Atlântica em Antonina - PR. Aventuras, trilhas, rios, hospedagem e gastronomia local.",
+    "url": "https://valedogigante.com.br",
+    "image": "https://valedogigante.com.br/wp-content/uploads/2026/09/Logo_vale_500x500.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Antonina",
+      "addressRegion": "PR",
+      "addressCountry": "BR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -25.430564,
+      "longitude": -48.760243
+    }
+  }
+  </script>
+
+  <!-- Tailwind CSS via CDN (Zero Build Dependency para cPanel) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              300: '#6ee7b7',
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Safe areas for modern mobile devices */
+    .safe-top { padding-top: max(1.25rem, env(safe-area-inset-top)); }
+    .pb-safe-bottom { padding-bottom: env(safe-area-inset-bottom, 0px); }
+    
+    /* Hide scrollbar for clean app look */
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    
+    /* Base Glass Styles */
+    .glass-card, .glass-panel {
+      background: rgba(12, 26, 20, 0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(52, 211, 153, 0.14);
+    }
+    
+    /* Enhanced Button Styles */
+    .glass-button {
+      background: linear-gradient(145deg, rgba(18, 38, 29, 0.85), rgba(8, 20, 14, 0.95));
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(52, 211, 153, 0.25);
+      box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .glass-button:hover, .glass-button:focus-visible {
+      background: linear-gradient(145deg, rgba(22, 54, 38, 0.9), rgba(12, 30, 20, 0.98));
+      border-color: rgba(52, 211, 153, 0.65);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 25px -5px rgba(16, 185, 129, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      outline: none;
+    }
+    
+    .glass-button:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px -2px rgba(16, 185, 129, 0.2);
+    }
+
+    /* Active Control Button (Clima/Mapas) */
+    .glass-button.control-active {
+      background: linear-gradient(145deg, rgba(16, 185, 129, 0.28), rgba(5, 150, 105, 0.18));
+      border-color: #34d399;
+      box-shadow: 0 0 18px -3px rgba(52, 211, 153, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+
+    .glass-submenu-item {
+      background: rgba(15, 32, 24, 0.88);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(52, 211, 153, 0.16);
+      transition: all 0.2s ease;
+    }
+
+    .glass-submenu-item:hover, .glass-submenu-item:focus-visible {
+      background: rgba(20, 60, 40, 0.92);
+      border-color: rgba(52, 211, 153, 0.55);
+      color: #ffffff;
+      transform: translateX(4px);
+      outline: none;
+    }
+
+    /* Bottom Navigation Styles */
+    .glass-nav {
+      background: rgba(4, 13, 9, 0.95);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-top: 1px solid rgba(52, 211, 153, 0.2);
+      box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.65);
+    }
+
+    .nav-btn {
+      position: relative;
+      color: rgba(110, 231, 183, 0.55);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .nav-btn:hover {
+      color: rgba(52, 211, 153, 0.95);
+    }
+
+    .nav-btn svg {
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .nav-btn span {
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .nav-btn.active {
+      color: #34d399;
+    }
+    
+    .nav-btn.active svg {
+      transform: translateY(-4px) scale(1.14);
+      filter: drop-shadow(0 5px 8px rgba(16, 185, 129, 0.75));
+    }
+
+    .nav-btn.active span {
+      color: #ffffff;
+      font-weight: 700;
+      transform: translateY(-1px);
+    }
+    
+    .nav-btn.active::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 3.5px;
+      background: #34d399;
+      border-radius: 0 0 6px 6px;
+      box-shadow: 0 3px 12px 1px rgba(52, 211, 153, 0.9);
+    }
+
+    /* Tab Transition Logic */
+    .tab-content {
+      display: none;
+      opacity: 0;
+      animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .tab-content.active {
+      display: flex;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Submenu Accessibility & Smooth Collapse */
+    #site-submenu[aria-hidden="true"] {
+      visibility: hidden;
+      transition: visibility 0s 0.3s, max-height 0.3s ease-in-out, opacity 0.25s ease-in-out, margin-top 0.25s ease-in-out;
+    }
+    #site-submenu[aria-hidden="false"] {
+      visibility: visible;
+      transition: max-height 0.35s ease-in-out, opacity 0.3s ease-in-out, margin-top 0.25s ease-in-out;
+    }
+  </style>
+</head>
+
+<body class="h-full bg-[#07130e] text-emerald-50 selection:bg-brand-500 selection:text-white overflow-hidden antialiased">
+  
+  <!-- Ambient Background Lights (Dynamic per tab) -->
+  <div class="fixed inset-0 pointer-events-none z-0 transition-opacity duration-700" id="bg-lights-links">
+    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[34rem] h-[34rem] bg-emerald-600/15 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-36 left-1/2 -translate-x-1/2 w-[32rem] h-[32rem] bg-teal-700/15 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/3 -right-24 w-72 h-72 bg-amber-600/10 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="fixed inset-0 pointer-events-none z-0 transition-opacity duration-700 opacity-0" id="bg-lights-parceiros">
+    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[32rem] h-[32rem] bg-emerald-500/15 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-32 left-1/2 -translate-x-1/2 w-[30rem] h-[30rem] bg-green-600/15 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="fixed inset-0 pointer-events-none z-0 transition-opacity duration-700 opacity-0" id="bg-lights-hospedagem">
+    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[34rem] h-[34rem] bg-lime-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-32 left-1/2 -translate-x-1/2 w-[32rem] h-[32rem] bg-emerald-700/15 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="fixed inset-0 pointer-events-none z-0 transition-opacity duration-700 opacity-0" id="bg-lights-atrativos">
+    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[34rem] h-[34rem] bg-sky-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-32 left-1/2 -translate-x-1/2 w-[32rem] h-[32rem] bg-teal-700/15 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="fixed inset-0 pointer-events-none z-0 transition-opacity duration-700 opacity-0" id="bg-lights-gastronomia">
+    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[34rem] h-[34rem] bg-orange-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-32 left-1/2 -translate-x-1/2 w-[32rem] h-[32rem] bg-amber-700/15 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="fixed inset-0 pointer-events-none z-0 transition-opacity duration-700 opacity-0" id="bg-lights-clima">
+    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[34rem] h-[34rem] bg-brand-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-32 left-1/2 -translate-x-1/2 w-[32rem] h-[32rem] bg-cyan-700/10 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="fixed inset-0 pointer-events-none z-0 transition-opacity duration-700 opacity-0" id="bg-lights-rota">
+    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[34rem] h-[34rem] bg-indigo-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-32 left-1/2 -translate-x-1/2 w-[32rem] h-[32rem] bg-violet-700/15 rounded-full blur-3xl"></div>
+  </div>
+
+  <!-- Main Scrollable Area -->
+  <main id="main-scroll" class="h-full w-full overflow-y-auto scrollbar-hide safe-top pb-28 relative z-10 flex flex-col items-center">
+    
+    <!-- ========================================== -->
+    <!-- TAB 1: OFICIAL (LINKS)                     -->
+    <!-- ========================================== -->
+    <section id="tab-links" role="tabpanel" aria-labelledby="nav-links" class="tab-content active w-full max-w-md flex-col items-center px-4 pt-4 pb-8">
+      
+      <!-- Top Action Bar -->
+      <header class="w-full flex items-center justify-between mb-4">
+        <a href="https://wa.me/5541991460831?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Vale%20do%20Gigante." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-semibold text-emerald-300 bg-emerald-950/80 border border-emerald-700/60 shadow-sm hover:bg-emerald-900/80 hover:border-emerald-500 transition-all focus:outline-none focus:ring-2 focus:ring-brand-400">
+          <svg class="w-4 h-4 fill-current text-brand-400" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 012.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 01-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24zm4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.49-1.4-1.74-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.72 4.31 3.81.6.26 1.07.41 1.44.53.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.3z"/></svg>
+          WhatsApp Oficial
+        </a>
+        <button type="button" onclick="shareProfile('Vale do Gigante - Ecoturismo', 'Confira o guia digital e links oficiais do Vale do Gigante em Antonina-PR:')" aria-label="Compartilhar guia" class="p-2.5 rounded-full glass-panel hover:bg-emerald-950/70 text-emerald-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-brand-400">
+          <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" /></svg>
+        </button>
+      </header>
+
+      <!-- Logo & Main Info -->
+      <div class="relative group mb-4">
+        <div class="absolute -inset-1.5 bg-gradient-to-tr from-emerald-600 via-teal-400 to-amber-500 rounded-full blur-md opacity-70 group-hover:opacity-100 transition duration-500"></div>
+        <div class="relative w-32 h-32 sm:w-36 sm:h-36 rounded-full overflow-hidden shadow-2xl ring-4 ring-[#07130e] bg-[#0c1a14] flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+          <img src="https://valedogigante.com.br/wp-content/uploads/2026/09/Logo_vale_500x500.png" alt="Logo Oficial Vale do Gigante - Antonina Paraná" class="w-full h-full object-cover" loading="eager" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 200%22><rect width=%22200%22 height=%22200%22 fill=%22%230c1a14%22/><path d=%22M25 145 L75 65 L110 115 L140 75 L175 145 Z%22 fill=%22%2310b981%22 opacity=%220.85%22/><circle cx=%22145%22 cy=%2250%22 r=%2214%22 fill=%22%23f59e0b%22/><text x=%22100%22 y=%22172%22 font-family=%22sans-serif%22 font-size=%2214%22 font-weight=%22bold%22 fill=%22%23ecfdf5%22 text-anchor=%22middle%22>VALE DO GIGANTE</text></svg>';">
+        </div>
+      </div>
+      
+      <h1 class="text-2xl sm:text-3xl font-extrabold tracking-wide text-white mb-1.5 text-center">VALE DO GIGANTE</h1>
+      <p class="text-sm sm:text-base text-emerald-200/90 font-medium text-center mb-2.5 max-w-xs sm:max-w-sm leading-relaxed">Antonina - PR ✨ Ecoturismo no coração da Mata Atlântica</p>
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold text-emerald-300 bg-emerald-950/70 border border-emerald-700/50 mb-6 shadow-sm">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+        Cadastur: 16.837792.65-4
+      </div>
+
+      <!-- Main Links with Enhanced Buttons -->
+      <div class="w-full flex flex-col gap-3.5 mb-8">
+        
+        <!-- Site Oficial Expandable -->
+        <div class="w-full flex flex-col">
+          <button type="button" id="site-oficial-btn" aria-expanded="false" aria-controls="site-submenu" class="glass-button w-full min-h-[56px] px-6 py-4 rounded-2xl flex items-center justify-center relative group text-center cursor-pointer">
+            <span class="text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors tracking-wide">🌐 SITE OFICIAL</span>
+            <div class="absolute right-5 top-0 bottom-0 flex items-center pointer-events-none">
+              <svg id="site-arrow" aria-hidden="true" class="w-5 h-5 text-emerald-400 group-hover:text-emerald-300 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" /></svg>
+            </div>
+          </button>
+          
+          <div id="site-submenu" aria-hidden="true" class="max-h-0 opacity-0 overflow-hidden flex flex-col gap-2 mt-0 px-2 pointer-events-none">
+            <div class="pt-2.5 pb-1 flex flex-col gap-2">
+              <a href="https://valedogigante.com.br/" target="_blank" rel="noopener noreferrer" class="glass-submenu-item px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold text-emerald-100 flex items-center justify-between shadow-sm">
+                <span>Página Inicial</span>
+                <span class="text-emerald-400 text-xs">↗</span>
+              </a>
+              <a href="https://valedogigante.com.br/trilhas/" target="_blank" rel="noopener noreferrer" class="glass-submenu-item px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold text-emerald-100 flex items-center justify-between shadow-sm">
+                <span>Atrativos & Trilhas</span>
+                <span class="text-emerald-400 text-xs">↗</span>
+              </a>
+              <a href="https://valedogigante.com.br/cicloturismo/" target="_blank" rel="noopener noreferrer" class="glass-submenu-item px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold text-emerald-100 flex items-center justify-between shadow-sm">
+                <span>Aventuras & Cicloturismo</span>
+                <span class="text-emerald-400 text-xs">↗</span>
+              </a>
+              <a href="https://valedogigante.com.br/pousadas/" target="_blank" rel="noopener noreferrer" class="glass-submenu-item px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold text-emerald-100 flex items-center justify-between shadow-sm">
+                <span>Hospedagem</span>
+                <span class="text-emerald-400 text-xs">↗</span>
+              </a>
+              <a href="https://valedogigante.com.br/gastronomia/" target="_blank" rel="noopener noreferrer" class="glass-submenu-item px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold text-emerald-100 flex items-center justify-between shadow-sm">
+                <span>Gastronomia</span>
+                <span class="text-emerald-400 text-xs">↗</span>
+              </a>
+              <a href="https://valedogigante.com.br/blog/" target="_blank" rel="noopener noreferrer" class="glass-submenu-item px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold text-emerald-100 flex items-center justify-between shadow-sm">
+                <span>Blog & Dicas</span>
+                <span class="text-emerald-400 text-xs">↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a href="https://instagram.com/ovaledogigante" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[56px] px-6 py-4 rounded-2xl flex items-center justify-center group text-center relative overflow-hidden">
+          <span class="text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors tracking-wide relative z-10">📸 INSTAGRAM OFICIAL</span>
+        </a>
+        
+        <button type="button" onclick="switchTab('atrativos')" class="glass-button w-full min-h-[56px] px-6 py-4 rounded-2xl flex items-center justify-center group text-center relative overflow-hidden">
+          <span class="text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors tracking-wide relative z-10">⛰️ EXPLORAR ATRATIVOS</span>
+        </button>
+
+        <button type="button" onclick="switchTab('clima')" class="glass-button w-full min-h-[56px] px-6 py-4 rounded-2xl flex items-center justify-center group text-center relative overflow-hidden">
+          <span class="text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors tracking-wide relative z-10">🌦️ PREVISÃO DO TEMPO & SEGURANÇA</span>
+        </button>
+        
+        <button type="button" onclick="switchTab('rota')" class="glass-button w-full min-h-[56px] px-6 py-4 rounded-2xl flex items-center justify-center group text-center relative overflow-hidden">
+          <span class="text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors tracking-wide relative z-10">📍 COMO CHEGAR (ROTA GPS)</span>
+        </button>
+      </div>
+      
+      <!-- Footer -->
+      <footer class="w-full text-center text-xs text-emerald-500/60 flex flex-col gap-1 mt-auto pt-2">
+        <p>© 2026 • Todos os direitos reservados</p>
+        <p class="text-[11px] text-emerald-400 font-semibold tracking-wider">VALE DO GIGANTE • ANTONINA - PR</p>
+      </footer>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 2: PARCEIROS (AVENTURAS)               -->
+    <!-- ========================================== -->
+    <section id="tab-parceiros" role="tabpanel" aria-labelledby="nav-parceiros" class="tab-content w-full max-w-md flex-col items-center px-4 pt-4 pb-8">
+      
+      <header class="w-full flex items-center justify-between mb-4">
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-wide text-white flex items-center gap-2.5">
+          <svg class="w-6 h-6 text-emerald-400 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          Aventuras
+        </h2>
+        <button type="button" onclick="shareProfile('Aventuras - Vale do Gigante', 'Confira os parceiros oficiais de aventura do Vale do Gigante:')" aria-label="Compartilhar Aventuras" class="p-2.5 rounded-full glass-panel hover:bg-emerald-950/70 text-emerald-300 hover:text-white transition-colors">
+          <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" /></svg>
+        </button>
+      </header>
+
+      <p class="text-sm sm:text-base text-emerald-200/90 font-medium text-center mb-6 max-w-xs leading-relaxed mx-auto">
+        Fale diretamente com nossos operadores oficiais e agende sua próxima experiência na natureza.
+      </p>
+
+      <div class="w-full flex flex-col gap-3.5 mb-8">
+        <a href="https://antonina-adventure.mymento.site/?u=5mq" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
+          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">🛶 CAIAQUE</span>
+          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium">Antonina Adventure</span>
+        </a>
+
+        <a href="https://rafting.valedogigante.com.br" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
+          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">🌊 RAFTING</span>
+          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium">Icatú Rafting</span>
+        </a>
+
+        <a href="https://valedogigante.com.br/cicloturismo/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
+          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">🚵 CICLOTURISMO</span>
+          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium">Gaturamo</span>
+        </a>
+
+        <a href="https://wa.me/5541992426549?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20observa%C3%A7%C3%A3o%20de%20aves.%20Vim%20pelo%20guia%20Vale%20do%20Gigante." target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
+          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">🦜 OBSERVAÇÃO DE AVES</span>
+          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium">Luciano Breves (Guia Especializado)</span>
+        </a>
+
+        <a href="https://valedogigante.com.br/cafeaventuras/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
+          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">🥾 TRILHAS GUIADAS</span>
+          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium">Café e Aventuras</span>
+        </a>
+
+        <a href="https://boiacross.valedogigante.com.br/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
+          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">🛟 BOIA CROSS</span>
+          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium">Boia do Vale</span>
+        </a>
+
+        <a href="mailto:contato@valedogigante.com.br" class="glass-button w-full min-h-[64px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group mt-2 border-dashed">
+          <span class="text-sm font-bold text-emerald-100 group-hover:text-emerald-300 transition-colors">Dúvidas ou Parcerias? Envie um E-mail</span>
+          <span class="text-xs text-emerald-400 mt-1">contato@valedogigante.com.br</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 3: HOSPEDAGEM                          -->
+    <!-- ========================================== -->
+    <section id="tab-hospedagem" role="tabpanel" aria-labelledby="nav-hospedagem" class="tab-content w-full max-w-md flex-col items-center px-4 pt-4 pb-8">
+      
+      <header class="w-full flex items-center justify-between mb-4">
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-wide text-white flex items-center gap-2.5">
+          <svg class="w-6 h-6 text-emerald-400 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+          Hospedagem
+        </h2>
+        <button type="button" onclick="shareProfile('Hospedagem - Vale do Gigante', 'Confira onde se hospedar no Vale do Gigante em Antonina-PR:')" aria-label="Compartilhar Hospedagem" class="p-2.5 rounded-full glass-panel hover:bg-emerald-950/70 text-emerald-300 hover:text-white transition-colors">
+          <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" /></svg>
+        </button>
+      </header>
+
+      <p class="text-sm sm:text-base text-emerald-200/90 font-medium text-center mb-6 max-w-xs leading-relaxed mx-auto">
+        Refúgios aconchegantes, ecolodges e chácaras em meio à natureza exuberante da Mata Atlântica.
+      </p>
+
+      <div class="w-full flex flex-col gap-3.5 mb-8">
+        <a href="https://www.casadamata.eco.br/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
+          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider text-center">CASA DA MATA ECOLODGE</span>
+          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium text-center">📍 Bairro Alto</span>
+        </a>
+
+        <a href="https://valedogigante.com.br/pousadas/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
+          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider text-center">GRAJAGAN MATA ATLÂNTICA</span>
+          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium text-center">📍 Bairro Alto</span>
+        </a>
+
+        <a href="https://santuariovitoriaregia.com.br/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
+          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider text-center">SANTUÁRIO VITÓRIA RÉGIA</span>
+          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium text-center">📍 Bairro Alto</span>
+        </a>
+
+        <a href="https://valedogigante.com.br/pousadas/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
+          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider text-center">CHÁCARA COLÔNIA CACATU</span>
+          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium text-center">📍 Cacatu</span>
+        </a>
+
+        <a href="https://valedogigante.com.br/pousadas/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
+          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider text-center">CHÁCARA NATUREZA</span>
+          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium text-center">📍 Rio do Nunes</span>
+        </a>
+
+        <a href="https://valedogigante.com.br/pousadas/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
+          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider text-center">CHÁCARA DO LIMOEIRO</span>
+          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium text-center">📍 Estrada de Guaraqueçaba</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 4: ATRATIVOS                           -->
+    <!-- ========================================== -->
+    <section id="tab-atrativos" role="tabpanel" aria-labelledby="nav-atrativos" class="tab-content w-full max-w-md flex-col items-center px-4 pt-4 pb-8">
+      
+      <header class="w-full flex items-center justify-between mb-4">
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-wide text-white flex items-center gap-2.5">
+          <svg class="w-6 h-6 text-emerald-400 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+          Atrativos
+        </h2>
+        <button type="button" onclick="shareProfile('Atrativos - Vale do Gigante', 'Confira os principais atrativos naturais do Vale do Gigante:')" aria-label="Compartilhar Atrativos" class="p-2.5 rounded-full glass-panel hover:bg-emerald-950/70 text-emerald-300 hover:text-white transition-colors">
+          <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" /></svg>
+        </button>
+      </header>
+
+      <p class="text-sm sm:text-base text-emerald-200/90 font-medium text-center mb-6 max-w-xs leading-relaxed mx-auto">
+        Belezas naturais, picos imponentes, reservas ecológicas e rios cristalinos da nossa região.
+      </p>
+
+      <div class="w-full flex flex-col gap-3.5 mb-8">
+        <a href="https://valedogigante.com.br/2025/07/17/pico-parana/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
+          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider text-center">⛰️ PICO PARANÁ</span>
+          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium text-center">A montanha mais alta do Sul do Brasil (1.877m)</span>
+        </a>
+         
+        <a href="https://valedogigante.com.br/trilhas/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
+          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider text-center">🌿 TRILHAS DO VALE</span>
+          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium text-center">História colonial e caminhadas ecológicas</span>
+        </a>
+        
+        <a href="https://valedogigante.com.br/experiencia-guaricica/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
+          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider text-center">🦋 EXPERIÊNCIA GUARICICA</span>
+          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium text-center">Imersão na Reserva Natural Guaricica (SPVS)</span>
+        </a>
+        
+        <a href="https://rafting.valedogigante.com.br" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
+          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider text-center">🏞️ RIO CACHOEIRA</span>
+          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium text-center">Corredeiras, rafting e piscinas naturais</span>
+        </a>
+        
+        <a href="https://boiacross.valedogigante.com.br/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
+          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider text-center">💧 RIO DO NUNES</span>
+          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium text-center">Boia cross e banhos refrescantes em família</span>
+        </a>
+        
+        <a href="https://valedogigante.com.br/observacaoaves/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
+          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider text-center">🔭 OBSERVAÇÃO DE AVES</span>
+          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium text-center">Mais de 500 espécies catalogadas em Antonina</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 5: GASTRONOMIA                         -->
+    <!-- ========================================== -->
+    <section id="tab-gastronomia" role="tabpanel" aria-labelledby="nav-gastronomia" class="tab-content w-full max-w-md flex-col items-center px-4 pt-4 pb-8">
+      
+      <header class="w-full flex items-center justify-between mb-4">
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-wide text-white flex items-center gap-2.5">
+          <svg class="w-6 h-6 text-emerald-400 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" /></svg>
+          Sabores Locais
+        </h2>
+        <button type="button" onclick="shareProfile('Gastronomia - Vale do Gigante', 'Confira os sabores autênticos do Vale do Gigante:')" aria-label="Compartilhar Gastronomia" class="p-2.5 rounded-full glass-panel hover:bg-emerald-950/70 text-emerald-300 hover:text-white transition-colors">
+          <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" /></svg>
+        </button>
+      </header>
+
+      <p class="text-sm sm:text-base text-emerald-200/90 font-medium text-center mb-6 max-w-xs leading-relaxed mx-auto">
+        Descubra a tradição do Barreado, cafés rurais, as famosas balas de banana e produtos coloniais.
+      </p>
+
+      <div class="w-full flex flex-col gap-3.5 mb-8">
+        <a href="https://valedogigante.com.br/gastronomia/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
+          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider text-center">🍲 RESTAURANTES TÍPICOS</span>
+          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium text-center">O autêntico Barreado, comida caseira e Frutos do Mar</span>
+        </a>
+
+        <a href="https://valedogigante.com.br/gastronomia/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
+          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider text-center">🍌 PRODUTORES LOCAIS</span>
+          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium text-center">Balas de Banana 100% naturais e doces artesanais</span>
+        </a>
+
+        <a href="https://valedogigante.com.br/gastronomia/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
+          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider text-center">🥃 CACHAÇARIAS ARTESANAIS</span>
+          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium text-center">Bebidas e licores premiados da região</span>
+        </a>
+
+        <a href="https://valedogigante.com.br/cafeaventuras/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-6 py-4 rounded-2xl flex flex-col items-center justify-center group relative overflow-hidden">
+          <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider text-center">☕ CAFÉS & LANCHONETES</span>
+          <span class="relative z-10 text-xs text-emerald-400/90 mt-1 font-medium text-center">Paradas aconchegantes no coração do Vale</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 6: CLIMA & SEGURANÇA                   -->
+    <!-- ========================================== -->
+    <section id="tab-clima" role="tabpanel" aria-labelledby="nav-clima" class="tab-content w-full max-w-7xl flex-col px-4 pt-4 pb-8">
+      
+      <header class="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-3 border-b border-emerald-900/50 pb-4">
+        <div>
+          <h2 class="text-2xl font-bold text-white flex items-center gap-2">Clima & Segurança</h2>
+          <p class="text-xs text-emerald-300 mt-1">Monitoramento meteorológico em tempo real para Ecoturismo</p>
+        </div>
+        <div class="px-3 py-1.5 rounded-full glass-panel text-xs font-semibold text-emerald-400 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Radar Ao Vivo
+        </div>
+      </header>
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 w-full">
+        <!-- Controls -->
+        <aside class="col-span-1 flex flex-col gap-2.5">
+          <h3 class="text-xs font-bold text-emerald-400/90 uppercase tracking-wider mb-0.5">📍 Ponto de Referência</h3>
+          <div class="grid grid-cols-2 gap-2 mb-2">
+            <button type="button" id="loc-baia" onclick="changeWindyLocation(-25.4283, -48.7119, 'loc-baia')" class="glass-button control-active text-center px-2 py-3 rounded-xl transition-all">
+              <div class="font-bold text-emerald-100 text-xs">Baía (Antonina)</div>
+            </button>
+            <button type="button" id="loc-vale" onclick="changeWindyLocation(-25.2591, -48.7405, 'loc-vale')" class="glass-button text-center px-2 py-3 rounded-xl transition-all">
+              <div class="font-bold text-emerald-100 text-xs">Vale do Gigante</div>
+            </button>
+          </div>
+
+          <h3 class="text-xs font-bold text-emerald-400/90 uppercase tracking-wider mb-0.5 mt-1">Camadas Meteorológicas</h3>
+          <button type="button" id="layer-wind" onclick="changeWindyLayer('wind', 'layer-wind')" class="glass-button control-active text-left px-4 py-3 rounded-xl transition-all flex items-center justify-between">
+            <span class="font-bold text-emerald-50 text-sm">💨 Vento e Rajadas</span>
+            <span class="text-[10px] text-emerald-300 font-semibold">km/h</span>
+          </button>
+          <button type="button" id="layer-rain" onclick="changeWindyLayer('rain', 'layer-rain')" class="glass-button text-left px-4 py-3 rounded-xl transition-all flex items-center justify-between">
+            <span class="font-bold text-emerald-50 text-sm">🌧️ Chuva Acumulada</span>
+            <span class="text-[10px] text-emerald-300 font-semibold">mm</span>
+          </button>
+          <button type="button" id="layer-radar" onclick="changeWindyLayer('radar', 'layer-radar')" class="glass-button text-left px-4 py-3 rounded-xl transition-all flex items-center justify-between">
+            <span class="font-bold text-emerald-50 text-sm">📡 Radar de Tempestades</span>
+            <span class="text-[10px] text-emerald-300 font-semibold">dBZ</span>
+          </button>
+          <button type="button" id="layer-temp" onclick="changeWindyLayer('temp', 'layer-temp')" class="glass-button text-left px-4 py-3 rounded-xl transition-all flex items-center justify-between">
+            <span class="font-bold text-emerald-50 text-sm">🌡️ Temperatura</span>
+            <span class="text-[10px] text-emerald-300 font-semibold">°C</span>
+          </button>
+        </aside>
+
+        <!-- Windy Map (Lazy Loaded) -->
+        <section class="col-span-1 lg:col-span-2 flex flex-col">
+          <div id="map-container" class="w-full h-[400px] lg:h-[580px] rounded-2xl overflow-hidden glass-panel relative border border-emerald-500/30 flex items-center justify-center">
+            <div class="text-xs text-emerald-400/80 animate-pulse">Carregando mapa meteorológico...</div>
+          </div>
+        </section>
+
+        <!-- Safety Guides -->
+        <aside class="col-span-1 flex flex-col gap-3 lg:h-[580px] overflow-y-auto scrollbar-hide pb-4">
+          <h3 class="text-xs font-bold text-emerald-400/90 uppercase tracking-wider mb-0.5">Protocolos de Segurança</h3>
+
+          <div class="glass-panel p-4 rounded-xl border-l-4 border-l-teal-400">
+            <h4 class="font-bold text-teal-100 text-sm mb-2 flex items-center gap-2">🛶 Caiaque (Baía)</h4>
+            <ul class="text-xs text-emerald-200/85 space-y-1.5 pl-4 list-disc">
+              <li>Vento Limite: <span class="text-teal-300 font-bold">15–20 km/h</span>.</li>
+              <li>Atenção redobrada à maré vazante contra o vento.</li>
+              <li>Aborte imediatamente se o radar indicar células vermelhas.</li>
+            </ul>
+          </div>
+
+          <div class="glass-panel p-4 rounded-xl border-l-4 border-l-emerald-400">
+            <h4 class="font-bold text-emerald-100 text-sm mb-2 flex items-center gap-2">🏞️ Rios & Cachoeiras</h4>
+            <ul class="text-xs text-emerald-200/85 space-y-1.5 pl-4 list-disc">
+              <li>Atenção ao risco de <span class="text-emerald-300 font-bold">Cabeças d'Água</span> mesmo com sol no vale (verifique chuva no alto da Serra).</li>
+              <li>Água turva ou folhas descendo indicam aumento repentino de nível.</li>
+            </ul>
+          </div>
+
+          <div class="glass-panel p-4 rounded-xl border-l-4 border-l-lime-400">
+            <h4 class="font-bold text-lime-100 text-sm mb-2 flex items-center gap-2">🌊 Rafting & Boia Cross</h4>
+            <ul class="text-xs text-emerald-200/85 space-y-1.5 pl-4 list-disc">
+              <li>Monitore a régua e o nível na região de Cachoeira de Cima e Rio do Nunes.</li>
+              <li>Sempre utilize colete homologado e capacete com condutores credenciados.</li>
+            </ul>
+          </div>
+          
+          <div class="glass-panel p-4 rounded-xl border-l-4 border-l-amber-500">
+            <h4 class="font-bold text-amber-100 text-sm mb-2 flex items-center gap-2">🥾 Montanhismo & Trilhas</h4>
+            <ul class="text-xs text-emerald-200/85 space-y-1.5 pl-4 list-disc">
+              <li>Ventos <span class="text-amber-300 font-bold">&gt; 40 km/h</span> nos cumes elevam severamente o risco de hipotermia.</li>
+              <li>Leve lanterna, corta-vento impermeável e avise sobre seu roteiro.</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 7: COMO CHEGAR (ROTA)                  -->
+    <!-- ========================================== -->
+    <section id="tab-rota" role="tabpanel" aria-labelledby="nav-rota" class="tab-content w-full max-w-7xl flex-col px-4 pt-4 pb-8">
+      
+      <header class="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-3 border-b border-emerald-900/50 pb-4">
+        <div>
+          <h2 class="text-2xl font-bold text-white flex items-center gap-2">Como Chegar</h2>
+          <p class="text-xs text-emerald-300 mt-1">Rota GPS e recomendações de acesso ao Vale do Gigante</p>
+        </div>
+        <div class="px-3 py-1.5 rounded-full glass-panel text-xs font-semibold text-emerald-400 flex items-center gap-2">
+          <svg class="w-4 h-4 text-emerald-400" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+          Antonina - PR
+        </div>
+      </header>
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 w-full">
+        <!-- Controls & Apps -->
+        <aside class="col-span-1 flex flex-col gap-3">
+          <h3 class="text-xs font-bold text-emerald-400/90 uppercase tracking-wider mb-0.5">Traçar Rota por GPS</h3>
+          <p class="text-xs text-emerald-200/80 mb-1">Selecione seu aplicativo favorito para iniciar a navegação a partir da sua localização atual:</p>
+          
+          <a href="https://www.google.com/maps/dir/?api=1&destination=-25.430564,-48.760243" target="_blank" rel="noopener noreferrer" class="glass-button text-left px-4 py-3.5 rounded-xl transition-all flex items-center gap-3">
+            <svg class="w-6 h-6 text-emerald-300 shrink-0" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <div>
+              <div class="font-bold text-emerald-50 text-sm">Abrir no Google Maps</div>
+              <div class="text-[11px] text-emerald-400 mt-0.5">Permite baixar mapa offline</div>
+            </div>
+          </a>
+
+          <a href="https://waze.com/ul?ll=-25.430564,-48.760243&navigate=yes" target="_blank" rel="noopener noreferrer" class="glass-button text-left px-4 py-3.5 rounded-xl transition-all flex items-center gap-3">
+            <svg class="w-6 h-6 text-emerald-300 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
+            <div>
+              <div class="font-bold text-emerald-50 text-sm">Abrir no Waze</div>
+              <div class="text-[11px] text-emerald-400 mt-0.5">Alertas de estrada em tempo real</div>
+            </div>
+          </a>
+
+          <h3 class="text-xs font-bold text-emerald-400/90 uppercase tracking-wider mb-0.5 mt-3">Coordenadas Exatas</h3>
+          <div class="glass-panel p-3.5 rounded-xl flex items-center justify-between gap-2">
+            <code class="text-xs text-emerald-200 font-mono leading-relaxed">25°25'50.2"S<br>48°45'37.1"W</code>
+            <button type="button" onclick="copyCoord()" aria-label="Copiar coordenadas" class="px-3 py-2 rounded-lg bg-emerald-900/60 hover:bg-emerald-800/80 text-emerald-200 text-xs font-semibold flex items-center gap-1.5 transition-colors">
+              <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+              Copiar
+            </button>
+          </div>
+        </aside>
+
+        <!-- Map Container (Lazy Loaded) -->
+        <section class="col-span-1 lg:col-span-2 flex flex-col">
+          <div id="google-map-container" class="w-full h-[400px] lg:h-[580px] rounded-2xl overflow-hidden glass-panel relative border border-emerald-500/30 flex items-center justify-center">
+            <div class="text-xs text-emerald-400/80 animate-pulse">Carregando mapa da rota...</div>
+          </div>
+        </section>
+
+        <!-- Travel Guides -->
+        <aside class="col-span-1 flex flex-col gap-3 lg:h-[580px] overflow-y-auto scrollbar-hide pb-4">
+          <h3 class="text-xs font-bold text-emerald-400/90 uppercase tracking-wider mb-0.5">Avisos Importantes</h3>
+
+          <div class="glass-panel p-4 rounded-xl border-l-4 border-l-amber-400">
+            <h4 class="font-bold text-amber-100 text-sm mb-2 flex items-center gap-2">📱 Sinal de Celular</h4>
+            <ul class="text-xs text-emerald-200/85 space-y-1.5 pl-4 list-disc">
+              <li>O sinal de internet móvel em áreas rurais do vale é <span class="text-amber-300 font-bold">restrito ou inexistente</span>.</li>
+              <li>Inicie a rota no GPS <strong>antes</strong> de sair da BR-277 ou do centro urbano de Antonina.</li>
+            </ul>
+          </div>
+
+          <div class="glass-panel p-4 rounded-xl border-l-4 border-l-emerald-400">
+            <h4 class="font-bold text-emerald-100 text-sm mb-2 flex items-center gap-2">🚗 Condições da Via</h4>
+            <ul class="text-xs text-emerald-200/85 space-y-1.5 pl-4 list-disc">
+              <li>Trechos em estrada rural de saibro (PR-340 / Estrada do Cacatu e Bairro Alto).</li>
+              <li>Reduza a velocidade, respeite a fauna silvestre e os moradores locais.</li>
+            </ul>
+          </div>
+
+          <div class="glass-panel p-4 rounded-xl border-l-4 border-l-blue-400">
+            <h4 class="font-bold text-blue-100 text-sm mb-2 flex items-center gap-2">🚌 Ônibus / Transporte</h4>
+            <ul class="text-xs text-emerald-200/85 space-y-1.5 pl-4 list-disc">
+              <li>Linhas municipais de Antonina atendem a região rural, com horários reduzidos aos fins de semana e feriados.</li>
+              <li>Consulte a rodoviária de Antonina com antecedência.</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- Bottom Navigation -->
+  <nav class="fixed bottom-0 w-full glass-nav z-50 pb-safe-bottom" aria-label="Navegação Principal">
+    <div class="flex items-center justify-between px-1 h-[68px] overflow-x-auto scrollbar-hide w-full max-w-2xl mx-auto" role="tablist">
+    
+      <button type="button" onclick="switchTab('links')" id="nav-links" role="tab" aria-selected="true" aria-controls="tab-links" class="nav-btn active flex-1 flex-shrink-0 min-w-[54px] flex flex-col items-center justify-center h-full focus:outline-none">
+        <svg class="w-5 h-5 mb-1" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+        <span class="text-[10px] font-medium tracking-wide">Início</span>
+      </button>
+      
+      <button type="button" onclick="switchTab('atrativos')" id="nav-atrativos" role="tab" aria-selected="false" aria-controls="tab-atrativos" class="nav-btn flex-1 flex-shrink-0 min-w-[54px] flex flex-col items-center justify-center h-full focus:outline-none">
+        <svg class="w-5 h-5 mb-1" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+        <span class="text-[10px] font-medium tracking-wide">Atrativos</span>
+      </button>
+
+      <button type="button" onclick="switchTab('parceiros')" id="nav-parceiros" role="tab" aria-selected="false" aria-controls="tab-parceiros" class="nav-btn flex-1 flex-shrink-0 min-w-[54px] flex flex-col items-center justify-center h-full focus:outline-none">
+        <svg class="w-5 h-5 mb-1" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+        <span class="text-[10px] font-medium tracking-wide">Aventuras</span>
+      </button>
+
+      <button type="button" onclick="switchTab('hospedagem')" id="nav-hospedagem" role="tab" aria-selected="false" aria-controls="tab-hospedagem" class="nav-btn flex-1 flex-shrink-0 min-w-[54px] flex flex-col items-center justify-center h-full focus:outline-none">
+        <svg class="w-5 h-5 mb-1" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+        <span class="text-[10px] font-medium tracking-wide">Pousadas</span>
+      </button>
+
+      <button type="button" onclick="switchTab('gastronomia')" id="nav-gastronomia" role="tab" aria-selected="false" aria-controls="tab-gastronomia" class="nav-btn flex-1 flex-shrink-0 min-w-[54px] flex flex-col items-center justify-center h-full focus:outline-none">
+        <svg class="w-5 h-5 mb-1" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" /></svg>
+        <span class="text-[10px] font-medium tracking-wide">Sabores</span>
+      </button>
+
+      <button type="button" onclick="switchTab('clima')" id="nav-clima" role="tab" aria-selected="false" aria-controls="tab-clima" class="nav-btn flex-1 flex-shrink-0 min-w-[54px] flex flex-col items-center justify-center h-full focus:outline-none">
+        <svg class="w-5 h-5 mb-1" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" /></svg>
+        <span class="text-[10px] font-medium tracking-wide">Clima</span>
+      </button>
+
+      <button type="button" onclick="switchTab('rota')" id="nav-rota" role="tab" aria-selected="false" aria-controls="tab-rota" class="nav-btn flex-1 flex-shrink-0 min-w-[54px] flex flex-col items-center justify-center h-full focus:outline-none">
+        <svg class="w-5 h-5 mb-1" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" /></svg>
+        <span class="text-[10px] font-medium tracking-wide">Rota</span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- Toast Notification -->
+  <div id="toast" role="status" aria-live="polite" class="fixed bottom-20 left-1/2 -translate-x-1/2 px-4 py-2.5 rounded-full bg-[#0b1c14]/95 text-emerald-100 text-xs font-medium border border-emerald-600/70 shadow-2xl flex items-center gap-2 transition-all duration-300 pointer-events-none opacity-0 translate-y-3 z-50 backdrop-blur-md">
+    <svg class="w-4 h-4 text-emerald-400 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+    <span id="toast-message">Copiado!</span>
+  </div>
+
+  <script>
+    // --- STATE ---
+    const VALID_TABS = ['links', 'atrativos', 'parceiros', 'hospedagem', 'gastronomia', 'clima', 'rota'];
+    let windyLoaded = false;
+    let googleMapLoaded = false;
+
+    // 1. Tab Switching Logic with URL Hash Support
+    function switchTab(tabId, updateHistory = true) {
+      if (!VALID_TABS.includes(tabId)) tabId = 'links';
+      const activeContent = document.getElementById(`tab-${tabId}`);
+      if (!activeContent) return;
+
+      // Update URL hash without jumping
+      if (updateHistory) {
+        const newHash = tabId === 'links' ? window.location.pathname + window.location.search : `#${tabId}`;
+        window.history.replaceState(null, '', newHash);
+      }
+
+      // Update nav buttons
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-selected', 'false');
+      });
+      const activeBtn = document.getElementById(`nav-${tabId}`);
+      if (activeBtn) {
+        activeBtn.classList.add('active');
+        activeBtn.setAttribute('aria-selected', 'true');
+      }
+
+      // Update content visibility
+      document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.remove('active');
+      });
+      activeContent.classList.add('active');
+
+      // Update background lights
+      VALID_TABS.forEach(bg => {
+        const bgEl = document.getElementById(`bg-lights-${bg}`);
+        if (bgEl) bgEl.classList.add('opacity-0');
+      });
+      const activeBg = document.getElementById(`bg-lights-${tabId}`);
+      if (activeBg) activeBg.classList.remove('opacity-0');
+      
+      // Scroll to top
+      const scrollArea = document.getElementById('main-scroll');
+      if (scrollArea) scrollArea.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // Lazy load maps when their tabs are opened
+      if (tabId === 'clima' && !windyLoaded) {
+        updateWindyMap();
+        windyLoaded = true;
+      }
+      if (tabId === 'rota' && !googleMapLoaded) {
+        loadGoogleMap();
+        googleMapLoaded = true;
+      }
+    }
+
+    // Initialize tab from URL hash on page load / back-forward navigation
+    function handleHashRoute() {
+      const hash = window.location.hash.replace('#', '').toLowerCase();
+      if (hash && VALID_TABS.includes(hash)) {
+        switchTab(hash, false);
+      } else {
+        switchTab('links', false);
+      }
+    }
+    window.addEventListener('hashchange', handleHashRoute);
+    window.addEventListener('DOMContentLoaded', handleHashRoute);
+
+    // 2. Submenu Toggle (Site Oficial)
+    const siteBtn = document.getElementById('site-oficial-btn');
+    const siteSubmenu = document.getElementById('site-submenu');
+    const siteArrow = document.getElementById('site-arrow');
+
+    if (siteBtn && siteSubmenu && siteArrow) {
+      siteBtn.addEventListener('click', () => {
+        const isExpanded = siteBtn.getAttribute('aria-expanded') === 'true';
+        siteBtn.setAttribute('aria-expanded', String(!isExpanded));
+        siteSubmenu.setAttribute('aria-hidden', String(isExpanded));
+
+        if (!isExpanded) {
+          siteSubmenu.classList.remove('max-h-0', 'opacity-0', 'pointer-events-none', 'mt-0');
+          siteSubmenu.classList.add('max-h-[500px]', 'opacity-100', 'pointer-events-auto', 'mt-2');
+          siteArrow.classList.add('rotate-180');
+        } else {
+          siteSubmenu.classList.remove('max-h-[500px]', 'opacity-100', 'pointer-events-auto', 'mt-2');
+          siteSubmenu.classList.add('max-h-0', 'opacity-0', 'pointer-events-none', 'mt-0');
+          siteArrow.classList.remove('rotate-180');
+        }
+      });
+    }
+
+    // 3. Modern Toast & Clipboard Logic
+    const toast = document.getElementById('toast');
+    const toastMsg = document.getElementById('toast-message');
+    let toastTimeout = null;
+
+    function showToast(message) {
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastMsg.textContent = message;
+      toast.classList.remove('opacity-0', 'translate-y-3');
+      toast.classList.add('opacity-100', 'translate-y-0');
+
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('opacity-100', 'translate-y-0');
+        toast.classList.add('opacity-0', 'translate-y-3');
+      }, 2600);
+    }
+
+    async function copyText(text, successMessage) {
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          showToast(successMessage);
+          return;
+        } catch (_) {
+          // Fall through to legacy copy
+        }
+      }
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.setAttribute('readonly', '');
+      textarea.style.position = 'absolute';
+      textarea.style.left = '-9999px';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        showToast(successMessage);
+      } catch (err) {
+        showToast('Não foi possível copiar.');
+      }
+      document.body.removeChild(textarea);
+    }
+
+    function copyCoord() {
+      copyText('-25.430564, -48.760243', 'Coordenadas copiadas!');
+    }
+
+    // 4. Share Logic
+    function shareProfile(title, text) {
+      const shareUrl = window.location.href;
+      if (navigator.share) {
+        navigator.share({ title, text, url: shareUrl }).catch(() => {});
+      } else {
+        copyText(shareUrl, 'Link da página copiado!');
+      }
+    }
+
+    // 5. Windy Map Logic (Lazy Loaded & Active State Highlighting)
+    let currentWindyOverlay = 'wind';
+    let currentWindyLat = -25.4283;
+    let currentWindyLon = -48.7119;
+
+    function updateWindyMap() {
+      const mapContainer = document.getElementById('map-container');
+      const baseUrl = `https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=mm&metricTemp=%C2%B0C&metricWind=km%2Fh&zoom=12&product=ecmwf&level=surface&marker=true&detailLat=${currentWindyLat}&detailLon=${currentWindyLon}&lat=${currentWindyLat}&lon=${currentWindyLon}&overlay=${currentWindyOverlay}`;
+      
+      mapContainer.innerHTML = `<iframe title="Mapa Meteorológico Windy" width="100%" height="100%" src="${baseUrl}" frameborder="0" loading="lazy" class="absolute inset-0 w-full h-full"></iframe>`;
+    }
+
+    function changeWindyLayer(overlay, btnId) {
+      currentWindyOverlay = overlay;
+      ['layer-wind', 'layer-rain', 'layer-radar', 'layer-temp'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.toggle('control-active', id === btnId);
+      });
+      updateWindyMap();
+    }
+
+    function changeWindyLocation(lat, lon, btnId) {
+      currentWindyLat = lat;
+      currentWindyLon = lon;
+      ['loc-baia', 'loc-vale'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.toggle('control-active', id === btnId);
+      });
+      updateWindyMap();
+    }
+
+    // 6. Google Map Lazy Load
+    function loadGoogleMap() {
+      const mapContainer = document.getElementById('google-map-container');
+      mapContainer.innerHTML = `
+        <iframe 
+          title="Mapa de Como Chegar ao Vale do Gigante"
+          width="100%" 
+          height="100%" 
+          src="https://maps.google.com/maps?q=-25.430564,-48.760243&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+          frameborder="0" 
+          scrolling="no" 
+          loading="lazy"
+          marginheight="0" 
+          marginwidth="0"
+          class="absolute inset-0 w-full h-full saturate-[1.2] contrast-[1.08] filter">
+        </iframe>
+      `;
+    }
+  </script>
+</body>
+</html>
