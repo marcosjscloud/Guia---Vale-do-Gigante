@@ -520,11 +520,55 @@ function closeGalleryLightbox() {
   if (box) box.classList.add('hidden');
 }
 
+function openEmergencyModal() {
+  const modal = document.getElementById('emergency-modal');
+  const panel = document.getElementById('emergency-modal-panel');
+  if (!modal) return;
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+  modal.setAttribute('aria-hidden', 'false');
+  requestAnimationFrame(() => {
+    modal.classList.remove('opacity-0');
+    modal.classList.add('opacity-100');
+    if (panel) {
+      panel.classList.remove('scale-95');
+      panel.classList.add('scale-100');
+    }
+  });
+}
+
+function closeEmergencyModal() {
+  const modal = document.getElementById('emergency-modal');
+  const panel = document.getElementById('emergency-modal-panel');
+  if (!modal) return;
+  modal.classList.remove('opacity-100');
+  modal.classList.add('opacity-0');
+  if (panel) {
+    panel.classList.remove('scale-100');
+    panel.classList.add('scale-95');
+  }
+  setTimeout(() => {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    modal.setAttribute('aria-hidden', 'true');
+  }, 250);
+}
+
+function handleEmergencyBackdropClick(event) {
+  if (event.target && event.target.id === 'emergency-modal') {
+    closeEmergencyModal();
+  }
+}
+
 window.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
-    const modal = document.getElementById('gallery-modal');
-    if (modal && !modal.classList.contains('hidden')) {
+    const galleryModal = document.getElementById('gallery-modal');
+    if (galleryModal && !galleryModal.classList.contains('hidden')) {
       closeGalleryModal();
+    }
+    const emergencyModal = document.getElementById('emergency-modal');
+    if (emergencyModal && !emergencyModal.classList.contains('hidden')) {
+      closeEmergencyModal();
     }
   }
 });
@@ -550,6 +594,10 @@ window.closeGalleryModal = closeGalleryModal;
 window.handleGalleryBackdropClick = handleGalleryBackdropClick;
 window.openGalleryLightbox = openGalleryLightbox;
 window.closeGalleryLightbox = closeGalleryLightbox;
+window.openEmergencyModal = openEmergencyModal;
+window.closeEmergencyModal = closeEmergencyModal;
+window.handleEmergencyBackdropClick = handleEmergencyBackdropClick;
+
 
 
 

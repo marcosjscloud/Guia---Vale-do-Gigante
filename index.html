@@ -417,16 +417,28 @@
     <!-- ========================================== -->
     <section id="tab-parceiros" role="tabpanel" aria-labelledby="nav-parceiros" class="tab-content w-full max-w-md flex-col items-center px-4 pt-4 pb-8">
       
-      <header class="w-full flex items-center justify-between mb-4">
-        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-wide text-white flex items-center gap-2.5">
+      <header class="sticky top-0 z-30 -mx-4 px-4 py-2.5 mb-4 bg-[#07130e]/90 backdrop-blur-xl border-b border-emerald-500/15 w-[calc(100%+2rem)] flex items-center justify-between gap-2">
+        <h2 class="text-xl sm:text-2xl font-extrabold tracking-wide text-white flex items-center gap-2">
           <span class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-400 shrink-0">
             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
           </span>
           Aventuras
         </h2>
-        <button type="button" onclick="shareProfile('Aventuras - Vale do Gigante', 'Confira os parceiros oficiais de aventura do Vale do Gigante:')" aria-label="Compartilhar Aventuras" class="p-2.5 rounded-full glass-panel hover:bg-emerald-950/70 text-emerald-300 hover:text-white transition-colors">
-          <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-        </button>
+        <div class="flex items-center gap-2">
+          <button
+            type="button"
+            onclick="openEmergencyModal()"
+            aria-label="Abrir contatos de emergência em Antonina"
+            class="px-3 py-2 rounded-full bg-rose-500/20 hover:bg-rose-500/35 border border-rose-400/45 text-rose-100 hover:text-white text-xs font-bold flex items-center gap-1.5 shadow-lg shadow-rose-950/40 transition-all cursor-pointer"
+          >
+            <span class="w-2 h-2 rounded-full bg-rose-400 animate-pulse shrink-0"></span>
+            <svg class="w-3.5 h-3.5 text-rose-300 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>Emergência</span>
+          </button>
+          <button type="button" onclick="shareProfile('Aventuras - Vale do Gigante', 'Confira os parceiros oficiais de aventura do Vale do Gigante:')" aria-label="Compartilhar Aventuras" class="p-2.5 rounded-full glass-panel hover:bg-emerald-950/70 text-emerald-300 hover:text-white transition-colors">
+            <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          </button>
+        </div>
       </header>
 
       <p class="text-sm sm:text-base text-emerald-200/90 font-medium text-center mb-6 max-w-xs leading-relaxed mx-auto">
@@ -876,7 +888,7 @@
     <!-- ========================================== -->
     <section id="tab-clima" role="tabpanel" aria-labelledby="nav-clima" class="tab-content w-full max-w-7xl flex-col px-4 pt-4 pb-8">
       
-      <header class="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-3 border-b border-emerald-900/50 pb-4">
+      <header class="sticky top-0 z-30 -mx-4 px-4 py-3 mb-6 bg-[#07130e]/90 backdrop-blur-xl border-b border-emerald-900/50 w-[calc(100%+2rem)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div>
           <h2 class="text-2xl font-bold text-white flex items-center gap-2.5">
             <span class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-400 shrink-0">
@@ -887,6 +899,16 @@
           <p class="text-xs text-emerald-300 mt-1">Monitoramento meteorológico em tempo real para Ecoturismo</p>
         </div>
         <div class="flex flex-wrap items-center gap-2">
+          <button
+            type="button"
+            onclick="openEmergencyModal()"
+            aria-label="Abrir contatos de emergência em Antonina"
+            class="px-3.5 py-1.5 rounded-full bg-rose-500/20 hover:bg-rose-500/35 border border-rose-400/45 text-rose-100 hover:text-white text-xs font-bold flex items-center gap-1.5 shadow-lg shadow-rose-950/40 transition-all cursor-pointer"
+          >
+            <span class="w-2 h-2 rounded-full bg-rose-400 animate-pulse shrink-0"></span>
+            <svg class="w-3.5 h-3.5 text-rose-300 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>Emergência</span>
+          </button>
           <button type="button" onclick="updateWeatherFavicon(currentWindyLat, currentWindyLon, true)" title="Clique para atualizar clima e favicon do navegador" class="px-3 py-1.5 rounded-full glass-panel hover:border-emerald-400/50 text-xs font-semibold text-emerald-100 flex items-center gap-2 transition-all cursor-pointer">
             <img id="live-favicon-preview" src="https://valedogigante.com.br/wp-content/uploads/2026/09/Logo_vale_500x500.png" alt="Favicon Clima" class="w-4 h-4 rounded-sm object-contain" />
             <span id="live-weather-summary">Sincronizando clima...</span>
@@ -1299,6 +1321,176 @@
           type="button"
           onclick="closeGalleryModal()"
           class="px-4 py-1.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/35 border border-emerald-400/35 text-xs font-bold text-emerald-100 transition-colors cursor-pointer"
+        >
+          Fechar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Contatos de Emergência (Antonina - PR) -->
+  <div
+    id="emergency-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="emergency-modal-title"
+    aria-hidden="true"
+    onclick="handleEmergencyBackdropClick(event)"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 transition-opacity duration-300"
+  >
+    <div id="emergency-modal-panel" class="glass-panel w-full max-w-lg max-h-[88vh] rounded-3xl border border-rose-500/35 shadow-2xl flex flex-col overflow-hidden transform scale-95 transition-transform duration-300">
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between px-5 py-4 border-b border-rose-500/20 bg-[#140a0d]/90">
+        <div class="flex items-center gap-3">
+          <span class="w-10 h-10 rounded-xl bg-rose-500/20 border border-rose-400/40 flex items-center justify-center text-rose-300 shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </span>
+          <div>
+            <h2 id="emergency-modal-title" class="text-base sm:text-lg font-extrabold text-white tracking-wide">Contatos de Emergência</h2>
+            <p class="text-xs text-rose-200/85">Resgate, Defesa Civil e Saúde em Antonina - PR</p>
+          </div>
+        </div>
+        <button
+          type="button"
+          onclick="closeEmergencyModal()"
+          aria-label="Fechar contatos de emergência"
+          class="w-9 h-9 rounded-full bg-rose-500/15 hover:bg-rose-500/30 border border-rose-400/30 text-rose-200 hover:text-white flex items-center justify-center transition-colors cursor-pointer shrink-0"
+        >
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- Modal Body: Contacts List -->
+      <div class="p-4 sm:p-5 overflow-y-auto scrollbar-hide space-y-3">
+        
+        <!-- 1. Corpo de Bombeiros / GOST -->
+        <div class="glass-panel rounded-2xl p-3.5 border border-rose-500/25 flex items-center justify-between gap-3">
+          <div class="flex items-start gap-3 min-w-0">
+            <div class="w-10 h-10 rounded-xl bg-rose-500/20 border border-rose-400/35 flex items-center justify-center text-rose-300 shrink-0 mt-0.5">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+            </div>
+            <div class="min-w-0">
+              <div class="flex items-center gap-2 flex-wrap">
+                <h3 class="text-sm font-bold text-white">Corpo de Bombeiros / GOST</h3>
+                <span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-rose-500/25 text-rose-200 border border-rose-400/30">24h</span>
+              </div>
+              <p class="text-xs text-emerald-200/80 mt-0.5">Busca e salvamento em mata, montanha e rios</p>
+            </div>
+          </div>
+          <a href="tel:193" class="px-3.5 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-extrabold tracking-wider flex items-center gap-1.5 shrink-0 shadow-md transition-colors">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            193
+          </a>
+        </div>
+
+        <!-- 2. Defesa Civil Municipal de Antonina -->
+        <div class="glass-panel rounded-2xl p-3.5 border border-amber-500/25 flex items-center justify-between gap-3">
+          <div class="flex items-start gap-3 min-w-0">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-400/35 flex items-center justify-center text-amber-300 shrink-0 mt-0.5">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </div>
+            <div class="min-w-0">
+              <div class="flex items-center gap-2 flex-wrap">
+                <h3 class="text-sm font-bold text-white">Defesa Civil (Antonina)</h3>
+                <span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-amber-500/25 text-amber-200 border border-amber-400/30">Alerta Clima</span>
+              </div>
+              <p class="text-xs text-emerald-200/80 mt-0.5">Cabeças d'água, alagamentos, quedas de barreira e alertas na Serra</p>
+              <p class="text-[11px] text-amber-300/90 font-semibold mt-1">Plantão Municipal: (41) 3978-1055</p>
+            </div>
+          </div>
+          <div class="flex flex-col gap-1.5 shrink-0">
+            <a href="tel:199" class="px-3.5 py-2 rounded-xl bg-amber-600 hover:bg-amber-500 text-white text-xs font-extrabold tracking-wider flex items-center justify-center gap-1.5 shadow-md transition-colors">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              199
+            </a>
+            <a href="tel:+554139781055" class="px-2.5 py-1 rounded-lg bg-amber-500/15 hover:bg-amber-500/30 border border-amber-400/30 text-amber-200 text-[10px] font-bold text-center transition-colors">
+              Fixo Local
+            </a>
+          </div>
+        </div>
+
+        <!-- 3. Hospital Municipal de Antonina -->
+        <div class="glass-panel rounded-2xl p-3.5 border border-emerald-500/25 flex items-center justify-between gap-3">
+          <div class="flex items-start gap-3 min-w-0">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-400/35 flex items-center justify-center text-emerald-300 shrink-0 mt-0.5">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6v12"/><path d="M6 12h12"/><rect width="18" height="18" x="3" y="3" rx="2"/></svg>
+            </div>
+            <div class="min-w-0">
+              <div class="flex items-center gap-2 flex-wrap">
+                <h3 class="text-sm font-bold text-white">Hospital Dr. Silvio Bittencourt Linhares</h3>
+              </div>
+              <p class="text-xs text-emerald-200/80 mt-0.5">Hospital Municipal & Pronto Socorro 24h • Centro, Antonina - PR</p>
+              <p class="text-[11px] text-emerald-300 font-semibold mt-1">(41) 3432-1315</p>
+            </div>
+          </div>
+          <div class="flex flex-col gap-1.5 shrink-0">
+            <a href="tel:+554134321315" class="px-3 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-extrabold flex items-center justify-center gap-1.5 shadow-md transition-colors">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Ligar
+            </a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Hospital+Municipal+Dr+Silvio+Bittencourt+Linhares+Antonina+PR" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/30 border border-emerald-400/30 text-emerald-200 text-[10px] font-bold text-center transition-colors">
+              Ver Mapa
+            </a>
+          </div>
+        </div>
+
+        <!-- 4. SAMU Litoral -->
+        <div class="glass-panel rounded-2xl p-3.5 border border-sky-500/25 flex items-center justify-between gap-3">
+          <div class="flex items-start gap-3 min-w-0">
+            <div class="w-10 h-10 rounded-xl bg-sky-500/20 border border-sky-400/35 flex items-center justify-center text-sky-300 shrink-0 mt-0.5">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            </div>
+            <div class="min-w-0">
+              <h3 class="text-sm font-bold text-white">SAMU (Urgência Médica)</h3>
+              <p class="text-xs text-emerald-200/80 mt-0.5">Ambulância e atendimento pré-hospitalar móvel no Litoral</p>
+            </div>
+          </div>
+          <a href="tel:192" class="px-3.5 py-2 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-extrabold tracking-wider flex items-center gap-1.5 shrink-0 shadow-md transition-colors">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            192
+          </a>
+        </div>
+
+        <!-- 5. Polícia Militar & Ambiental -->
+        <div class="glass-panel rounded-2xl p-3.5 border border-emerald-500/20 flex items-center justify-between gap-3">
+          <div class="flex items-start gap-3 min-w-0">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 shrink-0 mt-0.5">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="min-w-0">
+              <h3 class="text-sm font-bold text-white">Polícia Militar & Ambiental</h3>
+              <p class="text-xs text-emerald-200/80 mt-0.5">Segurança pública e patrulha rural / Força Verde</p>
+            </div>
+          </div>
+          <a href="tel:190" class="px-3.5 py-2 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-extrabold tracking-wider flex items-center gap-1.5 shrink-0 shadow-md transition-colors">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            190
+          </a>
+        </div>
+
+        <!-- Coordenadas de Referência para Resgate -->
+        <div class="rounded-2xl p-3.5 bg-emerald-950/60 border border-emerald-500/25 flex items-center justify-between gap-3">
+          <div>
+            <p class="text-[11px] font-bold uppercase tracking-wider text-emerald-300">Coordenadas de Referência (Vale do Gigante)</p>
+            <p class="text-xs font-mono text-emerald-100 mt-0.5">-25.430564, -48.760243 (25°25'50"S 48°45'37"W)</p>
+          </div>
+          <button
+            type="button"
+            onclick="copyCoord()"
+            class="px-3 py-1.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/35 border border-emerald-400/35 text-xs font-bold text-emerald-200 transition-colors cursor-pointer shrink-0"
+          >
+            Copiar GPS
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="px-5 py-3 border-t border-rose-500/20 bg-[#140a0d]/90 flex items-center justify-between gap-2">
+        <span class="text-[11px] text-rose-200/80">Em áreas sem sinal da sua operadora, chamadas de emergência (190/193/112) usam qualquer antena disponível.</span>
+        <button
+          type="button"
+          onclick="closeEmergencyModal()"
+          class="px-4 py-1.5 rounded-xl bg-rose-500/20 hover:bg-rose-500/35 border border-rose-400/35 text-xs font-bold text-rose-100 transition-colors cursor-pointer shrink-0"
         >
           Fechar
         </button>
@@ -1848,11 +2040,56 @@
       if (box) box.classList.add('hidden');
     }
 
+    // 9. Emergency Contacts Modal Logic
+    function openEmergencyModal() {
+      const modal = document.getElementById('emergency-modal');
+      const panel = document.getElementById('emergency-modal-panel');
+      if (!modal) return;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      modal.setAttribute('aria-hidden', 'false');
+      requestAnimationFrame(() => {
+        modal.classList.remove('opacity-0');
+        modal.classList.add('opacity-100');
+        if (panel) {
+          panel.classList.remove('scale-95');
+          panel.classList.add('scale-100');
+        }
+      });
+    }
+
+    function closeEmergencyModal() {
+      const modal = document.getElementById('emergency-modal');
+      const panel = document.getElementById('emergency-modal-panel');
+      if (!modal) return;
+      modal.classList.remove('opacity-100');
+      modal.classList.add('opacity-0');
+      if (panel) {
+        panel.classList.remove('scale-100');
+        panel.classList.add('scale-95');
+      }
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        modal.setAttribute('aria-hidden', 'true');
+      }, 250);
+    }
+
+    function handleEmergencyBackdropClick(event) {
+      if (event.target && event.target.id === 'emergency-modal') {
+        closeEmergencyModal();
+      }
+    }
+
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        const modal = document.getElementById('gallery-modal');
-        if (modal && !modal.classList.contains('hidden')) {
+        const galleryModal = document.getElementById('gallery-modal');
+        if (galleryModal && !galleryModal.classList.contains('hidden')) {
           closeGalleryModal();
+        }
+        const emergencyModal = document.getElementById('emergency-modal');
+        if (emergencyModal && !emergencyModal.classList.contains('hidden')) {
+          closeEmergencyModal();
         }
       }
     });
