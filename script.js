@@ -181,6 +181,7 @@ function changeWindyLocation(lat, lon, btnId) {
     if (el) el.classList.toggle('control-active', id === btnId);
   });
   updateWindyMap();
+  updateWeatherFavicon(lat, lon, false);
 }
 
 // 6. Google Map Lazy Load
@@ -203,9 +204,217 @@ function loadGoogleMap() {
   `;
 }
 
+// 7. Live Weather Favicon & Status Updater (Open-Meteo API)
+function classifyWeatherCode(wmoCode, isDay) {
+  if ([95, 96, 99].includes(wmoCode)) {
+    return { type: 'storm', label: 'Tempestade', border: '#f59e0b' };
+  }
+  if ([51, 53, 55, 56, 57, 61, 63, 65, 66, 67, 80, 81, 82].includes(wmoCode)) {
+    return { type: 'rain', label: 'Chuva', border: '#38bdf8' };
+  }
+  if ([3, 45, 48].includes(wmoCode)) {
+    return { type: 'cloudy', label: 'Nublado', border: '#94a3b8' };
+  }
+  if (wmoCode === 2) {
+    return {
+      type: isDay ? 'partly-cloudy' : 'clear-night',
+      label: 'Parc. Nublado',
+      border: '#34d399'
+    };
+  }
+  if (isDay === 0) {
+    return { type: 'clear-night', label: 'Céu Limpo', border: '#818cf8' };
+  }
+  return { type: 'clear-day', label: 'Sol / Céu Limpo', border: '#fbbf24' };
+}
+
+function drawWeatherFaviconDataUrl(weatherInfo, tempC) {
+  const canvas = document.createElement('canvas');
+  canvas.width = 64;
+  canvas.height = 64;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return null;
+
+  function roundRect(x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.arcTo(x + w, y, x + w, y + h, r);
+    ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r);
+    ctx.arcTo(x, y, x + w, y, r);
+    ctx.closePath();
+  }
+
+  function drawCloud(cx, cy, scale, fillStyle) {
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.scale(scale, scale);
+    ctx.fillStyle = fillStyle;
+    ctx.beginPath();
+    ctx.arc(-8, 4, 9, Math.PI * 0.5, Math.PI * 1.5);
+    ctx.arc(-1, -4, 10, Math.PI * 1.0, Math.PI * 1.85);
+    ctx.arc(9, 2, 8, Math.PI * 1.3, Math.PI * 0.5);
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+  }
+
+  const bgGrad = ctx.createLinearGradient(0, 0, 64, 64);
+  bgGrad.addColorStop(0, '#0f291e');
+  bgGrad.addColorStop(1, '#07130e');
+  roundRect(2, 2, 60, 60, 16);
+  ctx.fillStyle = bgGrad;
+  ctx.fill();
+
+  ctx.lineWidth = 3;
+  ctx.strokeStyle = weatherInfo.border || '#34d399';
+  ctx.stroke();
+
+  const type = weatherInfo.type;
+
+  if (type === 'clear-day') {
+    const cx = 32, cy = 28, r = 11;
+    ctx.strokeStyle = '#fbbf24';
+    ctx.lineWidth = 3;
+    ctx.lineCap = 'round';
+    for (let i = 0; i < 8; i++) {
+      const angle = (i * Math.PI) / 4;
+      ctx.beginPath();
+      ctx.moveTo(cx + Math.cos(angle) * (r + 4), cy + Math.sin(angle) * (r + 4));
+      ctx.lineTo(cx + Math.cos(angle) * (r + 8), cy + Math.sin(angle) * (r + 8));
+      ctx.stroke();
+    }
+    const sunGrad = ctx.createRadialGradient(cx - 3, cy - 3, 2, cx, cy, r);
+    sunGrad.addColorStop(0, '#fef08a');
+    sunGrad.addColorStop(1, '#f59e0b');
+    ctx.fillStyle = sunGrad;
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, 0, Math.PI * 2);
+    ctx.fill();
+  } else if (type === 'clear-night') {
+    ctx.fillStyle = '#fde68a';
+    ctx.beginPath();
+    ctx.arc(31, 27, 12, 0.2 * Math.PI, 1.65 * Math.PI, false);
+    ctx.arc(37, 22, 10, 1.55 * Math.PI, 0.35 * Math.PI, true);
+    ctx.closePath();
+    ctx.fill();
+    ctx.fillStyle = '#ffffff';
+    ctx.beginPath();
+    ctx.arc(46, 16, 2, 0, Math.PI * 2);
+    ctx.arc(18, 17, 1.5, 0, Math.PI * 2);
+    ctx.fill();
+  } else if (type === 'partly-cloudy') {
+    ctx.fillStyle = '#fbbf24';
+    ctx.beginPath();
+    ctx.arc(24, 21, 9, 0, Math.PI * 2);
+    ctx.fill();
+    drawCloud(35, 29, 1.15, '#e2e8f0');
+  } else if (type === 'cloudy') {
+    drawCloud(28, 22, 0.95, '#94a3b8');
+    drawCloud(34, 29, 1.15, '#f1f5f9');
+  } else if (type === 'rain') {
+    drawCloud(32, 22, 1.15, '#cbd5e1');
+    ctx.strokeStyle = '#38bdf8';
+    ctx.lineWidth = 3;
+    ctx.lineCap = 'round';
+    [22, 32, 42].forEach(x => {
+      ctx.beginPath();
+      ctx.moveTo(x + 2, 34);
+      ctx.lineTo(x - 2, 43);
+      ctx.stroke();
+    });
+  } else if (type === 'storm') {
+    drawCloud(32, 21, 1.15, '#94a3b8');
+    ctx.fillStyle = '#fbbf24';
+    ctx.beginPath();
+    ctx.moveTo(33, 28);
+    ctx.lineTo(25, 38);
+    ctx.lineTo(32, 38);
+    ctx.lineTo(29, 47);
+    ctx.lineTo(40, 35);
+    ctx.lineTo(33, 35);
+    ctx.closePath();
+    ctx.fill();
+  }
+
+  if (typeof tempC === 'number' && !Number.isNaN(tempC)) {
+    const tempText = `${Math.round(tempC)}°`;
+    roundRect(14, 44, 36, 16, 6);
+    ctx.fillStyle = 'rgba(4, 13, 9, 0.92)';
+    ctx.fill();
+    ctx.fillStyle = '#ecfdf5';
+    ctx.font = 'bold 12px Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(tempText, 32, 52.5);
+  }
+
+  return canvas.toDataURL('image/png');
+}
+
+async function updateWeatherFavicon(lat = -25.430564, lon = -48.760243, showFeedbackToast = false) {
+  try {
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code,is_day,wind_speed_10m,precipitation&timezone=America%2FSao_Paulo`;
+    const response = await fetch(url);
+    if (!response.ok) throw new Error('Falha ao consultar Open-Meteo');
+    const data = await response.json();
+
+    if (!data || !data.current) return;
+    const { temperature_2m, weather_code, is_day, wind_speed_10m } = data.current;
+    const weatherInfo = classifyWeatherCode(weather_code, is_day);
+    const faviconDataUrl = drawWeatherFaviconDataUrl(weatherInfo, temperature_2m);
+
+    if (faviconDataUrl) {
+      let faviconEl = document.getElementById('dynamic-favicon') || document.querySelector("link[rel*='icon']");
+      if (!faviconEl) {
+        faviconEl = document.createElement('link');
+        faviconEl.id = 'dynamic-favicon';
+        faviconEl.rel = 'icon';
+        document.head.appendChild(faviconEl);
+      }
+      faviconEl.type = 'image/png';
+      faviconEl.href = faviconDataUrl;
+
+      const previewImg = document.getElementById('live-favicon-preview');
+      if (previewImg) previewImg.src = faviconDataUrl;
+    }
+
+    const tempRounded = Math.round(temperature_2m);
+    const windRounded = Math.round(wind_speed_10m);
+    const summaryText = `${tempRounded}°C • ${weatherInfo.label} (${windRounded} km/h)`;
+
+    const summaryEl = document.getElementById('live-weather-summary');
+    if (summaryEl) summaryEl.textContent = summaryText;
+
+    const homeBadge = document.getElementById('home-weather-live-badge');
+    if (homeBadge) {
+      homeBadge.textContent = `Agora em Antonina: ${summaryText}`;
+      homeBadge.classList.remove('hidden');
+    }
+
+    document.title = `${tempRounded}°C ${weatherInfo.label} | Vale do Gigante - Antonina PR`;
+
+    if (showFeedbackToast) {
+      showToast(`Clima e favicon atualizados: ${summaryText}`);
+    }
+  } catch (err) {
+    const summaryEl = document.getElementById('live-weather-summary');
+    if (summaryEl) summaryEl.textContent = 'Clima ao vivo indisponível';
+  }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  updateWeatherFavicon(currentWindyLat, currentWindyLon, false);
+  setInterval(() => {
+    updateWeatherFavicon(currentWindyLat, currentWindyLon, false);
+  }, 600000);
+});
+
 // Expose functions globally for inline onclick handlers
 window.switchTab = switchTab;
 window.copyCoord = copyCoord;
 window.shareProfile = shareProfile;
 window.changeWindyLayer = changeWindyLayer;
 window.changeWindyLocation = changeWindyLocation;
+window.updateWeatherFavicon = updateWeatherFavicon;
+

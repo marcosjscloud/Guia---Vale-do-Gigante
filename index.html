@@ -11,9 +11,9 @@
   <!-- SEO and Open Graph Meta Tags -->
   <title>Vale do Gigante | Ecoturismo em Antonina - PR</title>
   
-  <!-- Favicon / Ícones do app -->
-  <link rel="icon" type="image/png" href="https://valedogigante.com.br/wp-content/uploads/2026/09/Logo_vale_500x500.png">
-  <link rel="apple-touch-icon" href="https://valedogigante.com.br/wp-content/uploads/2026/09/Logo_vale_500x500.png">
+  <!-- Favicon / Ícones do app (atualizado dinamicamente conforme clima ao vivo) -->
+  <link id="dynamic-favicon" rel="icon" type="image/png" href="https://valedogigante.com.br/wp-content/uploads/2026/09/Logo_vale_500x500.png">
+  <link id="dynamic-apple-icon" rel="apple-touch-icon" href="https://valedogigante.com.br/wp-content/uploads/2026/09/Logo_vale_500x500.png">
 
   <meta name="description" content="Descubra o Vale do Gigante em Antonina-PR. Ecoturismo, hospedagem, gastronomia, aventuras (caiaque, rafting, trilhas, boia cross) e monitoramento climático ao vivo na Serra do Mar.">
   <meta property="og:title" content="Vale do Gigante | Ecoturismo em Antonina - PR">
@@ -372,10 +372,13 @@
         </a>
 
         <button type="button" onclick="switchTab('clima')" class="glass-button w-full min-h-[58px] px-4 py-3.5 rounded-2xl flex items-center justify-between group relative overflow-hidden cursor-pointer">
-          <div class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
+          <div id="home-weather-icon-box" class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="M20 12h2"/><path d="m19.07 4.93-1.41 1.41"/><path d="M15.947 12.65a4 4 0 0 0-5.925-4.128"/><path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z"/></svg>
           </div>
-          <span class="text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors tracking-wide relative z-10">PREVISÃO DO TEMPO & SEGURANÇA</span>
+          <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0 px-2">
+            <span class="text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors tracking-wide relative z-10">PREVISÃO DO TEMPO & SEGURANÇA</span>
+            <span id="home-weather-live-badge" class="text-[11px] text-emerald-400/90 font-medium mt-0.5 hidden">Consultando clima ao vivo...</span>
+          </div>
           <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 transition-all shrink-0">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
           </div>
@@ -819,11 +822,22 @@
       
       <header class="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-3 border-b border-emerald-900/50 pb-4">
         <div>
-          <h2 class="text-2xl font-bold text-white flex items-center gap-2">Clima & Segurança</h2>
+          <h2 class="text-2xl font-bold text-white flex items-center gap-2.5">
+            <span class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-400 shrink-0">
+              <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 2v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="M20 12h2"/><path d="m19.07 4.93-1.41 1.41"/><path d="M15.947 12.65a4 4 0 0 0-5.925-4.128"/><path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z"/></svg>
+            </span>
+            Clima & Segurança
+          </h2>
           <p class="text-xs text-emerald-300 mt-1">Monitoramento meteorológico em tempo real para Ecoturismo</p>
         </div>
-        <div class="px-3 py-1.5 rounded-full glass-panel text-xs font-semibold text-emerald-400 flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Radar Ao Vivo
+        <div class="flex flex-wrap items-center gap-2">
+          <button type="button" onclick="updateWeatherFavicon(currentWindyLat, currentWindyLon, true)" title="Clique para atualizar clima e favicon do navegador" class="px-3 py-1.5 rounded-full glass-panel hover:border-emerald-400/50 text-xs font-semibold text-emerald-100 flex items-center gap-2 transition-all cursor-pointer">
+            <img id="live-favicon-preview" src="https://valedogigante.com.br/wp-content/uploads/2026/09/Logo_vale_500x500.png" alt="Favicon Clima" class="w-4 h-4 rounded-sm object-contain" />
+            <span id="live-weather-summary">Sincronizando clima...</span>
+          </button>
+          <div class="px-3 py-1.5 rounded-full glass-panel text-xs font-semibold text-emerald-400 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Radar Ao Vivo
+          </div>
         </div>
       </header>
 
@@ -1220,6 +1234,7 @@
         if (el) el.classList.toggle('control-active', id === btnId);
       });
       updateWindyMap();
+      updateWeatherFavicon(lat, lon, false);
     }
 
     // 6. Google Map Lazy Load
@@ -1240,6 +1255,230 @@
         </iframe>
       `;
     }
+
+    // 7. Live Weather Favicon & Status Updater (Open-Meteo API)
+    function classifyWeatherCode(wmoCode, isDay) {
+      // WMO Weather interpretation codes (WW)
+      if ([95, 96, 99].includes(wmoCode)) {
+        return { type: 'storm', label: 'Tempestade', border: '#f59e0b' };
+      }
+      if ([51, 53, 55, 56, 57, 61, 63, 65, 66, 67, 80, 81, 82].includes(wmoCode)) {
+        return { type: 'rain', label: 'Chuva', border: '#38bdf8' };
+      }
+      if ([3, 45, 48].includes(wmoCode)) {
+        return { type: 'cloudy', label: 'Nublado', border: '#94a3b8' };
+      }
+      if (wmoCode === 2) {
+        return {
+          type: isDay ? 'partly-cloudy' : 'clear-night',
+          label: 'Parc. Nublado',
+          border: '#34d399'
+        };
+      }
+      // Codes 0, 1 (Clear / Mainly Clear)
+      if (isDay === 0) {
+        return { type: 'clear-night', label: 'Céu Limpo', border: '#818cf8' };
+      }
+      return { type: 'clear-day', label: 'Sol / Céu Limpo', border: '#fbbf24' };
+    }
+
+    function drawWeatherFaviconDataUrl(weatherInfo, tempC) {
+      const canvas = document.createElement('canvas');
+      canvas.width = 64;
+      canvas.height = 64;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return null;
+
+      // Helper for rounded rect
+      function roundRect(x, y, w, h, r) {
+        ctx.beginPath();
+        ctx.moveTo(x + r, y);
+        ctx.arcTo(x + w, y, x + w, y + h, r);
+        ctx.arcTo(x + w, y + h, x, y + h, r);
+        ctx.arcTo(x, y + h, x, y, r);
+        ctx.arcTo(x, y, x + w, y, r);
+        ctx.closePath();
+      }
+
+      //Helper for cloud path
+      function drawCloud(cx, cy, scale, fillStyle) {
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.scale(scale, scale);
+        ctx.fillStyle = fillStyle;
+        ctx.beginPath();
+        ctx.arc(-8, 4, 9, Math.PI * 0.5, Math.PI * 1.5);
+        ctx.arc(-1, -4, 10, Math.PI * 1.0, Math.PI * 1.85);
+        ctx.arc(9, 2, 8, Math.PI * 1.3, Math.PI * 0.5);
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+      }
+
+      // 1. Dark Emerald Rounded Background
+      const bgGrad = ctx.createLinearGradient(0, 0, 64, 64);
+      bgGrad.addColorStop(0, '#0f291e');
+      bgGrad.addColorStop(1, '#07130e');
+      roundRect(2, 2, 60, 60, 16);
+      ctx.fillStyle = bgGrad;
+      ctx.fill();
+
+      ctx.lineWidth = 3;
+      ctx.strokeStyle = weatherInfo.border || '#34d399';
+      ctx.stroke();
+
+      // 2. Weather Condition Graphic
+      const type = weatherInfo.type;
+
+      if (type === 'clear-day') {
+        // Radiant Golden Sun
+        const cx = 32, cy = 28, r = 11;
+        ctx.strokeStyle = '#fbbf24';
+        ctx.lineWidth = 3;
+        ctx.lineCap = 'round';
+        for (let i = 0; i < 8; i++) {
+          const angle = (i * Math.PI) / 4;
+          ctx.beginPath();
+          ctx.moveTo(cx + Math.cos(angle) * (r + 4), cy + Math.sin(angle) * (r + 4));
+          ctx.lineTo(cx + Math.cos(angle) * (r + 8), cy + Math.sin(angle) * (r + 8));
+          ctx.stroke();
+        }
+        const sunGrad = ctx.createRadialGradient(cx - 3, cy - 3, 2, cx, cy, r);
+        sunGrad.addColorStop(0, '#fef08a');
+        sunGrad.addColorStop(1, '#f59e0b');
+        ctx.fillStyle = sunGrad;
+        ctx.beginPath();
+        ctx.arc(cx, cy, r, 0, Math.PI * 2);
+        ctx.fill();
+      } else if (type === 'clear-night') {
+        // Crescent Moon & Stars
+        ctx.fillStyle = '#fde68a';
+        ctx.beginPath();
+        ctx.arc(31, 27, 12, 0.2 * Math.PI, 1.65 * Math.PI, false);
+        ctx.arc(37, 22, 10, 1.55 * Math.PI, 0.35 * Math.PI, true);
+        ctx.closePath();
+        ctx.fill();
+        // Stars
+        ctx.fillStyle = '#ffffff';
+        ctx.beginPath();
+        ctx.arc(46, 16, 2, 0, Math.PI * 2);
+        ctx.arc(18, 17, 1.5, 0, Math.PI * 2);
+        ctx.fill();
+      } else if (type === 'partly-cloudy') {
+        // Sun behind Cloud
+        ctx.fillStyle = '#fbbf24';
+        ctx.beginPath();
+        ctx.arc(24, 21, 9, 0, Math.PI * 2);
+        ctx.fill();
+        drawCloud(35, 29, 1.15, '#e2e8f0');
+      } else if (type === 'cloudy') {
+        // Layered Clouds
+        drawCloud(28, 22, 0.95, '#94a3b8');
+        drawCloud(34, 29, 1.15, '#f1f5f9');
+      } else if (type === 'rain') {
+        // Cloud + Raindrops
+        drawCloud(32, 22, 1.15, '#cbd5e1');
+        ctx.strokeStyle = '#38bdf8';
+        ctx.lineWidth = 3;
+        ctx.lineCap = 'round';
+        [22, 32, 42].forEach(x => {
+          ctx.beginPath();
+          ctx.moveTo(x + 2, 34);
+          ctx.lineTo(x - 2, 43);
+          ctx.stroke();
+        });
+      } else if (type === 'storm') {
+        // Dark Storm Cloud + Lightning Bolt
+        drawCloud(32, 21, 1.15, '#94a3b8');
+        ctx.fillStyle = '#fbbf24';
+        ctx.beginPath();
+        ctx.moveTo(33, 28);
+        ctx.lineTo(25, 38);
+        ctx.lineTo(32, 38);
+        ctx.lineTo(29, 47);
+        ctx.lineTo(40, 35);
+        ctx.lineTo(33, 35);
+        ctx.closePath();
+        ctx.fill();
+      }
+
+      // 3. Temperature Badge at Bottom
+      if (typeof tempC === 'number' && !Number.isNaN(tempC)) {
+        const tempText = `${Math.round(tempC)}°`;
+        roundRect(14, 44, 36, 16, 6);
+        ctx.fillStyle = 'rgba(4, 13, 9, 0.92)';
+        ctx.fill();
+        ctx.fillStyle = '#ecfdf5';
+        ctx.font = 'bold 12px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(tempText, 32, 52.5);
+      }
+
+      return canvas.toDataURL('image/png');
+    }
+
+    async function updateWeatherFavicon(lat = -25.430564, lon = -48.760243, showFeedbackToast = false) {
+      try {
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code,is_day,wind_speed_10m,precipitation&timezone=America%2FSao_Paulo`;
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('Falha ao consultar Open-Meteo');
+        const data = await response.json();
+
+        if (!data || !data.current) return;
+        const { temperature_2m, weather_code, is_day, wind_speed_10m } = data.current;
+        const weatherInfo = classifyWeatherCode(weather_code, is_day);
+        const faviconDataUrl = drawWeatherFaviconDataUrl(weatherInfo, temperature_2m);
+
+        if (faviconDataUrl) {
+          let faviconEl = document.getElementById('dynamic-favicon') || document.querySelector("link[rel*='icon']");
+          if (!faviconEl) {
+            faviconEl = document.createElement('link');
+            faviconEl.id = 'dynamic-favicon';
+            faviconEl.rel = 'icon';
+            document.head.appendChild(faviconEl);
+          }
+          faviconEl.type = 'image/png';
+          faviconEl.href = faviconDataUrl;
+
+          const previewImg = document.getElementById('live-favicon-preview');
+          if (previewImg) previewImg.src = faviconDataUrl;
+        }
+
+        const tempRounded = Math.round(temperature_2m);
+        const windRounded = Math.round(wind_speed_10m);
+        const summaryText = `${tempRounded}°C • ${weatherInfo.label} (${windRounded} km/h)`;
+
+        // Update Clima header badge
+        const summaryEl = document.getElementById('live-weather-summary');
+        if (summaryEl) summaryEl.textContent = summaryText;
+
+        // Update Home button badge
+        const homeBadge = document.getElementById('home-weather-live-badge');
+        if (homeBadge) {
+          homeBadge.textContent = `Agora em Antonina: ${summaryText}`;
+          homeBadge.classList.remove('hidden');
+        }
+
+        // Update Page Title with live temperature & condition
+        document.title = `${tempRounded}°C ${weatherInfo.label} | Vale do Gigante - Antonina PR`;
+
+        if (showFeedbackToast) {
+          showToast(`Clima e favicon atualizados: ${summaryText}`);
+        }
+      } catch (err) {
+        const summaryEl = document.getElementById('live-weather-summary');
+        if (summaryEl) summaryEl.textContent = 'Clima ao vivo indisponível';
+      }
+    }
+
+    // Fetch live weather and update browser favicon on load and every 10 minutes
+    window.addEventListener('DOMContentLoaded', () => {
+      updateWeatherFavicon(currentWindyLat, currentWindyLon, false);
+      setInterval(() => {
+        updateWeatherFavicon(currentWindyLat, currentWindyLon, false);
+      }, 600000);
+    });
   </script>
 </body>
 </html>
