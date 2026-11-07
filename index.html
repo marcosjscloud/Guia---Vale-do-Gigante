@@ -654,88 +654,134 @@
         </button>
       </header>
 
-      <p class="text-sm sm:text-base text-emerald-200/90 font-medium text-center mb-6 max-w-xs leading-relaxed mx-auto">
+      <p class="text-sm sm:text-base text-emerald-200/90 font-medium text-center mb-4 max-w-xs leading-relaxed mx-auto">
         Belezas naturais, picos imponentes, reservas ecológicas e rios cristalinos da nossa região.
       </p>
 
-      <div class="w-full flex flex-col gap-3.5 mb-8">
-        <a href="https://valedogigante.com.br/2025/07/17/pico-parana/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+      <!-- Barra de Pesquisa de Atrativos -->
+      <div class="w-full mb-5 relative">
+        <div class="glass-panel rounded-2xl px-3.5 py-2.5 flex items-center gap-2.5 border border-emerald-500/30 focus-within:border-emerald-400 focus-within:ring-2 focus-within:ring-emerald-400/20 transition-all">
+          <svg class="w-5 h-5 text-emerald-400 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.3-4.3"/>
+          </svg>
+          <input
+            type="search"
+            id="atrativos-search"
+            oninput="filterAtrativos(this.value)"
+            placeholder="Pesquisar atrativo ou atividade..."
+            aria-label="Pesquisar atrativos por nome"
+            autocomplete="off"
+            class="w-full bg-transparent text-sm sm:text-base text-white placeholder-emerald-300/50 focus:outline-none"
+          />
+          <button
+            type="button"
+            id="atrativos-search-clear"
+            onclick="clearAtrativosSearch()"
+            aria-label="Limpar pesquisa"
+            class="hidden w-6 h-6 rounded-full bg-emerald-500/20 hover:bg-emerald-500/40 text-emerald-200 flex items-center justify-center transition-colors shrink-0"
+          >
+            <svg class="w-3.5 h-3.5" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M18 6 6 18"/>
+              <path d="m6 6 12 12"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div id="atrativos-list" class="w-full flex flex-col gap-3.5 mb-8">
+        <a href="https://valedogigante.com.br/2025/07/17/pico-parana/" target="_blank" rel="noopener noreferrer" data-name="Pico Paraná A montanha mais alta do Sul do Brasil" class="atrativo-item glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
           <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/><path d="M4.14 15.08c2.62-1.57 5.24-1.43 7.86.42 2.74 1.94 5.49 2 8.23.19"/></svg>
           </div>
           <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
-            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">PICO PARANÁ</span>
-            <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">A montanha mais alta do Sul do Brasil (1.877m)</span>
+            <span class="atrativo-title relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">PICO PARANÁ</span>
+            <span class="atrativo-desc relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">A montanha mais alta do Sul do Brasil (1.877m)</span>
           </div>
           <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
           </div>
         </a>
          
-        <a href="https://valedogigante.com.br/trilhas/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+        <a href="https://valedogigante.com.br/trilhas/" target="_blank" rel="noopener noreferrer" data-name="Trilhas do Vale História colonial e caminhadas ecológicas" class="atrativo-item glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
           <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m17 14 3 3.3a1 1 0 0 1-.7 1.7H4.7a1 1 0 0 1-.7-1.7L7 14h-.3a1 1 0 0 1-.7-1.7L9 9h-.2A1 1 0 0 1 8 7.3L12 3l4 4.3a1 1 0 0 1-.8 1.7H15l3 3.3a1 1 0 0 1-.7 1.7H17Z"/><path d="M12 22v-3"/></svg>
           </div>
           <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
-            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">TRILHAS DO VALE</span>
-            <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">História colonial e caminhadas ecológicas</span>
+            <span class="atrativo-title relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">TRILHAS DO VALE</span>
+            <span class="atrativo-desc relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">História colonial e caminhadas ecológicas</span>
           </div>
           <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
           </div>
         </a>
         
-        <a href="https://valedogigante.com.br/experiencia-guaricica/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+        <a href="https://valedogigante.com.br/experiencia-guaricica/" target="_blank" rel="noopener noreferrer" data-name="Experiência Guaricica Imersão na Reserva Natural Guaricica SPVS" class="atrativo-item glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
           <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
           </div>
           <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
-            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">EXPERIÊNCIA GUARICICA</span>
-            <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Imersão na Reserva Natural Guaricica (SPVS)</span>
+            <span class="atrativo-title relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">EXPERIÊNCIA GUARICICA</span>
+            <span class="atrativo-desc relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Imersão na Reserva Natural Guaricica (SPVS)</span>
           </div>
           <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
           </div>
         </a>
         
-        <a href="https://rafting.valedogigante.com.br" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+        <a href="https://rafting.valedogigante.com.br" target="_blank" rel="noopener noreferrer" data-name="Rio Cachoeira Corredeiras rafting e piscinas naturais" class="atrativo-item glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
           <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg>
           </div>
           <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
-            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">RIO CACHOEIRA</span>
-            <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Corredeiras, rafting e piscinas naturais</span>
+            <span class="atrativo-title relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">RIO CACHOEIRA</span>
+            <span class="atrativo-desc relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Corredeiras, rafting e piscinas naturais</span>
           </div>
           <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
           </div>
         </a>
         
-        <a href="https://boiacross.valedogigante.com.br/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+        <a href="https://boiacross.valedogigante.com.br/" target="_blank" rel="noopener noreferrer" data-name="Rio do Nunes Boia cross e banhos refrescantes em família" class="atrativo-item glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
           <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
           </div>
           <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
-            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">RIO DO NUNES</span>
-            <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Boia cross e banhos refrescantes em família</span>
+            <span class="atrativo-title relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">RIO DO NUNES</span>
+            <span class="atrativo-desc relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Boia cross e banhos refrescantes em família</span>
           </div>
           <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
           </div>
         </a>
         
-        <a href="https://valedogigante.com.br/observacaoaves/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+        <a href="https://valedogigante.com.br/observacaoaves/" target="_blank" rel="noopener noreferrer" data-name="Observação de Aves Mais de 500 espécies catalogadas em Antonina" class="atrativo-item glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
           <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 10h4"/><path d="M19 7V4a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v3"/><path d="M20 21a2 2 0 0 0 2-2v-3.851c0-1.39-2-2.962-2-4.829V8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v11a2 2 0 0 0 2 2z"/><path d="M 22 16 L 2 16"/><path d="M4 21a2 2 0 0 1-2-2v-3.851c0-1.39 2-2.962 2-4.829V8a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v11a2 2 0 0 1-2 2z"/><path d="M9 7V4a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v3"/></svg>
           </div>
           <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
-            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">OBSERVAÇÃO DE AVES</span>
-            <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Mais de 500 espécies catalogadas em Antonina</span>
+            <span class="atrativo-title relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">OBSERVAÇÃO DE AVES</span>
+            <span class="atrativo-desc relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Mais de 500 espécies catalogadas em Antonina</span>
           </div>
           <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
           </div>
         </a>
+      </div>
+
+      <!-- Estado vazio para pesquisa sem resultados -->
+      <div id="atrativos-empty" class="hidden w-full glass-panel rounded-2xl p-6 text-center mb-8 border border-emerald-500/20">
+        <div class="w-11 h-11 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 mx-auto mb-3">
+          <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.3-4.3"/>
+          </svg>
+        </div>
+        <p class="text-sm font-bold text-white mb-1">Nenhum atrativo encontrado</p>
+        <p class="text-xs text-emerald-300/80 mb-3">Tente buscar por outro nome, como "Pico", "Rio" ou "Trilhas".</p>
+        <button type="button" onclick="clearAtrativosSearch()" class="px-3.5 py-1.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-400/30 text-xs font-semibold text-emerald-200 transition-colors">
+          Mostrar todos os atrativos
+        </button>
       </div>
     </section>
 
@@ -1469,6 +1515,64 @@
       } catch (err) {
         const summaryEl = document.getElementById('live-weather-summary');
         if (summaryEl) summaryEl.textContent = 'Clima ao vivo indisponível';
+      }
+    }
+
+    // Filter Atrativos items by name/description
+    function normalizeSearchText(str) {
+      return (str || '')
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .trim();
+    }
+
+    function filterAtrativos(rawQuery) {
+      const query = normalizeSearchText(rawQuery);
+      const items = document.querySelectorAll('#atrativos-list .atrativo-item');
+      const clearBtn = document.getElementById('atrativos-search-clear');
+      const emptyState = document.getElementById('atrativos-empty');
+
+      if (clearBtn) {
+        if (rawQuery && rawQuery.length > 0) {
+          clearBtn.classList.remove('hidden');
+        } else {
+          clearBtn.classList.add('hidden');
+        }
+      }
+
+      let visibleCount = 0;
+      items.forEach((item) => {
+        const titleText = item.querySelector('.atrativo-title')?.textContent || '';
+        const descText = item.querySelector('.atrativo-desc')?.textContent || '';
+        const dataName = item.getAttribute('data-name') || '';
+        const searchable = normalizeSearchText(`${titleText} ${descText} ${dataName}`);
+
+        if (!query || searchable.includes(query)) {
+          item.classList.remove('hidden');
+          item.classList.add('flex');
+          visibleCount++;
+        } else {
+          item.classList.add('hidden');
+          item.classList.remove('flex');
+        }
+      });
+
+      if (emptyState) {
+        if (visibleCount === 0) {
+          emptyState.classList.remove('hidden');
+        } else {
+          emptyState.classList.add('hidden');
+        }
+      }
+    }
+
+    function clearAtrativosSearch() {
+      const input = document.getElementById('atrativos-search');
+      if (input) {
+        input.value = '';
+        filterAtrativos('');
+        input.focus();
       }
     }
 

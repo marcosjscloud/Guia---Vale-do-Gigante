@@ -403,6 +403,63 @@ async function updateWeatherFavicon(lat = -25.430564, lon = -48.760243, showFeed
   }
 }
 
+function normalizeSearchText(str) {
+  return (str || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .trim();
+}
+
+function filterAtrativos(rawQuery) {
+  const query = normalizeSearchText(rawQuery);
+  const items = document.querySelectorAll('#atrativos-list .atrativo-item');
+  const clearBtn = document.getElementById('atrativos-search-clear');
+  const emptyState = document.getElementById('atrativos-empty');
+
+  if (clearBtn) {
+    if (rawQuery && rawQuery.length > 0) {
+      clearBtn.classList.remove('hidden');
+    } else {
+      clearBtn.classList.add('hidden');
+    }
+  }
+
+  let visibleCount = 0;
+  items.forEach((item) => {
+    const titleText = item.querySelector('.atrativo-title')?.textContent || '';
+    const descText = item.querySelector('.atrativo-desc')?.textContent || '';
+    const dataName = item.getAttribute('data-name') || '';
+    const searchable = normalizeSearchText(`${titleText} ${descText} ${dataName}`);
+
+    if (!query || searchable.includes(query)) {
+      item.classList.remove('hidden');
+      item.classList.add('flex');
+      visibleCount++;
+    } else {
+      item.classList.add('hidden');
+      item.classList.remove('flex');
+    }
+  });
+
+  if (emptyState) {
+    if (visibleCount === 0) {
+      emptyState.classList.remove('hidden');
+    } else {
+      emptyState.classList.add('hidden');
+    }
+  }
+}
+
+function clearAtrativosSearch() {
+  const input = document.getElementById('atrativos-search');
+  if (input) {
+    input.value = '';
+    filterAtrativos('');
+    input.focus();
+  }
+}
+
 window.addEventListener('DOMContentLoaded', () => {
   updateWeatherFavicon(currentWindyLat, currentWindyLon, false);
   setInterval(() => {
@@ -417,4 +474,7 @@ window.shareProfile = shareProfile;
 window.changeWindyLayer = changeWindyLayer;
 window.changeWindyLocation = changeWindyLocation;
 window.updateWeatherFavicon = updateWeatherFavicon;
+window.filterAtrativos = filterAtrativos;
+window.clearAtrativosSearch = clearAtrativosSearch;
+
 
