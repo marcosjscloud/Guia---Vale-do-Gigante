@@ -869,11 +869,11 @@
         <aside class="col-span-1 flex flex-col gap-2.5">
           <h3 class="text-xs font-bold text-emerald-400/90 uppercase tracking-wider mb-0.5">📍 Ponto de Referência</h3>
           <div class="grid grid-cols-2 gap-2 mb-2">
-            <button type="button" id="loc-baia" onclick="changeWindyLocation(-25.4283, -48.7119, 'loc-baia')" class="glass-button control-active text-center px-2 py-3 rounded-xl transition-all">
-              <div class="font-bold text-emerald-100 text-xs">Baía (Antonina)</div>
-            </button>
-            <button type="button" id="loc-vale" onclick="changeWindyLocation(-25.2591, -48.7405, 'loc-vale')" class="glass-button text-center px-2 py-3 rounded-xl transition-all">
+            <button type="button" id="loc-vale" onclick="changeWindyLocation(-25.2591, -48.7405, 'loc-vale')" class="glass-button control-active text-center px-2 py-3 rounded-xl transition-all">
               <div class="font-bold text-emerald-100 text-xs">Vale do Gigante</div>
+            </button>
+            <button type="button" id="loc-baia" onclick="changeWindyLocation(-25.4283, -48.7119, 'loc-baia')" class="glass-button text-center px-2 py-3 rounded-xl transition-all">
+              <div class="font-bold text-emerald-100 text-xs">Baía (Antonina)</div>
             </button>
           </div>
 
@@ -1585,8 +1585,8 @@
 
     // 5. Windy Map Logic (Lazy Loaded & Active State Highlighting)
     let currentWindyOverlay = 'wind';
-    let currentWindyLat = -25.4283;
-    let currentWindyLon = -48.7119;
+    let currentWindyLat = -25.2591;
+    let currentWindyLon = -48.7405;
 
     function updateWindyMap() {
       const mapContainer = document.getElementById('map-container');
@@ -1796,7 +1796,7 @@
       return canvas.toDataURL('image/png');
     }
 
-    async function updateWeatherFavicon(lat = -25.430564, lon = -48.760243, showFeedbackToast = false) {
+    async function updateWeatherFavicon(lat = -25.2591, lon = -48.7405, showFeedbackToast = false) {
       try {
         const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code,is_day,wind_speed_10m,precipitation&timezone=America%2FSao_Paulo`;
         const response = await fetch(url);

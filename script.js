@@ -153,8 +153,8 @@ function shareProfile(title, text) {
 
 // 5. Windy Map Logic (Lazy Loaded & Active State Highlighting)
 let currentWindyOverlay = 'wind';
-let currentWindyLat = -25.4283;
-let currentWindyLon = -48.7119;
+let currentWindyLat = -25.2591;
+let currentWindyLon = -48.7405;
 
 function updateWindyMap() {
   const mapContainer = document.getElementById('map-container');
