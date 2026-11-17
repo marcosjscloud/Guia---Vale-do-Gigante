@@ -148,59 +148,54 @@
       outline: none;
     }
 
-    /* Bottom Navigation Styles */
-    .glass-nav {
-      background: rgba(4, 13, 9, 0.95);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border-top: 1px solid rgba(52, 211, 153, 0.2);
-      box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.65);
+    /* Bottom Navigation Styles (Highlighted Language-Pill Model) */
+    .glass-nav-pill {
+      background: rgba(2, 44, 34, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(52, 211, 153, 0.7);
+      box-shadow: 0 0 22px -3px rgba(52, 211, 153, 0.5), 0 12px 32px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(110, 231, 183, 0.22);
     }
 
     .nav-btn {
       position: relative;
-      color: rgba(110, 231, 183, 0.55);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      color: rgba(209, 250, 229, 0.92);
+      border-radius: 9999px;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    
+
     .nav-btn:hover {
-      color: rgba(52, 211, 153, 0.95);
+      color: #ffffff;
+      background: rgba(16, 185, 129, 0.25);
     }
 
     .nav-btn svg {
-      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     .nav-btn span {
+      font-weight: 700;
       transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    
+
     .nav-btn.active {
-      color: #34d399;
+      background: linear-gradient(90deg, #fcd34d 0%, #6ee7b7 100%);
+      color: #020617;
+      box-shadow: 0 0 14px rgba(110, 231, 183, 0.65), inset 0 0 0 1px rgba(255, 255, 255, 0.55);
     }
-    
+
+    .nav-btn.active:hover {
+      background: linear-gradient(90deg, #fcd34d 0%, #6ee7b7 100%);
+      color: #020617;
+    }
+
     .nav-btn.active svg {
-      transform: translateY(-4px) scale(1.14);
-      filter: drop-shadow(0 5px 8px rgba(16, 185, 129, 0.75));
+      transform: scale(1.08);
     }
 
     .nav-btn.active span {
-      color: #ffffff;
-      font-weight: 700;
-      transform: translateY(-1px);
-    }
-    
-    .nav-btn.active::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 30px;
-      height: 3.5px;
-      background: #34d399;
-      border-radius: 0 0 6px 6px;
-      box-shadow: 0 3px 12px 1px rgba(52, 211, 153, 0.9);
+      color: #020617;
+      font-weight: 800;
     }
 
     /* Tab Transition Logic */
@@ -1173,32 +1168,32 @@
   </main>
 
   <!-- Bottom Navigation -->
-  <nav class="fixed bottom-0 w-full glass-nav z-50 pb-safe-bottom" aria-label="Navegação Principal" data-i18n-aria="nav.aria">
-    <div class="flex items-center justify-between px-1 h-[68px] overflow-x-auto scrollbar-hide w-full max-w-2xl mx-auto" role="tablist">
+  <nav class="fixed bottom-0 inset-x-0 z-50 px-2 sm:px-4 pb-[max(0.6rem,env(safe-area-inset-bottom))] pt-1 pointer-events-none" aria-label="Navegação Principal" data-i18n-aria="nav.aria">
+    <div class="pointer-events-auto glass-nav-pill rounded-full p-1 sm:p-1.5 flex items-center justify-between gap-0.5 sm:gap-1 w-full max-w-lg mx-auto" role="tablist">
     
-      <button type="button" onclick="switchTab('links')" id="nav-links" role="tab" aria-selected="true" aria-controls="tab-links" class="nav-btn active flex-1 flex-shrink-0 min-w-[54px] flex flex-col items-center justify-center h-full focus:outline-none">
-        <svg class="w-5 h-5 mb-1" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        <span data-i18n="nav.home" class="text-[10px] font-medium tracking-wide">Início</span>
+      <button type="button" onclick="switchTab('links')" id="nav-links" role="tab" aria-selected="true" aria-controls="tab-links" class="nav-btn active flex-1 min-w-0 py-1.5 px-1 flex flex-col items-center justify-center focus:outline-none cursor-pointer">
+        <svg class="w-4 h-4 sm:w-5 sm:h-5 mb-0.5 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span data-i18n="nav.home" class="text-[9.5px] sm:text-[11px] leading-tight tracking-tight sm:tracking-wide truncate max-w-full">Início</span>
       </button>
       
-      <button type="button" onclick="switchTab('atrativos')" id="nav-atrativos" role="tab" aria-selected="false" aria-controls="tab-atrativos" class="nav-btn flex-1 flex-shrink-0 min-w-[54px] flex flex-col items-center justify-center h-full focus:outline-none">
-        <svg class="w-5 h-5 mb-1" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
-        <span data-i18n="nav.attractions" class="text-[10px] font-medium tracking-wide">Atrativos</span>
+      <button type="button" onclick="switchTab('atrativos')" id="nav-atrativos" role="tab" aria-selected="false" aria-controls="tab-atrativos" class="nav-btn flex-1 min-w-0 py-1.5 px-1 flex flex-col items-center justify-center focus:outline-none cursor-pointer">
+        <svg class="w-4 h-4 sm:w-5 sm:h-5 mb-0.5 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+        <span data-i18n="nav.attractions" class="text-[9.5px] sm:text-[11px] leading-tight tracking-tight sm:tracking-wide truncate max-w-full">Atrativos</span>
       </button>
 
-      <button type="button" onclick="switchTab('parceiros')" id="nav-parceiros" role="tab" aria-selected="false" aria-controls="tab-parceiros" class="nav-btn flex-1 flex-shrink-0 min-w-[54px] flex flex-col items-center justify-center h-full focus:outline-none">
-        <svg class="w-5 h-5 mb-1" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
-        <span data-i18n="nav.adventures" class="text-[10px] font-medium tracking-wide">Aventuras</span>
+      <button type="button" onclick="switchTab('parceiros')" id="nav-parceiros" role="tab" aria-selected="false" aria-controls="tab-parceiros" class="nav-btn flex-1 min-w-0 py-1.5 px-1 flex flex-col items-center justify-center focus:outline-none cursor-pointer">
+        <svg class="w-4 h-4 sm:w-5 sm:h-5 mb-0.5 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+        <span data-i18n="nav.adventures" class="text-[9.5px] sm:text-[11px] leading-tight tracking-tight sm:tracking-wide truncate max-w-full">Aventuras</span>
       </button>
 
-      <button type="button" onclick="switchTab('hospedagem')" id="nav-hospedagem" role="tab" aria-selected="false" aria-controls="tab-hospedagem" class="nav-btn flex-1 flex-shrink-0 min-w-[54px] flex flex-col items-center justify-center h-full focus:outline-none">
-        <svg class="w-5 h-5 mb-1" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>
-        <span data-i18n="nav.lodging" class="text-[10px] font-medium tracking-wide">Hospedagem</span>
+      <button type="button" onclick="switchTab('hospedagem')" id="nav-hospedagem" role="tab" aria-selected="false" aria-controls="tab-hospedagem" class="nav-btn flex-1 min-w-0 py-1.5 px-1 flex flex-col items-center justify-center focus:outline-none cursor-pointer">
+        <svg class="w-4 h-4 sm:w-5 sm:h-5 mb-0.5 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>
+        <span data-i18n="nav.lodging" class="text-[9.5px] sm:text-[11px] leading-tight tracking-tight sm:tracking-wide truncate max-w-full">Hospedagem</span>
       </button>
 
-      <button type="button" onclick="switchTab('gastronomia')" id="nav-gastronomia" role="tab" aria-selected="false" aria-controls="tab-gastronomia" class="nav-btn flex-1 flex-shrink-0 min-w-[54px] flex flex-col items-center justify-center h-full focus:outline-none">
-        <svg class="w-5 h-5 mb-1" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
-        <span data-i18n="nav.gastronomy" class="text-[10px] font-medium tracking-wide">Gastronomia</span>
+      <button type="button" onclick="switchTab('gastronomia')" id="nav-gastronomia" role="tab" aria-selected="false" aria-controls="tab-gastronomia" class="nav-btn flex-1 min-w-0 py-1.5 px-1 flex flex-col items-center justify-center focus:outline-none cursor-pointer">
+        <svg class="w-4 h-4 sm:w-5 sm:h-5 mb-0.5 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+        <span data-i18n="nav.gastronomy" class="text-[9.5px] sm:text-[11px] leading-tight tracking-tight sm:tracking-wide truncate max-w-full">Gastronomia</span>
       </button>
 
     </div>
