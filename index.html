@@ -277,14 +277,21 @@
     <section id="tab-links" role="tabpanel" aria-labelledby="nav-links" class="tab-content active w-full max-w-md flex-col items-center px-4 pt-4 pb-8">
       
       <!-- Top Action Bar -->
-      <header class="w-full flex items-center justify-between mb-4">
-        <a href="https://wa.me/5541991460831?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Vale%20do%20Gigante." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-semibold text-emerald-300 bg-emerald-950/80 border border-emerald-700/60 shadow-sm hover:bg-emerald-900/80 hover:border-emerald-500 transition-all focus:outline-none focus:ring-2 focus:ring-brand-400">
+      <header class="w-full flex items-center justify-between gap-2 mb-4">
+        <a href="https://wa.me/5541991460831?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Vale%20do%20Gigante." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-semibold text-emerald-300 bg-emerald-950/80 border border-emerald-700/60 shadow-sm hover:bg-emerald-900/80 hover:border-emerald-500 transition-all focus:outline-none focus:ring-2 focus:ring-brand-400 whitespace-nowrap">
           <svg class="w-4 h-4 text-brand-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" /><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1" /></svg>
-          WhatsApp Oficial
+          <span data-i18n="home.whatsapp">WhatsApp Oficial</span>
         </a>
-        <button type="button" onclick="shareProfile('Vale do Gigante - Ecoturismo', 'Confira o guia digital e links oficiais do Vale do Gigante em Antonina-PR:')" aria-label="Compartilhar guia" class="p-2.5 rounded-full glass-panel hover:bg-emerald-950/70 text-emerald-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-brand-400">
-          <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-        </button>
+        <div class="flex items-center gap-1.5 shrink-0">
+          <div class="glass-panel rounded-full p-0.5 flex items-center gap-0.5 border border-emerald-500/25" role="group" aria-label="Selecionar idioma" data-i18n-aria="lang.ariaGroup">
+            <button type="button" onclick="setLanguage('pt')" data-lang-btn="pt" aria-pressed="true" title="Português" class="lang-btn px-2 py-1 rounded-full text-[11px] font-bold transition-all cursor-pointer bg-emerald-500 text-slate-950 shadow-sm">PT</button>
+            <button type="button" onclick="setLanguage('en')" data-lang-btn="en" aria-pressed="false" title="English" class="lang-btn px-2 py-1 rounded-full text-[11px] font-bold transition-all cursor-pointer text-emerald-300/80 hover:text-white">EN</button>
+            <button type="button" onclick="setLanguage('es')" data-lang-btn="es" aria-pressed="false" title="Español" class="lang-btn px-2 py-1 rounded-full text-[11px] font-bold transition-all cursor-pointer text-emerald-300/80 hover:text-white">ES</button>
+          </div>
+          <button type="button" onclick="shareSection('links')" aria-label="Compartilhar guia" data-i18n-aria="home.shareAria" class="p-2.5 rounded-full glass-panel hover:bg-emerald-950/70 text-emerald-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-brand-400 cursor-pointer">
+            <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          </button>
+        </div>
       </header>
 
       <!-- Logo & Main Info -->
@@ -299,7 +306,7 @@
       <p class="text-sm sm:text-base text-emerald-200/90 font-medium text-center mb-2.5 max-w-xs sm:max-w-sm leading-relaxed inline-flex flex-wrap items-center justify-center gap-1.5">
         <span>Antonina - PR</span>
         <svg class="w-4 h-4 text-emerald-400 inline shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
-        <span>Ecoturismo no coração da Mata Atlântica</span>
+        <span data-i18n="home.tagline">Ecoturismo no coração da Mata Atlântica</span>
       </p>
       <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold text-emerald-300 bg-emerald-950/70 border border-emerald-700/50 mb-6 shadow-sm">
         <svg class="w-3.5 h-3.5 text-emerald-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
@@ -315,7 +322,7 @@
             <div class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
               <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
             </div>
-            <span class="text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors tracking-wide">SITE OFICIAL</span>
+            <span data-i18n="home.siteBtn" class="text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors tracking-wide">SITE OFICIAL</span>
             <div class="w-9 h-9 flex items-center justify-center pointer-events-none shrink-0">
               <svg id="site-arrow" aria-hidden="true" class="w-5 h-5 text-emerald-400 group-hover:text-emerald-300 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M19 9l-7 7-7-7" /></svg>
             </div>
@@ -326,42 +333,42 @@
               <a href="https://valedogigante.com.br/" target="_blank" rel="noopener noreferrer" class="glass-submenu-item px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold text-emerald-100 flex items-center justify-between shadow-sm group">
                 <span class="flex items-center gap-2.5">
                   <svg class="w-4 h-4 text-emerald-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                  Página Inicial
+                  <span data-i18n="home.sub.home">Página Inicial</span>
                 </span>
                 <svg class="w-4 h-4 text-emerald-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
               </a>
               <a href="https://valedogigante.com.br/trilhas/" target="_blank" rel="noopener noreferrer" class="glass-submenu-item px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold text-emerald-100 flex items-center justify-between shadow-sm group">
                 <span class="flex items-center gap-2.5">
                   <svg class="w-4 h-4 text-emerald-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
-                  Atrativos & Trilhas
+                  <span data-i18n="home.sub.trails">Atrativos & Trilhas</span>
                 </span>
                 <svg class="w-4 h-4 text-emerald-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
               </a>
               <a href="https://valedogigante.com.br/cicloturismo/" target="_blank" rel="noopener noreferrer" class="glass-submenu-item px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold text-emerald-100 flex items-center justify-between shadow-sm group">
                 <span class="flex items-center gap-2.5">
                   <svg class="w-4 h-4 text-emerald-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18.5" cy="17.5" r="3.5"/><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="15" cy="5" r="1"/><path d="M12 17.5V14l-3-3 4-3 2 3h2"/></svg>
-                  Aventuras & Cicloturismo
+                  <span data-i18n="home.sub.adventures">Aventuras & Cicloturismo</span>
                 </span>
                 <svg class="w-4 h-4 text-emerald-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
               </a>
               <a href="https://valedogigante.com.br/pousadas/" target="_blank" rel="noopener noreferrer" class="glass-submenu-item px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold text-emerald-100 flex items-center justify-between shadow-sm group">
                 <span class="flex items-center gap-2.5">
                   <svg class="w-4 h-4 text-emerald-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>
-                  Hospedagem
+                  <span data-i18n="home.sub.lodging">Hospedagem</span>
                 </span>
                 <svg class="w-4 h-4 text-emerald-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
               </a>
               <a href="https://valedogigante.com.br/gastronomia/" target="_blank" rel="noopener noreferrer" class="glass-submenu-item px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold text-emerald-100 flex items-center justify-between shadow-sm group">
                 <span class="flex items-center gap-2.5">
                   <svg class="w-4 h-4 text-emerald-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
-                  Gastronomia
+                  <span data-i18n="home.sub.gastronomy">Gastronomia</span>
                 </span>
                 <svg class="w-4 h-4 text-emerald-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
               </a>
               <a href="https://valedogigante.com.br/blog/" target="_blank" rel="noopener noreferrer" class="glass-submenu-item px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold text-emerald-100 flex items-center justify-between shadow-sm group">
                 <span class="flex items-center gap-2.5">
                   <svg class="w-4 h-4 text-emerald-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-                  Blog & Dicas
+                  <span data-i18n="home.sub.blog">Blog & Dicas</span>
                 </span>
                 <svg class="w-4 h-4 text-emerald-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
               </a>
@@ -373,7 +380,7 @@
           <div class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
           </div>
-          <span class="text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors tracking-wide relative z-10">INSTAGRAM OFICIAL</span>
+          <span data-i18n="home.instagram" class="text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors tracking-wide relative z-10">INSTAGRAM OFICIAL</span>
           <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
           </div>
@@ -383,7 +390,7 @@
           <div class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
           </div>
-          <span class="text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors tracking-wide relative z-10">GALERIA DE FOTOS</span>
+          <span data-i18n="home.gallery" class="text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors tracking-wide relative z-10">GALERIA DE FOTOS</span>
           <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 transition-all shrink-0">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
           </div>
@@ -394,8 +401,8 @@
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="M20 12h2"/><path d="m19.07 4.93-1.41 1.41"/><path d="M15.947 12.65a4 4 0 0 0-5.925-4.128"/><path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z"/></svg>
           </div>
           <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0 px-2">
-            <span class="text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors tracking-wide relative z-10">PREVISÃO DO TEMPO</span>
-            <span id="home-weather-live-badge" class="text-[11px] text-emerald-400/90 font-medium mt-0.5 hidden">Consultando clima ao vivo...</span>
+            <span data-i18n="home.weather" class="text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors tracking-wide relative z-10">PREVISÃO DO TEMPO</span>
+            <span id="home-weather-live-badge" data-i18n="home.weatherChecking" class="text-[11px] text-emerald-400/90 font-medium mt-0.5 hidden">Consultando clima ao vivo...</span>
           </div>
           <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 transition-all shrink-0">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
@@ -406,7 +413,7 @@
           <div class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
           </div>
-          <span class="text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors tracking-wide relative z-10">COMO CHEGAR (ROTA GPS)</span>
+          <span data-i18n="home.route" class="text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors tracking-wide relative z-10">COMO CHEGAR (ROTA GPS)</span>
           <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 transition-all shrink-0">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
           </div>
@@ -415,7 +422,7 @@
       
       <!-- Footer -->
       <footer class="w-full text-center text-xs text-emerald-500/60 flex flex-col gap-1 mt-auto pt-2">
-        <p>© 2026 • Todos os direitos reservados</p>
+        <p data-i18n="home.rights">© 2026 • Todos os direitos reservados</p>
         <p class="text-[11px] text-emerald-400 font-semibold tracking-wider">VALE DO GIGANTE • ANTONINA - PR</p>
       </footer>
     </section>
@@ -426,30 +433,36 @@
     <section id="tab-parceiros" role="tabpanel" aria-labelledby="nav-parceiros" class="tab-content w-full max-w-md flex-col items-center px-4 pt-4 pb-8">
       
       <header class="sticky top-0 z-30 -mx-4 px-4 py-2.5 mb-4 bg-[#07130e]/90 backdrop-blur-xl border-b border-emerald-500/15 w-[calc(100%+2rem)] flex items-center justify-between gap-2">
-        <h2 class="text-xl sm:text-2xl font-extrabold tracking-wide text-white flex items-center gap-2">
+        <h2 class="text-lg sm:text-2xl font-extrabold tracking-wide text-white flex items-center gap-2 min-w-0">
           <span class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-400 shrink-0">
             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
           </span>
-          Aventuras
+          <span data-i18n="adventures.heading" class="truncate">Aventuras</span>
         </h2>
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-1.5 shrink-0">
+          <div class="glass-panel rounded-full p-0.5 flex items-center border border-emerald-500/25" role="group" aria-label="Selecionar idioma" data-i18n-aria="lang.ariaGroup">
+            <button type="button" onclick="setLanguage('pt')" data-lang-btn="pt" aria-pressed="true" title="Português" class="lang-btn px-1.5 py-1 rounded-full text-[10px] font-bold transition-all cursor-pointer bg-emerald-500 text-slate-950 shadow-sm">PT</button>
+            <button type="button" onclick="setLanguage('en')" data-lang-btn="en" aria-pressed="false" title="English" class="lang-btn px-1.5 py-1 rounded-full text-[10px] font-bold transition-all cursor-pointer text-emerald-300/80 hover:text-white">EN</button>
+            <button type="button" onclick="setLanguage('es')" data-lang-btn="es" aria-pressed="false" title="Español" class="lang-btn px-1.5 py-1 rounded-full text-[10px] font-bold transition-all cursor-pointer text-emerald-300/80 hover:text-white">ES</button>
+          </div>
           <button
             type="button"
             onclick="openEmergencyModal()"
             aria-label="Abrir contatos de emergência em Antonina"
-            class="px-3 py-2 rounded-full bg-rose-500/20 hover:bg-rose-500/35 border border-rose-400/45 text-rose-100 hover:text-white text-xs font-bold flex items-center gap-1.5 shadow-lg shadow-rose-950/40 transition-all cursor-pointer"
+            data-i18n-aria="emergency.openAria"
+            class="px-2.5 py-1.5 rounded-full bg-rose-500/20 hover:bg-rose-500/35 border border-rose-400/45 text-rose-100 hover:text-white text-[11px] sm:text-xs font-bold flex items-center gap-1 shadow-lg shadow-rose-950/40 transition-all cursor-pointer"
           >
-            <span class="w-2 h-2 rounded-full bg-rose-400 animate-pulse shrink-0"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-rose-400 animate-pulse shrink-0"></span>
             <svg class="w-3.5 h-3.5 text-rose-300 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <span>Emergência</span>
+            <span data-i18n="emergency.btn">Emergência</span>
           </button>
-          <button type="button" onclick="shareProfile('Aventuras - Vale do Gigante', 'Confira os parceiros oficiais de aventura do Vale do Gigante:')" aria-label="Compartilhar Aventuras" class="p-2.5 rounded-full glass-panel hover:bg-emerald-950/70 text-emerald-300 hover:text-white transition-colors">
+          <button type="button" onclick="shareSection('parceiros')" aria-label="Compartilhar Aventuras" data-i18n-aria="adventures.shareAria" class="p-2 rounded-full glass-panel hover:bg-emerald-950/70 text-emerald-300 hover:text-white transition-colors cursor-pointer">
             <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
           </button>
         </div>
       </header>
 
-      <p class="text-sm sm:text-base text-emerald-200/90 font-medium text-center mb-6 max-w-xs leading-relaxed mx-auto">
+      <p data-i18n="adventures.intro" class="text-sm sm:text-base text-emerald-200/90 font-medium text-center mb-6 max-w-xs leading-relaxed mx-auto">
         Fale diretamente com nossos operadores oficiais e agende sua próxima experiência na natureza.
       </p>
 
@@ -459,7 +472,7 @@
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 18c2 0 4-2 6-2s4 2 6 2 4-2 6-2"/><path d="M3 13l9-9 9 9"/><path d="M5 13c2 2 12 2 14 0"/></svg>
           </div>
           <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
-            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">CAIAQUE</span>
+            <span data-i18n="adventures.kayak" class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">CAIAQUE</span>
             <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Antonina Adventure</span>
           </div>
           <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
@@ -472,7 +485,7 @@
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg>
           </div>
           <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
-            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">RAFTING</span>
+            <span data-i18n="adventures.rafting" class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">RAFTING</span>
             <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Icatú Rafting</span>
           </div>
           <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
@@ -485,7 +498,7 @@
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18.5" cy="17.5" r="3.5"/><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="15" cy="5" r="1"/><path d="M12 17.5V14l-3-3 4-3 2 3h2"/></svg>
           </div>
           <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
-            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">CICLOTURISMO</span>
+            <span data-i18n="adventures.bike" class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">CICLOTURISMO</span>
             <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Gaturamo</span>
           </div>
           <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
@@ -498,7 +511,7 @@
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4"/><path d="M4 13h4"/></svg>
           </div>
           <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
-            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">TRILHAS GUIADAS</span>
+            <span data-i18n="adventures.trails" class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">TRILHAS GUIADAS</span>
             <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Café e Aventuras</span>
           </div>
           <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
@@ -511,7 +524,7 @@
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="4.93" x2="9.17" y1="4.93" y2="9.17"/><line x1="14.83" x2="19.07" y1="14.83" y2="19.07"/><line x1="14.83" x2="19.07" y1="9.17" y2="4.93"/><line x1="4.93" x2="9.17" y1="19.07" y2="14.83"/></svg>
           </div>
           <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
-            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">BOIA CROSS</span>
+            <span data-i18n="adventures.tubing" class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">BOIA CROSS</span>
             <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Boia do Vale</span>
           </div>
           <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
@@ -524,7 +537,7 @@
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
           </div>
           <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
-            <span class="text-sm font-bold text-emerald-100 group-hover:text-emerald-300 transition-colors">Dúvidas ou Parcerias? Envie um E-mail</span>
+            <span data-i18n="adventures.email" class="text-sm font-bold text-emerald-100 group-hover:text-emerald-300 transition-colors">Dúvidas ou Parcerias? Envie um E-mail</span>
             <span class="text-xs text-emerald-400 mt-0.5">contato@valedogigante.com.br</span>
           </div>
           <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 transition-all shrink-0">
@@ -539,19 +552,26 @@
     <!-- ========================================== -->
     <section id="tab-hospedagem" role="tabpanel" aria-labelledby="nav-hospedagem" class="tab-content w-full max-w-md flex-col items-center px-4 pt-4 pb-8">
       
-      <header class="w-full flex items-center justify-between mb-4">
-        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-wide text-white flex items-center gap-2.5">
+      <header class="w-full flex items-center justify-between gap-2 mb-4">
+        <h2 class="text-xl sm:text-3xl font-extrabold tracking-wide text-white flex items-center gap-2.5 min-w-0">
           <span class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-400 shrink-0">
             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>
           </span>
-          Hospedagem
+          <span data-i18n="lodging.heading" class="truncate">Hospedagem</span>
         </h2>
-        <button type="button" onclick="shareProfile('Hospedagem - Vale do Gigante', 'Confira onde se hospedar no Vale do Gigante em Antonina-PR:')" aria-label="Compartilhar Hospedagem" class="p-2.5 rounded-full glass-panel hover:bg-emerald-950/70 text-emerald-300 hover:text-white transition-colors">
-          <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-        </button>
+        <div class="flex items-center gap-1.5 shrink-0">
+          <div class="glass-panel rounded-full p-0.5 flex items-center border border-emerald-500/25" role="group" aria-label="Selecionar idioma" data-i18n-aria="lang.ariaGroup">
+            <button type="button" onclick="setLanguage('pt')" data-lang-btn="pt" aria-pressed="true" title="Português" class="lang-btn px-2 py-1 rounded-full text-[10px] sm:text-[11px] font-bold transition-all cursor-pointer bg-emerald-500 text-slate-950 shadow-sm">PT</button>
+            <button type="button" onclick="setLanguage('en')" data-lang-btn="en" aria-pressed="false" title="English" class="lang-btn px-2 py-1 rounded-full text-[10px] sm:text-[11px] font-bold transition-all cursor-pointer text-emerald-300/80 hover:text-white">EN</button>
+            <button type="button" onclick="setLanguage('es')" data-lang-btn="es" aria-pressed="false" title="Español" class="lang-btn px-2 py-1 rounded-full text-[10px] sm:text-[11px] font-bold transition-all cursor-pointer text-emerald-300/80 hover:text-white">ES</button>
+          </div>
+          <button type="button" onclick="shareSection('hospedagem')" aria-label="Compartilhar Hospedagem" data-i18n-aria="lodging.shareAria" class="p-2.5 rounded-full glass-panel hover:bg-emerald-950/70 text-emerald-300 hover:text-white transition-colors cursor-pointer">
+            <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          </button>
+        </div>
       </header>
 
-      <p class="text-sm sm:text-base text-emerald-200/90 font-medium text-center mb-6 max-w-xs leading-relaxed mx-auto">
+      <p data-i18n="lodging.intro" class="text-sm sm:text-base text-emerald-200/90 font-medium text-center mb-6 max-w-xs leading-relaxed mx-auto">
         Refúgios aconchegantes, ecolodges e chácaras em meio à natureza exuberante da Mata Atlântica.
       </p>
 
@@ -611,19 +631,26 @@
     <!-- ========================================== -->
     <section id="tab-atrativos" role="tabpanel" aria-labelledby="nav-atrativos" class="tab-content w-full max-w-md flex-col items-center px-4 pt-4 pb-8">
       
-      <header class="w-full flex items-center justify-between mb-4">
-        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-wide text-white flex items-center gap-2.5">
+      <header class="w-full flex items-center justify-between gap-2 mb-4">
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-wide text-white flex items-center gap-2.5 min-w-0">
           <span class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-400 shrink-0">
             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
           </span>
-          Atrativos
+          <span data-i18n="attractions.heading" class="truncate">Atrativos</span>
         </h2>
-        <button type="button" onclick="shareProfile('Atrativos - Vale do Gigante', 'Confira os principais atrativos naturais do Vale do Gigante:')" aria-label="Compartilhar Atrativos" class="p-2.5 rounded-full glass-panel hover:bg-emerald-950/70 text-emerald-300 hover:text-white transition-colors">
-          <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-        </button>
+        <div class="flex items-center gap-1.5 shrink-0">
+          <div class="glass-panel rounded-full p-0.5 flex items-center gap-0.5 border border-emerald-500/25" role="group" aria-label="Selecionar idioma" data-i18n-aria="lang.ariaGroup">
+            <button type="button" onclick="setLanguage('pt')" data-lang-btn="pt" aria-pressed="true" title="Português" class="lang-btn px-2 py-1 rounded-full text-[11px] font-bold transition-all cursor-pointer bg-emerald-500 text-slate-950 shadow-sm">PT</button>
+            <button type="button" onclick="setLanguage('en')" data-lang-btn="en" aria-pressed="false" title="English" class="lang-btn px-2 py-1 rounded-full text-[11px] font-bold transition-all cursor-pointer text-emerald-300/80 hover:text-white">EN</button>
+            <button type="button" onclick="setLanguage('es')" data-lang-btn="es" aria-pressed="false" title="Español" class="lang-btn px-2 py-1 rounded-full text-[11px] font-bold transition-all cursor-pointer text-emerald-300/80 hover:text-white">ES</button>
+          </div>
+          <button type="button" onclick="shareSection('atrativos')" aria-label="Compartilhar Atrativos" data-i18n-aria="attractions.shareAria" class="p-2.5 rounded-full glass-panel hover:bg-emerald-950/70 text-emerald-300 hover:text-white transition-colors cursor-pointer">
+            <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          </button>
+        </div>
       </header>
 
-      <p class="text-sm sm:text-base text-emerald-200/90 font-medium text-center mb-4 max-w-xs leading-relaxed mx-auto">
+      <p data-i18n="attractions.intro" class="text-sm sm:text-base text-emerald-200/90 font-medium text-center mb-4 max-w-xs leading-relaxed mx-auto">
         Belezas naturais, picos imponentes, reservas ecológicas e rios cristalinos da nossa região.
       </p>
 
@@ -639,7 +666,9 @@
             id="atrativos-search"
             oninput="filterAtrativos(this.value)"
             placeholder="Pesquisar atrativo ou atividade..."
+            data-i18n-placeholder="attractions.searchPlaceholder"
             aria-label="Pesquisar atrativos por nome"
+            data-i18n-aria="attractions.searchAria"
             autocomplete="off"
             class="w-full bg-transparent text-sm sm:text-base text-white placeholder-emerald-300/50 focus:outline-none"
           />
@@ -648,6 +677,7 @@
             id="atrativos-search-clear"
             onclick="clearAtrativosSearch()"
             aria-label="Limpar pesquisa"
+            data-i18n-aria="attractions.clearAria"
             class="hidden w-6 h-6 rounded-full bg-emerald-500/20 hover:bg-emerald-500/40 text-emerald-200 flex items-center justify-center transition-colors shrink-0"
           >
             <svg class="w-3.5 h-3.5" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
@@ -659,78 +689,78 @@
       </div>
 
       <div id="atrativos-list" class="w-full flex flex-col gap-3.5 mb-8">
-        <a href="https://valedogigante.com.br/2025/07/17/pico-parana/" target="_blank" rel="noopener noreferrer" data-name="Pico Paraná A montanha mais alta do Sul do Brasil" class="atrativo-item glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+        <a href="https://valedogigante.com.br/2025/07/17/pico-parana/" target="_blank" rel="noopener noreferrer" data-name="Pico Paraná A montanha mais alta do Sul do Brasil highest mountain southern brazil montaña más alta sur brasil" class="atrativo-item glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
           <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/><path d="M4.14 15.08c2.62-1.57 5.24-1.43 7.86.42 2.74 1.94 5.49 2 8.23.19"/></svg>
           </div>
           <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
-            <span class="atrativo-title relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">PICO PARANÁ</span>
-            <span class="atrativo-desc relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">A montanha mais alta do Sul do Brasil (1.877m)</span>
+            <span data-i18n="attractions.picoTitle" class="atrativo-title relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">PICO PARANÁ</span>
+            <span data-i18n="attractions.picoDesc" class="atrativo-desc relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">A montanha mais alta do Sul do Brasil (1.877m)</span>
           </div>
           <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
           </div>
         </a>
          
-        <a href="https://valedogigante.com.br/trilhas/" target="_blank" rel="noopener noreferrer" data-name="Trilhas do Vale História colonial e caminhadas ecológicas" class="atrativo-item glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+        <a href="https://valedogigante.com.br/trilhas/" target="_blank" rel="noopener noreferrer" data-name="Trilhas do Vale História colonial e caminhadas ecológicas valley trails ecological hikes senderos del valle" class="atrativo-item glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
           <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m17 14 3 3.3a1 1 0 0 1-.7 1.7H4.7a1 1 0 0 1-.7-1.7L7 14h-.3a1 1 0 0 1-.7-1.7L9 9h-.2A1 1 0 0 1 8 7.3L12 3l4 4.3a1 1 0 0 1-.8 1.7H15l3 3.3a1 1 0 0 1-.7 1.7H17Z"/><path d="M12 22v-3"/></svg>
           </div>
           <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
-            <span class="atrativo-title relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">TRILHAS DO VALE</span>
-            <span class="atrativo-desc relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">História colonial e caminhadas ecológicas</span>
+            <span data-i18n="attractions.trailsTitle" class="atrativo-title relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">TRILHAS DO VALE</span>
+            <span data-i18n="attractions.trailsDesc" class="atrativo-desc relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">História colonial e caminhadas ecológicas</span>
           </div>
           <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
           </div>
         </a>
         
-        <a href="https://valedogigante.com.br/experiencia-guaricica/" target="_blank" rel="noopener noreferrer" data-name="Experiência Guaricica Imersão na Reserva Natural Guaricica SPVS" class="atrativo-item glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+        <a href="https://valedogigante.com.br/experiencia-guaricica/" target="_blank" rel="noopener noreferrer" data-name="Experiência Guaricica Imersão na Reserva Natural Guaricica SPVS guaricica experience nature reserve experiencia reserva" class="atrativo-item glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
           <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
           </div>
           <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
-            <span class="atrativo-title relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">EXPERIÊNCIA GUARICICA</span>
-            <span class="atrativo-desc relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Imersão na Reserva Natural Guaricica (SPVS)</span>
+            <span data-i18n="attractions.guaricicaTitle" class="atrativo-title relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">EXPERIÊNCIA GUARICICA</span>
+            <span data-i18n="attractions.guaricicaDesc" class="atrativo-desc relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Imersão na Reserva Natural Guaricica (SPVS)</span>
           </div>
           <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
           </div>
         </a>
         
-        <a href="https://rafting.valedogigante.com.br" target="_blank" rel="noopener noreferrer" data-name="Rio Cachoeira Corredeiras rafting e piscinas naturais" class="atrativo-item glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+        <a href="https://rafting.valedogigante.com.br" target="_blank" rel="noopener noreferrer" data-name="Rio Cachoeira Corredeiras rafting e piscinas naturais cachoeira river rapids natural pools rápidos" class="atrativo-item glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
           <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg>
           </div>
           <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
-            <span class="atrativo-title relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">RIO CACHOEIRA</span>
-            <span class="atrativo-desc relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Corredeiras, rafting e piscinas naturais</span>
+            <span data-i18n="attractions.cachoeiraTitle" class="atrativo-title relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">RIO CACHOEIRA</span>
+            <span data-i18n="attractions.cachoeiraDesc" class="atrativo-desc relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Corredeiras, rafting e piscinas naturais</span>
           </div>
           <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
           </div>
         </a>
         
-        <a href="https://boiacross.valedogigante.com.br/" target="_blank" rel="noopener noreferrer" data-name="Rio do Nunes Boia cross e banhos refrescantes em família" class="atrativo-item glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+        <a href="https://boiacross.valedogigante.com.br/" target="_blank" rel="noopener noreferrer" data-name="Rio do Nunes Boia cross e banhos refrescantes em família river tubing family swims baños refrescantes" class="atrativo-item glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
           <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
           </div>
           <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
-            <span class="atrativo-title relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">RIO DO NUNES</span>
-            <span class="atrativo-desc relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Boia cross e banhos refrescantes em família</span>
+            <span data-i18n="attractions.nunesTitle" class="atrativo-title relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">RIO DO NUNES</span>
+            <span data-i18n="attractions.nunesDesc" class="atrativo-desc relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Boia cross e banhos refrescantes em família</span>
           </div>
           <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
           </div>
         </a>
         
-        <a href="https://valedogigante.com.br/observacaoaves/" target="_blank" rel="noopener noreferrer" data-name="Observação de Aves Mais de 500 espécies catalogadas em Antonina" class="atrativo-item glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+        <a href="https://valedogigante.com.br/observacaoaves/" target="_blank" rel="noopener noreferrer" data-name="Observação de Aves Mais de 500 espécies catalogadas em Antonina birdwatching avistamiento de aves" class="atrativo-item glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
           <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 10h4"/><path d="M19 7V4a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v3"/><path d="M20 21a2 2 0 0 0 2-2v-3.851c0-1.39-2-2.962-2-4.829V8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v11a2 2 0 0 0 2 2z"/><path d="M 22 16 L 2 16"/><path d="M4 21a2 2 0 0 1-2-2v-3.851c0-1.39 2-2.962 2-4.829V8a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v11a2 2 0 0 1-2 2z"/><path d="M9 7V4a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v3"/></svg>
           </div>
           <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
-            <span class="atrativo-title relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">OBSERVAÇÃO DE AVES</span>
-            <span class="atrativo-desc relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Mais de 500 espécies catalogadas em Antonina</span>
+            <span data-i18n="attractions.birdsTitle" class="atrativo-title relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">OBSERVAÇÃO DE AVES</span>
+            <span data-i18n="attractions.birdsDesc" class="atrativo-desc relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Mais de 500 espécies catalogadas em Antonina</span>
           </div>
           <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
@@ -746,9 +776,9 @@
             <path d="m21 21-4.3-4.3"/>
           </svg>
         </div>
-        <p class="text-sm font-bold text-white mb-1">Nenhum atrativo encontrado</p>
-        <p class="text-xs text-emerald-300/80 mb-3">Tente buscar por outro nome, como "Pico", "Rio" ou "Trilhas".</p>
-        <button type="button" onclick="clearAtrativosSearch()" class="px-3.5 py-1.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-400/30 text-xs font-semibold text-emerald-200 transition-colors">
+        <p data-i18n="attractions.emptyTitle" class="text-sm font-bold text-white mb-1">Nenhum atrativo encontrado</p>
+        <p data-i18n="attractions.emptyHint" class="text-xs text-emerald-300/80 mb-3">Tente buscar por outro nome, como "Pico", "Rio" ou "Trilhas".</p>
+        <button type="button" onclick="clearAtrativosSearch()" data-i18n="attractions.showAll" class="px-3.5 py-1.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-400/30 text-xs font-semibold text-emerald-200 transition-colors">
           Mostrar todos os atrativos
         </button>
       </div>
@@ -759,19 +789,26 @@
     <!-- ========================================== -->
     <section id="tab-gastronomia" role="tabpanel" aria-labelledby="nav-gastronomia" class="tab-content w-full max-w-md flex-col items-center px-4 pt-4 pb-8">
       
-      <header class="w-full flex items-center justify-between mb-4">
-        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-wide text-white flex items-center gap-2.5">
+      <header class="w-full flex items-center justify-between gap-2 mb-4">
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-wide text-white flex items-center gap-2.5 min-w-0">
           <span class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-400 shrink-0">
             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
           </span>
-          Gastronomia
+          <span data-i18n="gastronomy.heading" class="truncate">Gastronomia</span>
         </h2>
-        <button type="button" onclick="shareProfile('Gastronomia - Vale do Gigante', 'Confira os sabores autênticos do Vale do Gigante:')" aria-label="Compartilhar Gastronomia" class="p-2.5 rounded-full glass-panel hover:bg-emerald-950/70 text-emerald-300 hover:text-white transition-colors">
-          <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-        </button>
+        <div class="flex items-center gap-1.5 shrink-0">
+          <div class="glass-panel rounded-full p-0.5 flex items-center gap-0.5 border border-emerald-500/25" role="group" aria-label="Selecionar idioma" data-i18n-aria="lang.ariaGroup">
+            <button type="button" onclick="setLanguage('pt')" data-lang-btn="pt" aria-pressed="true" title="Português" class="lang-btn px-2 py-1 rounded-full text-[11px] font-bold transition-all cursor-pointer bg-emerald-500 text-slate-950 shadow-sm">PT</button>
+            <button type="button" onclick="setLanguage('en')" data-lang-btn="en" aria-pressed="false" title="English" class="lang-btn px-2 py-1 rounded-full text-[11px] font-bold transition-all cursor-pointer text-emerald-300/80 hover:text-white">EN</button>
+            <button type="button" onclick="setLanguage('es')" data-lang-btn="es" aria-pressed="false" title="Español" class="lang-btn px-2 py-1 rounded-full text-[11px] font-bold transition-all cursor-pointer text-emerald-300/80 hover:text-white">ES</button>
+          </div>
+          <button type="button" onclick="shareSection('gastronomia')" aria-label="Compartilhar Gastronomia" data-i18n-aria="gastronomy.shareAria" class="p-2.5 rounded-full glass-panel hover:bg-emerald-950/70 text-emerald-300 hover:text-white transition-colors cursor-pointer">
+            <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          </button>
+        </div>
       </header>
 
-      <p class="text-sm sm:text-base text-emerald-200/90 font-medium text-center mb-6 max-w-xs leading-relaxed mx-auto">
+      <p data-i18n="gastronomy.intro" class="text-sm sm:text-base text-emerald-200/90 font-medium text-center mb-6 max-w-xs leading-relaxed mx-auto">
         Descubra a tradição do Barreado, cafés rurais, as famosas balas de banana e produtos coloniais.
       </p>
 
@@ -781,8 +818,8 @@
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2v2"/><path d="M14 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/><path d="M6 2v2"/></svg>
           </div>
           <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
-            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">CAFÉS E LANCHONETES</span>
-            <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Paradas aconchegantes no coração do Vale</span>
+            <span data-i18n="gastronomy.cafesTitle" class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">CAFÉS E LANCHONETES</span>
+            <span data-i18n="gastronomy.cafesDesc" class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Paradas aconchegantes no coração do Vale</span>
           </div>
           <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
@@ -794,8 +831,8 @@
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13c3.5-2 8-2 10 2a5.5 5.5 0 0 1 8 5"/><path d="M5.15 17.89c5.52-1.52 8.65-6.89 7-12C11.55 4 11.5 2 13 2c3.22 0 5 5.5 5 8 0 6.5-4.2 12-10.49 12C5.11 22 2 22 2 20c0-1.5 1.14-1.55 3.15-2.11Z"/></svg>
           </div>
           <div class="flex flex-col items-center justify-center text-center flex-1 min-w-0">
-            <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">PRODUTORES LOCAIS</span>
-            <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Balas de Banana 100% naturais e doces artesanais</span>
+            <span data-i18n="gastronomy.localTitle" class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">PRODUTORES LOCAIS</span>
+            <span data-i18n="gastronomy.localDesc" class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium">Balas de Banana 100% naturais e doces artesanais</span>
           </div>
           <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
@@ -810,7 +847,7 @@
             <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">CANTINA CASA VERDE</span>
             <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium inline-flex items-center gap-1">
               <svg class="w-3.5 h-3.5 text-emerald-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-              Antonina – Centro
+              <span data-i18n="gastronomy.centerLoc">Antonina – Centro</span>
             </span>
           </div>
           <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
@@ -826,7 +863,7 @@
             <span class="relative z-10 text-sm sm:text-base font-bold text-emerald-50 group-hover:text-emerald-300 transition-colors uppercase tracking-wider">RECANTO DA FAMÍLIA</span>
             <span class="relative z-10 text-xs text-emerald-400/90 mt-0.5 font-medium inline-flex items-center gap-1">
               <svg class="w-3.5 h-3.5 text-emerald-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-              Antonina – Centro
+              <span data-i18n="gastronomy.centerLoc">Antonina – Centro</span>
             </span>
           </div>
           <div class="w-9 h-9 flex items-center justify-center text-emerald-400/80 group-hover:text-emerald-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0">
@@ -847,27 +884,34 @@
             <span class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-400 shrink-0">
               <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 2v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="M20 12h2"/><path d="m19.07 4.93-1.41 1.41"/><path d="M15.947 12.65a4 4 0 0 0-5.925-4.128"/><path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z"/></svg>
             </span>
-            Clima & Segurança
+            <span data-i18n="weather.heading">Clima & Segurança</span>
           </h2>
-          <p class="text-xs text-emerald-300 mt-1">Monitoramento meteorológico em tempo real para Ecoturismo</p>
+          <p data-i18n="weather.subtitle" class="text-xs text-emerald-300 mt-1">Monitoramento meteorológico em tempo real para Ecoturismo</p>
         </div>
         <div class="flex flex-wrap items-center gap-2">
+          <div class="glass-panel rounded-full p-0.5 flex items-center gap-0.5 border border-emerald-500/25" role="group" aria-label="Selecionar idioma" data-i18n-aria="lang.ariaGroup">
+            <button type="button" onclick="setLanguage('pt')" data-lang-btn="pt" aria-pressed="true" title="Português" class="lang-btn px-2 py-1 rounded-full text-[11px] font-bold transition-all cursor-pointer bg-emerald-500 text-slate-950 shadow-sm">PT</button>
+            <button type="button" onclick="setLanguage('en')" data-lang-btn="en" aria-pressed="false" title="English" class="lang-btn px-2 py-1 rounded-full text-[11px] font-bold transition-all cursor-pointer text-emerald-300/80 hover:text-white">EN</button>
+            <button type="button" onclick="setLanguage('es')" data-lang-btn="es" aria-pressed="false" title="Español" class="lang-btn px-2 py-1 rounded-full text-[11px] font-bold transition-all cursor-pointer text-emerald-300/80 hover:text-white">ES</button>
+          </div>
           <button
             type="button"
             onclick="openEmergencyModal()"
             aria-label="Abrir contatos de emergência em Antonina"
+            data-i18n-aria="emergency.openAria"
             class="px-3.5 py-1.5 rounded-full bg-rose-500/20 hover:bg-rose-500/35 border border-rose-400/45 text-rose-100 hover:text-white text-xs font-bold flex items-center gap-1.5 shadow-lg shadow-rose-950/40 transition-all cursor-pointer"
           >
             <span class="w-2 h-2 rounded-full bg-rose-400 animate-pulse shrink-0"></span>
             <svg class="w-3.5 h-3.5 text-rose-300 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <span>Emergência</span>
+            <span data-i18n="emergency.btn">Emergência</span>
           </button>
-          <button type="button" onclick="updateWeatherFavicon(currentWindyLat, currentWindyLon, true)" title="Clique para atualizar clima e favicon do navegador" class="px-3 py-1.5 rounded-full glass-panel hover:border-emerald-400/50 text-xs font-semibold text-emerald-100 flex items-center gap-2 transition-all cursor-pointer">
+          <button type="button" onclick="updateWeatherFavicon(currentWindyLat, currentWindyLon, true)" title="Clique para atualizar clima e favicon do navegador" data-i18n-title="weather.liveTitle" class="px-3 py-1.5 rounded-full glass-panel hover:border-emerald-400/50 text-xs font-semibold text-emerald-100 flex items-center gap-2 transition-all cursor-pointer">
             <img id="live-favicon-preview" src="https://valedogigante.com.br/wp-content/uploads/2026/09/Logo_vale_500x500.png" alt="Favicon Clima" class="w-4 h-4 rounded-sm object-contain" />
-            <span id="live-weather-summary">Sincronizando clima...</span>
+            <span id="live-weather-summary" data-i18n="weather.liveSync">Sincronizando clima...</span>
           </button>
           <div class="px-3 py-1.5 rounded-full glass-panel text-xs font-semibold text-emerald-400 flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Radar Ao Vivo
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span data-i18n="weather.radarLive">Radar Ao Vivo</span>
           </div>
         </div>
       </header>
@@ -875,31 +919,31 @@
       <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 w-full">
         <!-- Controls -->
         <aside class="col-span-1 flex flex-col gap-2.5">
-          <h3 class="text-xs font-bold text-emerald-400/90 uppercase tracking-wider mb-0.5">📍 Ponto de Referência</h3>
+          <h3 data-i18n="weather.refTitle" class="text-xs font-bold text-emerald-400/90 uppercase tracking-wider mb-0.5">📍 Ponto de Referência</h3>
           <div class="grid grid-cols-2 gap-2 mb-2">
             <button type="button" id="loc-vale" onclick="changeWindyLocation(-25.2591, -48.7405, 'loc-vale')" class="glass-button control-active text-center px-2 py-3 rounded-xl transition-all">
               <div class="font-bold text-emerald-100 text-xs">Vale do Gigante</div>
             </button>
             <button type="button" id="loc-baia" onclick="changeWindyLocation(-25.4283, -48.7119, 'loc-baia')" class="glass-button text-center px-2 py-3 rounded-xl transition-all">
-              <div class="font-bold text-emerald-100 text-xs">Baía (Antonina)</div>
+              <div data-i18n="weather.bayLoc" class="font-bold text-emerald-100 text-xs">Baía (Antonina)</div>
             </button>
           </div>
 
-          <h3 class="text-xs font-bold text-emerald-400/90 uppercase tracking-wider mb-0.5 mt-1">Camadas Meteorológicas</h3>
+          <h3 data-i18n="weather.layersTitle" class="text-xs font-bold text-emerald-400/90 uppercase tracking-wider mb-0.5 mt-1">Camadas Meteorológicas</h3>
           <button type="button" id="layer-wind" onclick="changeWindyLayer('wind', 'layer-wind')" class="glass-button control-active text-left px-4 py-3 rounded-xl transition-all flex items-center justify-between">
-            <span class="font-bold text-emerald-50 text-sm">💨 Vento e Rajadas</span>
+            <span data-i18n="weather.layerWind" class="font-bold text-emerald-50 text-sm">💨 Vento e Rajadas</span>
             <span class="text-[10px] text-emerald-300 font-semibold">km/h</span>
           </button>
           <button type="button" id="layer-rain" onclick="changeWindyLayer('rain', 'layer-rain')" class="glass-button text-left px-4 py-3 rounded-xl transition-all flex items-center justify-between">
-            <span class="font-bold text-emerald-50 text-sm">🌧️ Chuva Acumulada</span>
+            <span data-i18n="weather.layerRain" class="font-bold text-emerald-50 text-sm">🌧️ Chuva Acumulada</span>
             <span class="text-[10px] text-emerald-300 font-semibold">mm</span>
           </button>
           <button type="button" id="layer-radar" onclick="changeWindyLayer('radar', 'layer-radar')" class="glass-button text-left px-4 py-3 rounded-xl transition-all flex items-center justify-between">
-            <span class="font-bold text-emerald-50 text-sm">📡 Radar de Tempestades</span>
+            <span data-i18n="weather.layerRadar" class="font-bold text-emerald-50 text-sm">📡 Radar de Tempestades</span>
             <span class="text-[10px] text-emerald-300 font-semibold">dBZ</span>
           </button>
           <button type="button" id="layer-temp" onclick="changeWindyLayer('temp', 'layer-temp')" class="glass-button text-left px-4 py-3 rounded-xl transition-all flex items-center justify-between">
-            <span class="font-bold text-emerald-50 text-sm">🌡️ Temperatura</span>
+            <span data-i18n="weather.layerTemp" class="font-bold text-emerald-50 text-sm">🌡️ Temperatura</span>
             <span class="text-[10px] text-emerald-300 font-semibold">°C</span>
           </button>
         </aside>
@@ -907,44 +951,44 @@
         <!-- Windy Map (Lazy Loaded) -->
         <section class="col-span-1 lg:col-span-2 flex flex-col">
           <div id="map-container" class="w-full h-[400px] lg:h-[580px] rounded-2xl overflow-hidden glass-panel relative border border-emerald-500/30 flex items-center justify-center">
-            <div class="text-xs text-emerald-400/80 animate-pulse">Carregando mapa meteorológico...</div>
+            <div data-i18n="weather.loadingMap" class="text-xs text-emerald-400/80 animate-pulse">Carregando mapa meteorológico...</div>
           </div>
         </section>
 
         <!-- Safety Guides -->
         <aside class="col-span-1 flex flex-col gap-3 lg:h-[580px] overflow-y-auto scrollbar-hide pb-4">
-          <h3 class="text-xs font-bold text-emerald-400/90 uppercase tracking-wider mb-0.5">Protocolos de Segurança</h3>
+          <h3 data-i18n="weather.safetyTitle" class="text-xs font-bold text-emerald-400/90 uppercase tracking-wider mb-0.5">Protocolos de Segurança</h3>
 
           <div class="glass-panel p-4 rounded-xl border-l-4 border-l-teal-400">
-            <h4 class="font-bold text-teal-100 text-sm mb-2 flex items-center gap-2">🛶 Caiaque (Baía)</h4>
+            <h4 data-i18n="weather.kayakTitle" class="font-bold text-teal-100 text-sm mb-2 flex items-center gap-2">🛶 Caiaque (Baía)</h4>
             <ul class="text-xs text-emerald-200/85 space-y-1.5 pl-4 list-disc">
-              <li>Vento Limite: <span class="text-teal-300 font-bold">15–20 km/h</span>.</li>
-              <li>Atenção redobrada à maré vazante contra o vento.</li>
-              <li>Aborte imediatamente se o radar indicar células vermelhas.</li>
+              <li data-i18n-html="weather.kayak1">Vento Limite: <span class="text-teal-300 font-bold">15–20 km/h</span>.</li>
+              <li data-i18n="weather.kayak2">Atenção redobrada à maré vazante contra o vento.</li>
+              <li data-i18n="weather.kayak3">Aborte imediatamente se o radar indicar células vermelhas.</li>
             </ul>
           </div>
 
           <div class="glass-panel p-4 rounded-xl border-l-4 border-l-emerald-400">
-            <h4 class="font-bold text-emerald-100 text-sm mb-2 flex items-center gap-2">🏞️ Rios & Cachoeiras</h4>
+            <h4 data-i18n="weather.riversTitle" class="font-bold text-emerald-100 text-sm mb-2 flex items-center gap-2">🏞️ Rios & Cachoeiras</h4>
             <ul class="text-xs text-emerald-200/85 space-y-1.5 pl-4 list-disc">
-              <li>Atenção ao risco de <span class="text-emerald-300 font-bold">Cabeças d'Água</span> mesmo com sol no vale (verifique chuva no alto da Serra).</li>
-              <li>Água turva ou folhas descendo indicam aumento repentino de nível.</li>
+              <li data-i18n-html="weather.rivers1">Atenção ao risco de <span class="text-emerald-300 font-bold">Cabeças d'Água</span> mesmo com sol no vale (verifique chuva no alto da Serra).</li>
+              <li data-i18n="weather.rivers2">Água turva ou folhas descendo indicam aumento repentino de nível.</li>
             </ul>
           </div>
 
           <div class="glass-panel p-4 rounded-xl border-l-4 border-l-lime-400">
-            <h4 class="font-bold text-lime-100 text-sm mb-2 flex items-center gap-2">🌊 Rafting & Boia Cross</h4>
+            <h4 data-i18n="weather.raftingTitle" class="font-bold text-lime-100 text-sm mb-2 flex items-center gap-2">🌊 Rafting & Boia Cross</h4>
             <ul class="text-xs text-emerald-200/85 space-y-1.5 pl-4 list-disc">
-              <li>Monitore a régua e o nível na região de Cachoeira de Cima e Rio do Nunes.</li>
-              <li>Sempre utilize colete homologado e capacete com condutores credenciados.</li>
+              <li data-i18n="weather.rafting1">Monitore a régua e o nível na região de Cachoeira de Cima e Rio do Nunes.</li>
+              <li data-i18n="weather.rafting2">Sempre utilize colete homologado e capacete com condutores credenciados.</li>
             </ul>
           </div>
           
           <div class="glass-panel p-4 rounded-xl border-l-4 border-l-amber-500">
-            <h4 class="font-bold text-amber-100 text-sm mb-2 flex items-center gap-2">🥾 Montanhismo & Trilhas</h4>
+            <h4 data-i18n="weather.hikingTitle" class="font-bold text-amber-100 text-sm mb-2 flex items-center gap-2">🥾 Montanhismo & Trilhas</h4>
             <ul class="text-xs text-emerald-200/85 space-y-1.5 pl-4 list-disc">
-              <li>Ventos <span class="text-amber-300 font-bold">&gt; 40 km/h</span> nos cumes elevam severamente o risco de hipotermia.</li>
-              <li>Leve lanterna, corta-vento impermeável e avise sobre seu roteiro.</li>
+              <li data-i18n-html="weather.hiking1">Ventos <span class="text-amber-300 font-bold">&gt; 40 km/h</span> nos cumes elevam severamente o risco de hipotermia.</li>
+              <li data-i18n="weather.hiking2">Leve lanterna, corta-vento impermeável e avise sobre seu roteiro.</li>
             </ul>
           </div>
         </aside>
@@ -958,43 +1002,50 @@
       
       <header class="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-3 border-b border-emerald-900/50 pb-4">
         <div>
-          <h2 class="text-2xl font-bold text-white flex items-center gap-2">Como Chegar</h2>
-          <p class="text-xs text-emerald-300 mt-1">Rota GPS e recomendações de acesso ao Vale do Gigante</p>
+          <h2 data-i18n="route.heading" class="text-2xl font-bold text-white flex items-center gap-2">Como Chegar</h2>
+          <p data-i18n="route.subtitle" class="text-xs text-emerald-300 mt-1">Rota GPS e recomendações de acesso ao Vale do Gigante</p>
         </div>
-        <div class="px-3 py-1.5 rounded-full glass-panel text-xs font-semibold text-emerald-400 flex items-center gap-2">
-          <svg class="w-4 h-4 text-emerald-400" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-          Antonina - PR
+        <div class="flex flex-wrap items-center gap-2">
+          <div class="glass-panel rounded-full p-0.5 flex items-center gap-0.5 border border-emerald-500/25" role="group" aria-label="Selecionar idioma" data-i18n-aria="lang.ariaGroup">
+            <button type="button" onclick="setLanguage('pt')" data-lang-btn="pt" aria-pressed="true" title="Português" class="lang-btn px-2 py-1 rounded-full text-[11px] font-bold transition-all cursor-pointer bg-emerald-500 text-slate-950 shadow-sm">PT</button>
+            <button type="button" onclick="setLanguage('en')" data-lang-btn="en" aria-pressed="false" title="English" class="lang-btn px-2 py-1 rounded-full text-[11px] font-bold transition-all cursor-pointer text-emerald-300/80 hover:text-white">EN</button>
+            <button type="button" onclick="setLanguage('es')" data-lang-btn="es" aria-pressed="false" title="Español" class="lang-btn px-2 py-1 rounded-full text-[11px] font-bold transition-all cursor-pointer text-emerald-300/80 hover:text-white">ES</button>
+          </div>
+          <div class="px-3 py-1.5 rounded-full glass-panel text-xs font-semibold text-emerald-400 flex items-center gap-2">
+            <svg class="w-4 h-4 text-emerald-400" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+            Antonina - PR
+          </div>
         </div>
       </header>
 
       <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 w-full">
         <!-- Controls & Apps -->
         <aside class="col-span-1 flex flex-col gap-3">
-          <h3 class="text-xs font-bold text-emerald-400/90 uppercase tracking-wider mb-0.5">Traçar Rota por GPS</h3>
-          <p class="text-xs text-emerald-200/80 mb-1">Selecione seu aplicativo favorito para iniciar a navegação a partir da sua localização atual:</p>
+          <h3 data-i18n="route.gpsTitle" class="text-xs font-bold text-emerald-400/90 uppercase tracking-wider mb-0.5">Traçar Rota por GPS</h3>
+          <p data-i18n="route.gpsDesc" class="text-xs text-emerald-200/80 mb-1">Selecione seu aplicativo favorito para iniciar a navegação a partir da sua localização atual:</p>
           
           <a href="https://www.google.com/maps/dir/?api=1&destination=-25.430564,-48.760243" target="_blank" rel="noopener noreferrer" class="glass-button text-left px-4 py-3.5 rounded-xl transition-all flex items-center gap-3">
             <svg class="w-6 h-6 text-emerald-300 shrink-0" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             <div>
-              <div class="font-bold text-emerald-50 text-sm">Abrir no Google Maps</div>
-              <div class="text-[11px] text-emerald-400 mt-0.5">Permite baixar mapa offline</div>
+              <div data-i18n="route.gmaps" class="font-bold text-emerald-50 text-sm">Abrir no Google Maps</div>
+              <div data-i18n="route.gmapsSub" class="text-[11px] text-emerald-400 mt-0.5">Permite baixar mapa offline</div>
             </div>
           </a>
 
           <a href="https://waze.com/ul?ll=-25.430564,-48.760243&navigate=yes" target="_blank" rel="noopener noreferrer" class="glass-button text-left px-4 py-3.5 rounded-xl transition-all flex items-center gap-3">
             <svg class="w-6 h-6 text-emerald-300 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
             <div>
-              <div class="font-bold text-emerald-50 text-sm">Abrir no Waze</div>
-              <div class="text-[11px] text-emerald-400 mt-0.5">Alertas de estrada em tempo real</div>
+              <div data-i18n="route.waze" class="font-bold text-emerald-50 text-sm">Abrir no Waze</div>
+              <div data-i18n="route.wazeSub" class="text-[11px] text-emerald-400 mt-0.5">Alertas de estrada em tempo real</div>
             </div>
           </a>
 
-          <h3 class="text-xs font-bold text-emerald-400/90 uppercase tracking-wider mb-0.5 mt-3">Coordenadas Exatas</h3>
+          <h3 data-i18n="route.coordsTitle" class="text-xs font-bold text-emerald-400/90 uppercase tracking-wider mb-0.5 mt-3">Coordenadas Exatas</h3>
           <div class="glass-panel p-3.5 rounded-xl flex items-center justify-between gap-2">
             <code class="text-xs text-emerald-200 font-mono leading-relaxed">25°25'50.2"S<br>48°45'37.1"W</code>
-            <button type="button" onclick="copyCoord()" aria-label="Copiar coordenadas" class="px-3 py-2 rounded-lg bg-emerald-900/60 hover:bg-emerald-800/80 text-emerald-200 text-xs font-semibold flex items-center gap-1.5 transition-colors">
+            <button type="button" onclick="copyCoord()" aria-label="Copiar coordenadas" data-i18n-aria="route.copyAria" class="px-3 py-2 rounded-lg bg-emerald-900/60 hover:bg-emerald-800/80 text-emerald-200 text-xs font-semibold flex items-center gap-1.5 transition-colors">
               <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
-              Copiar
+              <span data-i18n="route.copy">Copiar</span>
             </button>
           </div>
         </aside>
@@ -1002,35 +1053,35 @@
         <!-- Map Container (Lazy Loaded) -->
         <section class="col-span-1 lg:col-span-2 flex flex-col">
           <div id="google-map-container" class="w-full h-[400px] lg:h-[580px] rounded-2xl overflow-hidden glass-panel relative border border-emerald-500/30 flex items-center justify-center">
-            <div class="text-xs text-emerald-400/80 animate-pulse">Carregando mapa da rota...</div>
+            <div data-i18n="route.loadingMap" class="text-xs text-emerald-400/80 animate-pulse">Carregando mapa da rota...</div>
           </div>
         </section>
 
         <!-- Travel Guides -->
         <aside class="col-span-1 flex flex-col gap-3 lg:h-[580px] overflow-y-auto scrollbar-hide pb-4">
-          <h3 class="text-xs font-bold text-emerald-400/90 uppercase tracking-wider mb-0.5">Avisos Importantes</h3>
+          <h3 data-i18n="route.warningsTitle" class="text-xs font-bold text-emerald-400/90 uppercase tracking-wider mb-0.5">Avisos Importantes</h3>
 
           <div class="glass-panel p-4 rounded-xl border-l-4 border-l-amber-400">
-            <h4 class="font-bold text-amber-100 text-sm mb-2 flex items-center gap-2">📱 Sinal de Celular</h4>
+            <h4 data-i18n="route.signalTitle" class="font-bold text-amber-100 text-sm mb-2 flex items-center gap-2">📱 Sinal de Celular</h4>
             <ul class="text-xs text-emerald-200/85 space-y-1.5 pl-4 list-disc">
-              <li>O sinal de internet móvel em áreas rurais do vale é <span class="text-amber-300 font-bold">restrito ou inexistente</span>.</li>
-              <li>Inicie a rota no GPS <strong>antes</strong> de sair da BR-277 ou do centro urbano de Antonina.</li>
+              <li data-i18n-html="route.signal1">O sinal de internet móvel em áreas rurais do vale é <span class="text-amber-300 font-bold">restrito ou inexistente</span>.</li>
+              <li data-i18n-html="route.signal2">Inicie a rota no GPS <strong>antes</strong> de sair da BR-277 ou do centro urbano de Antonina.</li>
             </ul>
           </div>
 
           <div class="glass-panel p-4 rounded-xl border-l-4 border-l-emerald-400">
-            <h4 class="font-bold text-emerald-100 text-sm mb-2 flex items-center gap-2">🚗 Condições da Via</h4>
+            <h4 data-i18n="route.roadTitle" class="font-bold text-emerald-100 text-sm mb-2 flex items-center gap-2">🚗 Condições da Via</h4>
             <ul class="text-xs text-emerald-200/85 space-y-1.5 pl-4 list-disc">
-              <li>Trechos em estrada rural de saibro (PR-340 / Estrada do Cacatu e Bairro Alto).</li>
-              <li>Reduza a velocidade, respeite a fauna silvestre e os moradores locais.</li>
+              <li data-i18n="route.road1">Trechos em estrada rural de saibro (PR-340 / Estrada do Cacatu e Bairro Alto).</li>
+              <li data-i18n="route.road2">Reduza a velocidade, respeite a fauna silvestre e os moradores locais.</li>
             </ul>
           </div>
 
           <div class="glass-panel p-4 rounded-xl border-l-4 border-l-blue-400">
-            <h4 class="font-bold text-blue-100 text-sm mb-2 flex items-center gap-2">🚌 Ônibus / Transporte</h4>
+            <h4 data-i18n="route.busTitle" class="font-bold text-blue-100 text-sm mb-2 flex items-center gap-2">🚌 Ônibus / Transporte</h4>
             <ul class="text-xs text-emerald-200/85 space-y-1.5 pl-4 list-disc">
-              <li>Linhas municipais de Antonina atendem a região rural, com horários reduzidos aos fins de semana e feriados.</li>
-              <li>Consulte a rodoviária de Antonina com antecedência.</li>
+              <li data-i18n="route.bus1">Linhas municipais de Antonina atendem a região rural, com horários reduzidos aos fins de semana e feriados.</li>
+              <li data-i18n="route.bus2">Consulte a rodoviária de Antonina com antecedência.</li>
             </ul>
           </div>
         </aside>
@@ -1039,32 +1090,32 @@
   </main>
 
   <!-- Bottom Navigation -->
-  <nav class="fixed bottom-0 w-full glass-nav z-50 pb-safe-bottom" aria-label="Navegação Principal">
+  <nav class="fixed bottom-0 w-full glass-nav z-50 pb-safe-bottom" aria-label="Navegação Principal" data-i18n-aria="nav.aria">
     <div class="flex items-center justify-between px-1 h-[68px] overflow-x-auto scrollbar-hide w-full max-w-2xl mx-auto" role="tablist">
     
       <button type="button" onclick="switchTab('links')" id="nav-links" role="tab" aria-selected="true" aria-controls="tab-links" class="nav-btn active flex-1 flex-shrink-0 min-w-[54px] flex flex-col items-center justify-center h-full focus:outline-none">
         <svg class="w-5 h-5 mb-1" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        <span class="text-[10px] font-medium tracking-wide">Início</span>
+        <span data-i18n="nav.home" class="text-[10px] font-medium tracking-wide">Início</span>
       </button>
       
       <button type="button" onclick="switchTab('atrativos')" id="nav-atrativos" role="tab" aria-selected="false" aria-controls="tab-atrativos" class="nav-btn flex-1 flex-shrink-0 min-w-[54px] flex flex-col items-center justify-center h-full focus:outline-none">
         <svg class="w-5 h-5 mb-1" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
-        <span class="text-[10px] font-medium tracking-wide">Atrativos</span>
+        <span data-i18n="nav.attractions" class="text-[10px] font-medium tracking-wide">Atrativos</span>
       </button>
 
       <button type="button" onclick="switchTab('parceiros')" id="nav-parceiros" role="tab" aria-selected="false" aria-controls="tab-parceiros" class="nav-btn flex-1 flex-shrink-0 min-w-[54px] flex flex-col items-center justify-center h-full focus:outline-none">
         <svg class="w-5 h-5 mb-1" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
-        <span class="text-[10px] font-medium tracking-wide">Aventuras</span>
+        <span data-i18n="nav.adventures" class="text-[10px] font-medium tracking-wide">Aventuras</span>
       </button>
 
       <button type="button" onclick="switchTab('hospedagem')" id="nav-hospedagem" role="tab" aria-selected="false" aria-controls="tab-hospedagem" class="nav-btn flex-1 flex-shrink-0 min-w-[54px] flex flex-col items-center justify-center h-full focus:outline-none">
         <svg class="w-5 h-5 mb-1" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>
-        <span class="text-[10px] font-medium tracking-wide">Hospedagem</span>
+        <span data-i18n="nav.lodging" class="text-[10px] font-medium tracking-wide">Hospedagem</span>
       </button>
 
       <button type="button" onclick="switchTab('gastronomia')" id="nav-gastronomia" role="tab" aria-selected="false" aria-controls="tab-gastronomia" class="nav-btn flex-1 flex-shrink-0 min-w-[54px] flex flex-col items-center justify-center h-full focus:outline-none">
         <svg class="w-5 h-5 mb-1" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
-        <span class="text-[10px] font-medium tracking-wide">Gastronomia</span>
+        <span data-i18n="nav.gastronomy" class="text-[10px] font-medium tracking-wide">Gastronomia</span>
       </button>
 
     </div>
@@ -1088,14 +1139,15 @@
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
           </span>
           <div>
-            <h2 id="gallery-modal-title" class="text-base sm:text-lg font-extrabold text-white tracking-wide">Galeria de Fotos</h2>
-            <p class="text-xs text-emerald-300/80">Paisagens e experiências no Vale do Gigante • Antonina - PR</p>
+            <h2 id="gallery-modal-title" data-i18n="gallery.title" class="text-base sm:text-lg font-extrabold text-white tracking-wide">Galeria de Fotos</h2>
+            <p data-i18n="gallery.subtitle" class="text-xs text-emerald-300/80">Paisagens e experiências no Vale do Gigante • Antonina - PR</p>
           </div>
         </div>
         <button
           type="button"
           onclick="closeGalleryModal()"
           aria-label="Fechar galeria de fotos"
+          data-i18n-aria="gallery.closeAria"
           class="w-9 h-9 rounded-full bg-emerald-500/15 hover:bg-emerald-500/30 border border-emerald-400/30 text-emerald-200 hover:text-white flex items-center justify-center transition-colors cursor-pointer shrink-0"
         >
           <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
@@ -1111,10 +1163,11 @@
             type="button"
             onclick="closeGalleryLightbox()"
             aria-label="Fechar visualização ampliada"
+            data-i18n-aria="gallery.closeZoomAria"
             class="absolute top-3 right-3 px-2.5 py-1 rounded-lg bg-black/70 hover:bg-black/90 text-emerald-200 text-xs font-semibold border border-emerald-400/30 backdrop-blur-sm flex items-center gap-1 cursor-pointer"
           >
             <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-            Fechar zoom
+            <span data-i18n="gallery.closeZoom">Fechar zoom</span>
           </button>
           <div class="p-3 bg-gradient-to-t from-black/90 via-black/70 to-transparent">
             <h3 id="gallery-lightbox-title" class="text-sm font-bold text-white"></h3>
@@ -1126,7 +1179,7 @@
           <!-- Foto 1: Pico Paraná -->
           <button
             type="button"
-            onclick="openGalleryLightbox('https://guia.valedogigante.com.br/galeria_fotos/picoparana.jpg', 'Pico Paraná (1.877m)', 'Serra do Mar • A montanha mais alta do Sul do Brasil')"
+            onclick="openGalleryPhoto('pico-parana')"
             class="group relative h-44 sm:h-48 rounded-2xl overflow-hidden border border-emerald-500/25 bg-[#0a1c14] text-left focus:outline-none focus:ring-2 focus:ring-emerald-400 cursor-pointer"
           >
             <img
@@ -1138,16 +1191,16 @@
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
             <div class="absolute bottom-0 inset-x-0 p-3.5">
-              <span class="inline-block px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-emerald-500/30 text-emerald-200 border border-emerald-400/30 mb-1">Montanhismo</span>
-              <h3 class="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">Pico Paraná (1.877m)</h3>
-              <p class="text-[11px] text-emerald-200/80">Cumes imponentes na Serra do Mar</p>
+              <span data-i18n="gallery.p1Badge" class="inline-block px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-emerald-500/30 text-emerald-200 border border-emerald-400/30 mb-1">Montanhismo</span>
+              <h3 data-i18n="gallery.p1Title" class="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">Pico Paraná (1.877m)</h3>
+              <p data-i18n="gallery.p1Cap" class="text-[11px] text-emerald-200/80">Cumes imponentes na Serra do Mar</p>
             </div>
           </button>
 
           <!-- Foto 2: Cachoeira do Saci -->
           <button
             type="button"
-            onclick="openGalleryLightbox('https://guia.valedogigante.com.br/galeria_fotos/cachoeira_saci.jpg', 'Cachoeira do Saci', 'Águas cristalinas para banho de natureza')"
+            onclick="openGalleryPhoto('cachoeira-saci')"
             class="group relative h-44 sm:h-48 rounded-2xl overflow-hidden border border-emerald-500/25 bg-[#0a1c14] text-left focus:outline-none focus:ring-2 focus:ring-emerald-400 cursor-pointer"
           >
             <img
@@ -1159,16 +1212,16 @@
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
             <div class="absolute bottom-0 inset-x-0 p-3.5">
-              <span class="inline-block px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-teal-500/30 text-teal-200 border border-teal-400/30 mb-1">Aventura & Rios</span>
-              <h3 class="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">Cachoeira do Saci</h3>
-              <p class="text-[11px] text-emerald-200/80">Águas cristalinas para banho de natureza</p>
+              <span data-i18n="gallery.p2Badge" class="inline-block px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-teal-500/30 text-teal-200 border border-teal-400/30 mb-1">Aventura & Rios</span>
+              <h3 data-i18n="gallery.p2Title" class="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">Cachoeira do Saci</h3>
+              <p data-i18n="gallery.p2Cap" class="text-[11px] text-emerald-200/80">Águas cristalinas para banho de natureza</p>
             </div>
           </button>
 
           <!-- Foto 3: Vale do Gigante -->
           <button
             type="button"
-            onclick="openGalleryLightbox('https://guia.valedogigante.com.br/galeria_fotos/valedogigante.jpg', 'Vale do Gigante', 'Imersão na maior área contínua de Mata Atlântica')"
+            onclick="openGalleryPhoto('vale-gigante')"
             class="group relative h-44 sm:h-48 rounded-2xl overflow-hidden border border-emerald-500/25 bg-[#0a1c14] text-left focus:outline-none focus:ring-2 focus:ring-emerald-400 cursor-pointer"
           >
             <img
@@ -1180,16 +1233,16 @@
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
             <div class="absolute bottom-0 inset-x-0 p-3.5">
-              <span class="inline-block px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-emerald-500/30 text-emerald-200 border border-emerald-400/30 mb-1">Mata Atlântica</span>
-              <h3 class="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">Vale do Gigante</h3>
-              <p class="text-[11px] text-emerald-200/80">Trilhas ecológicas e conservação ambiental</p>
+              <span data-i18n="gallery.p3Badge" class="inline-block px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-emerald-500/30 text-emerald-200 border border-emerald-400/30 mb-1">Mata Atlântica</span>
+              <h3 data-i18n="gallery.p3Title" class="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">Vale do Gigante</h3>
+              <p data-i18n="gallery.p3Cap" class="text-[11px] text-emerald-200/80">Trilhas ecológicas e conservação ambiental</p>
             </div>
           </button>
 
           <!-- Foto 4: Rio do Nunes & Caiaque -->
           <button
             type="button"
-            onclick="openGalleryLightbox('https://guia.valedogigante.com.br/galeria_fotos/caiaque.jpg', 'Rio do Nunes', 'Caiaque e banhos refrescantes')"
+            onclick="openGalleryPhoto('rio-nunes')"
             class="group relative h-44 sm:h-48 rounded-2xl overflow-hidden border border-emerald-500/25 bg-[#0a1c14] text-left focus:outline-none focus:ring-2 focus:ring-emerald-400 cursor-pointer"
           >
             <img
@@ -1201,16 +1254,16 @@
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
             <div class="absolute bottom-0 inset-x-0 p-3.5">
-              <span class="inline-block px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-cyan-500/30 text-cyan-200 border border-cyan-400/30 mb-1">Lazer & Família</span>
-              <h3 class="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">Rio do Nunes</h3>
-              <p class="text-[11px] text-emerald-200/80">Caiaque e banhos refrescantes</p>
+              <span data-i18n="gallery.p4Badge" class="inline-block px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-cyan-500/30 text-cyan-200 border border-cyan-400/30 mb-1">Lazer & Família</span>
+              <h3 data-i18n="gallery.p4Title" class="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">Rio do Nunes</h3>
+              <p data-i18n="gallery.p4Cap" class="text-[11px] text-emerald-200/80">Caiaque e banhos refrescantes</p>
             </div>
           </button>
 
           <!-- Foto 5: Observação de Aves -->
           <button
             type="button"
-            onclick="openGalleryLightbox('https://guia.valedogigante.com.br/galeria_fotos/GUARA2.jpg', 'Observação de Aves (Birdwatching)', 'Mais de 500 espécies catalogadas em Antonina-PR')"
+            onclick="openGalleryPhoto('aves')"
             class="group relative h-44 sm:h-48 rounded-2xl overflow-hidden border border-emerald-500/25 bg-[#0a1c14] text-left focus:outline-none focus:ring-2 focus:ring-emerald-400 cursor-pointer"
           >
             <img
@@ -1222,16 +1275,16 @@
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
             <div class="absolute bottom-0 inset-x-0 p-3.5">
-              <span class="inline-block px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-amber-500/30 text-amber-200 border border-amber-400/30 mb-1">Biodiversidade</span>
-              <h3 class="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">Observação de Aves</h3>
-              <p class="text-[11px] text-emerald-200/80">Santuário ornitológico na Mata Atlântica</p>
+              <span data-i18n="gallery.p5Badge" class="inline-block px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-amber-500/30 text-amber-200 border border-amber-400/30 mb-1">Biodiversidade</span>
+              <h3 data-i18n="gallery.p5Title" class="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">Observação de Aves</h3>
+              <p data-i18n="gallery.p5Cap" class="text-[11px] text-emerald-200/80">Santuário ornitológico na Mata Atlântica</p>
             </div>
           </button>
 
           <!-- Foto 6: Ecolodges & Refúgios -->
           <button
             type="button"
-            onclick="openGalleryLightbox('https://guia.valedogigante.com.br/galeria_fotos/casamata.jpg', 'Ecolodges & Chácaras no Vale', 'Hospedagem aconchegante integrada à floresta')"
+            onclick="openGalleryPhoto('ecolodges')"
             class="group relative h-44 sm:h-48 rounded-2xl overflow-hidden border border-emerald-500/25 bg-[#0a1c14] text-left focus:outline-none focus:ring-2 focus:ring-emerald-400 cursor-pointer"
           >
             <img
@@ -1243,9 +1296,9 @@
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
             <div class="absolute bottom-0 inset-x-0 p-3.5">
-              <span class="inline-block px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-lime-500/30 text-lime-200 border border-lime-400/30 mb-1">Hospedagem</span>
-              <h3 class="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">Ecolodges & Refúgios</h3>
-              <p class="text-[11px] text-emerald-200/80">Bairro Alto, Cacatu e Rio do Nunes</p>
+              <span data-i18n="gallery.p6Badge" class="inline-block px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-lime-500/30 text-lime-200 border border-lime-400/30 mb-1">Hospedagem</span>
+              <h3 data-i18n="gallery.p6Title" class="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">Ecolodges & Refúgios</h3>
+              <p data-i18n="gallery.p6Cap" class="text-[11px] text-emerald-200/80">Bairro Alto, Cacatu e Rio do Nunes</p>
             </div>
           </button>
         </div>
@@ -1253,10 +1306,11 @@
 
       <!-- Modal Footer -->
       <div class="px-5 py-3 border-t border-emerald-500/20 bg-[#081711]/90 flex items-center justify-between">
-        <span class="text-xs text-emerald-300/80">Toque em qualquer foto para ampliar</span>
+        <span data-i18n="gallery.hint" class="text-xs text-emerald-300/80">Toque em qualquer foto para ampliar</span>
         <button
           type="button"
           onclick="closeGalleryModal()"
+          data-i18n="modal.close"
           class="px-4 py-1.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/35 border border-emerald-400/35 text-xs font-bold text-emerald-100 transition-colors cursor-pointer"
         >
           Fechar
@@ -1283,14 +1337,15 @@
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
           </span>
           <div>
-            <h2 id="emergency-modal-title" class="text-base sm:text-lg font-extrabold text-white tracking-wide">Contatos de Emergência</h2>
-            <p class="text-xs text-rose-200/85">Resgate, Defesa Civil e Saúde em Antonina - PR</p>
+            <h2 id="emergency-modal-title" data-i18n="emergency.title" class="text-base sm:text-lg font-extrabold text-white tracking-wide">Contatos de Emergência</h2>
+            <p data-i18n="emergency.subtitle" class="text-xs text-rose-200/85">Resgate, Defesa Civil e Saúde em Antonina - PR</p>
           </div>
         </div>
         <button
           type="button"
           onclick="closeEmergencyModal()"
           aria-label="Fechar contatos de emergência"
+          data-i18n-aria="emergency.closeAria"
           class="w-9 h-9 rounded-full bg-rose-500/15 hover:bg-rose-500/30 border border-rose-400/30 text-rose-200 hover:text-white flex items-center justify-center transition-colors cursor-pointer shrink-0"
         >
           <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
@@ -1308,10 +1363,10 @@
             </div>
             <div class="min-w-0">
               <div class="flex items-center gap-2 flex-wrap">
-                <h3 class="text-sm font-bold text-white">Corpo de Bombeiros / GOST</h3>
+                <h3 data-i18n="emergency.fireTitle" class="text-sm font-bold text-white">Corpo de Bombeiros / GOST</h3>
                 <span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-rose-500/25 text-rose-200 border border-rose-400/30">24h</span>
               </div>
-              <p class="text-xs text-emerald-200/80 mt-0.5">Busca e salvamento em mata, montanha e rios</p>
+              <p data-i18n="emergency.fireDesc" class="text-xs text-emerald-200/80 mt-0.5">Busca e salvamento em mata, montanha e rios</p>
             </div>
           </div>
           <a href="tel:193" class="px-3.5 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-extrabold tracking-wider flex items-center gap-1.5 shrink-0 shadow-md transition-colors">
@@ -1328,11 +1383,11 @@
             </div>
             <div class="min-w-0">
               <div class="flex items-center gap-2 flex-wrap">
-                <h3 class="text-sm font-bold text-white">Defesa Civil (Antonina)</h3>
-                <span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-amber-500/25 text-amber-200 border border-amber-400/30">Alerta Clima</span>
+                <h3 data-i18n="emergency.civilTitle" class="text-sm font-bold text-white">Defesa Civil (Antonina)</h3>
+                <span data-i18n="emergency.civilBadge" class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-amber-500/25 text-amber-200 border border-amber-400/30">Alerta Clima</span>
               </div>
-              <p class="text-xs text-emerald-200/80 mt-0.5">Cabeças d'água, alagamentos, quedas de barreira e alertas na Serra</p>
-              <p class="text-[11px] text-amber-300/90 font-semibold mt-1">Plantão Municipal: (41) 3978-1055</p>
+              <p data-i18n="emergency.civilDesc" class="text-xs text-emerald-200/80 mt-0.5">Cabeças d'água, alagamentos, quedas de barreira e alertas na Serra</p>
+              <p data-i18n="emergency.civilDuty" class="text-[11px] text-amber-300/90 font-semibold mt-1">Plantão Municipal: (41) 3978-1055</p>
             </div>
           </div>
           <div class="flex flex-col gap-1.5 shrink-0">
@@ -1340,7 +1395,7 @@
               <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               199
             </a>
-            <a href="tel:+554139781055" class="px-2.5 py-1 rounded-lg bg-amber-500/15 hover:bg-amber-500/30 border border-amber-400/30 text-amber-200 text-[10px] font-bold text-center transition-colors">
+            <a href="tel:+554139781055" data-i18n="emergency.localPhone" class="px-2.5 py-1 rounded-lg bg-amber-500/15 hover:bg-amber-500/30 border border-amber-400/30 text-amber-200 text-[10px] font-bold text-center transition-colors">
               Fixo Local
             </a>
           </div>
@@ -1356,16 +1411,16 @@
               <div class="flex items-center gap-2 flex-wrap">
                 <h3 class="text-sm font-bold text-white">Hospital Dr. Silvio Bittencourt Linhares</h3>
               </div>
-              <p class="text-xs text-emerald-200/80 mt-0.5">Hospital Municipal & Pronto Socorro 24h • Centro, Antonina - PR</p>
+              <p data-i18n="emergency.hospDesc" class="text-xs text-emerald-200/80 mt-0.5">Hospital Municipal & Pronto Socorro 24h • Centro, Antonina - PR</p>
               <p class="text-[11px] text-emerald-300 font-semibold mt-1">(41) 3432-1315</p>
             </div>
           </div>
           <div class="flex flex-col gap-1.5 shrink-0">
             <a href="tel:+554134321315" class="px-3 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-extrabold flex items-center justify-center gap-1.5 shadow-md transition-colors">
               <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              Ligar
+              <span data-i18n="emergency.call">Ligar</span>
             </a>
-            <a href="https://www.google.com/maps/search/?api=1&query=Hospital+Municipal+Dr+Silvio+Bittencourt+Linhares+Antonina+PR" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/30 border border-emerald-400/30 text-emerald-200 text-[10px] font-bold text-center transition-colors">
+            <a href="https://www.google.com/maps/search/?api=1&query=Hospital+Municipal+Dr+Silvio+Bittencourt+Linhares+Antonina+PR" target="_blank" rel="noopener noreferrer" data-i18n="emergency.viewMap" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/30 border border-emerald-400/30 text-emerald-200 text-[10px] font-bold text-center transition-colors">
               Ver Mapa
             </a>
           </div>
@@ -1378,8 +1433,8 @@
               <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
             </div>
             <div class="min-w-0">
-              <h3 class="text-sm font-bold text-white">SAMU (Urgência Médica)</h3>
-              <p class="text-xs text-emerald-200/80 mt-0.5">Ambulância e atendimento pré-hospitalar móvel no Litoral</p>
+              <h3 data-i18n="emergency.samuTitle" class="text-sm font-bold text-white">SAMU (Urgência Médica)</h3>
+              <p data-i18n="emergency.samuDesc" class="text-xs text-emerald-200/80 mt-0.5">Ambulância e atendimento pré-hospitalar móvel no Litoral</p>
             </div>
           </div>
           <a href="tel:192" class="px-3.5 py-2 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-extrabold tracking-wider flex items-center gap-1.5 shrink-0 shadow-md transition-colors">
@@ -1395,8 +1450,8 @@
               <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
             <div class="min-w-0">
-              <h3 class="text-sm font-bold text-white">Polícia Militar & Ambiental</h3>
-              <p class="text-xs text-emerald-200/80 mt-0.5">Segurança pública e patrulha rural / Força Verde</p>
+              <h3 data-i18n="emergency.policeTitle" class="text-sm font-bold text-white">Polícia Militar & Ambiental</h3>
+              <p data-i18n="emergency.policeDesc" class="text-xs text-emerald-200/80 mt-0.5">Segurança pública e patrulha rural / Força Verde</p>
             </div>
           </div>
           <a href="tel:190" class="px-3.5 py-2 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-extrabold tracking-wider flex items-center gap-1.5 shrink-0 shadow-md transition-colors">
@@ -1408,12 +1463,13 @@
         <!-- Coordenadas de Referência para Resgate -->
         <div class="rounded-2xl p-3.5 bg-emerald-950/60 border border-emerald-500/25 flex items-center justify-between gap-3">
           <div>
-            <p class="text-[11px] font-bold uppercase tracking-wider text-emerald-300">Coordenadas de Referência (Vale do Gigante)</p>
+            <p data-i18n="emergency.gpsRefTitle" class="text-[11px] font-bold uppercase tracking-wider text-emerald-300">Coordenadas de Referência (Vale do Gigante)</p>
             <p class="text-xs font-mono text-emerald-100 mt-0.5">-25.430564, -48.760243 (25°25'50"S 48°45'37"W)</p>
           </div>
           <button
             type="button"
             onclick="copyCoord()"
+            data-i18n="emergency.copyGps"
             class="px-3 py-1.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/35 border border-emerald-400/35 text-xs font-bold text-emerald-200 transition-colors cursor-pointer shrink-0"
           >
             Copiar GPS
@@ -1423,10 +1479,11 @@
 
       <!-- Modal Footer -->
       <div class="px-5 py-3 border-t border-rose-500/20 bg-[#140a0d]/90 flex items-center justify-between gap-2">
-        <span class="text-[11px] text-rose-200/80">Em áreas sem sinal da sua operadora, chamadas de emergência (190/193/112) usam qualquer antena disponível.</span>
+        <span data-i18n="emergency.tip" class="text-[11px] text-rose-200/80">Em áreas sem sinal da sua operadora, chamadas de emergência (190/193/112) usam qualquer antena disponível.</span>
         <button
           type="button"
           onclick="closeEmergencyModal()"
+          data-i18n="modal.close"
           class="px-4 py-1.5 rounded-xl bg-rose-500/20 hover:bg-rose-500/35 border border-rose-400/35 text-xs font-bold text-rose-100 transition-colors cursor-pointer shrink-0"
         >
           Fechar
@@ -1442,6 +1499,706 @@
   </div>
 
   <script>
+    // --- I18N (PORTUGUÊS / ENGLISH / ESPAÑOL) ---
+    const SUPPORTED_LANGS = ['pt', 'en', 'es'];
+    const TRANSLATIONS = {
+      pt: {
+        'meta.pageTitle': 'Vale do Gigante | Guia Oficial de Ecoturismo - Antonina PR',
+        'lang.ariaGroup': 'Selecionar idioma',
+        'lang.changed': 'Idioma alterado para Português',
+        'home.whatsapp': 'WhatsApp Oficial',
+        'home.shareAria': 'Compartilhar guia',
+        'home.tagline': 'Ecoturismo no coração da Mata Atlântica',
+        'home.siteBtn': 'SITE OFICIAL',
+        'home.sub.home': 'Página Inicial',
+        'home.sub.trails': 'Atrativos & Trilhas',
+        'home.sub.adventures': 'Aventuras & Cicloturismo',
+        'home.sub.lodging': 'Hospedagem',
+        'home.sub.gastronomy': 'Gastronomia',
+        'home.sub.blog': 'Blog & Dicas',
+        'home.instagram': 'INSTAGRAM OFICIAL',
+        'home.gallery': 'GALERIA DE FOTOS',
+        'home.weather': 'PREVISÃO DO TEMPO',
+        'home.weatherChecking': 'Consultando clima ao vivo...',
+        'home.weatherNowPrefix': 'Agora em Antonina:',
+        'home.route': 'COMO CHEGAR (ROTA GPS)',
+        'home.rights': '© 2026 • Todos os direitos reservados',
+        'adventures.heading': 'Aventuras',
+        'adventures.shareAria': 'Compartilhar Aventuras',
+        'adventures.intro': 'Fale diretamente com nossos operadores oficiais e agende sua próxima experiência na natureza.',
+        'adventures.kayak': 'CAIAQUE',
+        'adventures.rafting': 'RAFTING',
+        'adventures.bike': 'CICLOTURISMO',
+        'adventures.trails': 'TRILHAS GUIADAS',
+        'adventures.tubing': 'BOIA CROSS',
+        'adventures.email': 'Dúvidas ou Parcerias? Envie um E-mail',
+        'lodging.heading': 'Hospedagem',
+        'lodging.shareAria': 'Compartilhar Hospedagem',
+        'lodging.intro': 'Refúgios aconchegantes, ecolodges e chácaras em meio à natureza exuberante da Mata Atlântica.',
+        'attractions.heading': 'Atrativos',
+        'attractions.shareAria': 'Compartilhar Atrativos',
+        'attractions.intro': 'Belezas naturais, picos imponentes, reservas ecológicas e rios cristalinos da nossa região.',
+        'attractions.searchPlaceholder': 'Pesquisar atrativo ou atividade...',
+        'attractions.searchAria': 'Pesquisar atrativos por nome',
+        'attractions.clearAria': 'Limpar pesquisa',
+        'attractions.picoTitle': 'PICO PARANÁ',
+        'attractions.picoDesc': 'A montanha mais alta do Sul do Brasil (1.877m)',
+        'attractions.trailsTitle': 'TRILHAS DO VALE',
+        'attractions.trailsDesc': 'História colonial e caminhadas ecológicas',
+        'attractions.guaricicaTitle': 'EXPERIÊNCIA GUARICICA',
+        'attractions.guaricicaDesc': 'Imersão na Reserva Natural Guaricica (SPVS)',
+        'attractions.cachoeiraTitle': 'RIO CACHOEIRA',
+        'attractions.cachoeiraDesc': 'Corredeiras, rafting e piscinas naturais',
+        'attractions.nunesTitle': 'RIO DO NUNES',
+        'attractions.nunesDesc': 'Boia cross e banhos refrescantes em família',
+        'attractions.birdsTitle': 'OBSERVAÇÃO DE AVES',
+        'attractions.birdsDesc': 'Mais de 500 espécies catalogadas em Antonina',
+        'attractions.emptyTitle': 'Nenhum atrativo encontrado',
+        'attractions.emptyHint': 'Tente buscar por outro nome, como "Pico", "Rio" ou "Trilhas".',
+        'attractions.showAll': 'Mostrar todos os atrativos',
+        'gastronomy.heading': 'Gastronomia',
+        'gastronomy.shareAria': 'Compartilhar Gastronomia',
+        'gastronomy.intro': 'Descubra a tradição do Barreado, cafés rurais, as famosas balas de banana e produtos coloniais.',
+        'gastronomy.cafesTitle': 'CAFÉS E LANCHONETES',
+        'gastronomy.cafesDesc': 'Paradas aconchegantes no coração do Vale',
+        'gastronomy.localTitle': 'PRODUTORES LOCAIS',
+        'gastronomy.localDesc': 'Balas de Banana 100% naturais e doces artesanais',
+        'gastronomy.centerLoc': 'Antonina – Centro',
+        'weather.heading': 'Clima & Segurança',
+        'weather.subtitle': 'Monitoramento meteorológico em tempo real para Ecoturismo',
+        'weather.liveTitle': 'Clique para atualizar clima e favicon do navegador',
+        'weather.liveSync': 'Sincronizando clima...',
+        'weather.liveUnavailable': 'Clima ao vivo indisponível',
+        'weather.liveToast': 'Clima e favicon atualizados:',
+        'weather.radarLive': 'Radar Ao Vivo',
+        'weather.refTitle': '📍 Ponto de Referência',
+        'weather.bayLoc': 'Baía (Antonina)',
+        'weather.layersTitle': 'Camadas Meteorológicas',
+        'weather.layerWind': '💨 Vento e Rajadas',
+        'weather.layerRain': '🌧️ Chuva Acumulada',
+        'weather.layerRadar': '📡 Radar de Tempestades',
+        'weather.layerTemp': '🌡️ Temperatura',
+        'weather.loadingMap': 'Carregando mapa meteorológico...',
+        'weather.safetyTitle': 'Protocolos de Segurança',
+        'weather.kayakTitle': '🛶 Caiaque (Baía)',
+        'weather.kayak1': 'Vento Limite: <span class="text-teal-300 font-bold">15–20 km/h</span>.',
+        'weather.kayak2': 'Atenção redobrada à maré vazante contra o vento.',
+        'weather.kayak3': 'Aborte imediatamente se o radar indicar células vermelhas.',
+        'weather.riversTitle': '🏞️ Rios & Cachoeiras',
+        'weather.rivers1': 'Atenção ao risco de <span class="text-emerald-300 font-bold">Cabeças d\'Água</span> mesmo com sol no vale (verifique chuva no alto da Serra).',
+        'weather.rivers2': 'Água turva ou folhas descendo indicam aumento repentino de nível.',
+        'weather.raftingTitle': '🌊 Rafting & Boia Cross',
+        'weather.rafting1': 'Monitore a régua e o nível na região de Cachoeira de Cima e Rio do Nunes.',
+        'weather.rafting2': 'Sempre utilize colete homologado e capacete com condutores credenciados.',
+        'weather.hikingTitle': '🥾 Montanhismo & Trilhas',
+        'weather.hiking1': 'Ventos <span class="text-amber-300 font-bold">&gt; 40 km/h</span> nos cumes elevam severamente o risco de hipotermia.',
+        'weather.hiking2': 'Leve lanterna, corta-vento impermeável e avise sobre seu roteiro.',
+        'weather.cond.storm': 'Tempestade',
+        'weather.cond.rain': 'Chuva',
+        'weather.cond.cloudy': 'Nublado',
+        'weather.cond.partlyCloudy': 'Parc. Nublado',
+        'weather.cond.clearNight': 'Céu Limpo',
+        'weather.cond.clearDay': 'Sol / Céu Limpo',
+        'route.heading': 'Como Chegar',
+        'route.subtitle': 'Rota GPS e recomendações de acesso ao Vale do Gigante',
+        'route.gpsTitle': 'Traçar Rota por GPS',
+        'route.gpsDesc': 'Selecione seu aplicativo favorito para iniciar a navegação a partir da sua localização atual:',
+        'route.gmaps': 'Abrir no Google Maps',
+        'route.gmapsSub': 'Permite baixar mapa offline',
+        'route.waze': 'Abrir no Waze',
+        'route.wazeSub': 'Alertas de estrada em tempo real',
+        'route.coordsTitle': 'Coordenadas Exatas',
+        'route.copyAria': 'Copiar coordenadas',
+        'route.copy': 'Copiar',
+        'route.loadingMap': 'Carregando mapa da rota...',
+        'route.warningsTitle': 'Avisos Importantes',
+        'route.signalTitle': '📱 Sinal de Celular',
+        'route.signal1': 'O sinal de internet móvel em áreas rurais do vale é <span class="text-amber-300 font-bold">restrito ou inexistente</span>.',
+        'route.signal2': 'Inicie a rota no GPS <strong>antes</strong> de sair da BR-277 ou do centro urbano de Antonina.',
+        'route.roadTitle': '🚗 Condições da Via',
+        'route.road1': 'Trechos em estrada rural de saibro (PR-340 / Estrada do Cacatu e Bairro Alto).',
+        'route.road2': 'Reduza a velocidade, respeite a fauna silvestre e os moradores locais.',
+        'route.busTitle': '🚌 Ônibus / Transporte',
+        'route.bus1': 'Linhas municipais de Antonina atendem a região rural, com horários reduzidos aos fins de semana e feriados.',
+        'route.bus2': 'Consulte a rodoviária de Antonina com antecedência.',
+        'nav.aria': 'Navegação Principal',
+        'nav.home': 'Início',
+        'nav.attractions': 'Atrativos',
+        'nav.adventures': 'Aventuras',
+        'nav.lodging': 'Hospedagem',
+        'nav.gastronomy': 'Gastronomia',
+        'gallery.title': 'Galeria de Fotos',
+        'gallery.subtitle': 'Paisagens e experiências no Vale do Gigante • Antonina - PR',
+        'gallery.closeAria': 'Fechar galeria de fotos',
+        'gallery.closeZoomAria': 'Fechar visualização ampliada',
+        'gallery.closeZoom': 'Fechar zoom',
+        'gallery.hint': 'Toque em qualquer foto para ampliar',
+        'gallery.p1Badge': 'Montanhismo',
+        'gallery.p1Title': 'Pico Paraná (1.877m)',
+        'gallery.p1Cap': 'Cumes imponentes na Serra do Mar',
+        'gallery.p1LightSub': 'Serra do Mar • A montanha mais alta do Sul do Brasil',
+        'gallery.p2Badge': 'Aventura & Rios',
+        'gallery.p2Title': 'Cachoeira do Saci',
+        'gallery.p2Cap': 'Águas cristalinas para banho de natureza',
+        'gallery.p2LightSub': 'Águas cristalinas para banho de natureza',
+        'gallery.p3Badge': 'Mata Atlântica',
+        'gallery.p3Title': 'Vale do Gigante',
+        'gallery.p3Cap': 'Trilhas ecológicas e conservação ambiental',
+        'gallery.p3LightSub': 'Imersão na maior área contínua de Mata Atlântica',
+        'gallery.p4Badge': 'Lazer & Família',
+        'gallery.p4Title': 'Rio do Nunes',
+        'gallery.p4Cap': 'Caiaque e banhos refrescantes',
+        'gallery.p4LightSub': 'Caiaque e banhos refrescantes',
+        'gallery.p5Badge': 'Biodiversidade',
+        'gallery.p5Title': 'Observação de Aves',
+        'gallery.p5Cap': 'Santuário ornitológico na Mata Atlântica',
+        'gallery.p5LightSub': 'Mais de 500 espécies catalogadas em Antonina-PR',
+        'gallery.p6Badge': 'Hospedagem',
+        'gallery.p6Title': 'Ecolodges & Refúgios',
+        'gallery.p6Cap': 'Bairro Alto, Cacatu e Rio do Nunes',
+        'gallery.p6LightSub': 'Hospedagem aconchegante integrada à floresta',
+        'emergency.btn': 'Emergência',
+        'emergency.openAria': 'Abrir contatos de emergência em Antonina',
+        'emergency.closeAria': 'Fechar contatos de emergência',
+        'emergency.title': 'Contatos de Emergência',
+        'emergency.subtitle': 'Resgate, Defesa Civil e Saúde em Antonina - PR',
+        'emergency.fireTitle': 'Corpo de Bombeiros / GOST',
+        'emergency.fireDesc': 'Busca e salvamento em mata, montanha e rios',
+        'emergency.civilTitle': 'Defesa Civil (Antonina)',
+        'emergency.civilBadge': 'Alerta Clima',
+        'emergency.civilDesc': 'Cabeças d\'água, alagamentos, quedas de barreira e alertas na Serra',
+        'emergency.civilDuty': 'Plantão Municipal: (41) 3978-1055',
+        'emergency.localPhone': 'Fixo Local',
+        'emergency.hospDesc': 'Hospital Municipal & Pronto Socorro 24h • Centro, Antonina - PR',
+        'emergency.call': 'Ligar',
+        'emergency.viewMap': 'Ver Mapa',
+        'emergency.samuTitle': 'SAMU (Urgência Médica)',
+        'emergency.samuDesc': 'Ambulância e atendimento pré-hospitalar móvel no Litoral',
+        'emergency.policeTitle': 'Polícia Militar & Ambiental',
+        'emergency.policeDesc': 'Segurança pública e patrulha rural / Força Verde',
+        'emergency.gpsRefTitle': 'Coordenadas de Referência (Vale do Gigante)',
+        'emergency.copyGps': 'Copiar GPS',
+        'emergency.tip': 'Em áreas sem sinal da sua operadora, chamadas de emergência (190/193/112) usam qualquer antena disponível.',
+        'modal.close': 'Fechar',
+        'toast.copied': 'Copiado!',
+        'toast.copyError': 'Não foi possível copiar.',
+        'toast.coordsCopied': 'Coordenadas copiadas!',
+        'toast.linkCopied': 'Link da página copiado!',
+        'share.links.title': 'Vale do Gigante - Antonina PR',
+        'share.links.text': 'Conheça o Guia Digital do Vale do Gigante em Antonina - PR!',
+        'share.parceiros.title': 'Aventuras - Vale do Gigante',
+        'share.parceiros.text': 'Explore aventuras com nossos parceiros no Vale do Gigante:',
+        'share.hospedagem.title': 'Hospedagem - Vale do Gigante',
+        'share.hospedagem.text': 'Encontre refúgios ecológicos no Vale do Gigante:',
+        'share.atrativos.title': 'Atrativos - Vale do Gigante',
+        'share.atrativos.text': 'Confira os principais atrativos naturais do Vale do Gigante:',
+        'share.gastronomia.title': 'Gastronomia - Vale do Gigante',
+        'share.gastronomia.text': 'Confira os sabores autênticos do Vale do Gigante:'
+      },
+      en: {
+        'meta.pageTitle': 'Vale do Gigante | Official Ecotourism Guide - Antonina PR',
+        'lang.ariaGroup': 'Select language',
+        'lang.changed': 'Language changed to English',
+        'home.whatsapp': 'Official WhatsApp',
+        'home.shareAria': 'Share guide',
+        'home.tagline': 'Ecotourism in the heart of the Atlantic Forest',
+        'home.siteBtn': 'OFFICIAL WEBSITE',
+        'home.sub.home': 'Home Page',
+        'home.sub.trails': 'Attractions & Trails',
+        'home.sub.adventures': 'Adventures & Cycling',
+        'home.sub.lodging': 'Accommodation',
+        'home.sub.gastronomy': 'Gastronomy',
+        'home.sub.blog': 'Blog & Tips',
+        'home.instagram': 'OFFICIAL INSTAGRAM',
+        'home.gallery': 'PHOTO GALLERY',
+        'home.weather': 'WEATHER FORECAST',
+        'home.weatherChecking': 'Checking live weather...',
+        'home.weatherNowPrefix': 'Now in Antonina:',
+        'home.route': 'HOW TO GET HERE (GPS ROUTE)',
+        'home.rights': '© 2026 • All rights reserved',
+        'adventures.heading': 'Adventures',
+        'adventures.shareAria': 'Share Adventures',
+        'adventures.intro': 'Contact our official operators directly and book your next nature experience.',
+        'adventures.kayak': 'KAYAKING',
+        'adventures.rafting': 'RAFTING',
+        'adventures.bike': 'CYCLE TOURISM',
+        'adventures.trails': 'GUIDED TRAILS',
+        'adventures.tubing': 'RIVER TUBING',
+        'adventures.email': 'Questions or Partnerships? Send an Email',
+        'lodging.heading': 'Lodging',
+        'lodging.shareAria': 'Share Lodging',
+        'lodging.intro': 'Cozy retreats, ecolodges, and countryside stays surrounded by lush Atlantic Forest.',
+        'attractions.heading': 'Attractions',
+        'attractions.shareAria': 'Share Attractions',
+        'attractions.intro': 'Natural wonders, imposing peaks, ecological reserves, and crystal-clear rivers of our region.',
+        'attractions.searchPlaceholder': 'Search attraction or activity...',
+        'attractions.searchAria': 'Search attractions by name',
+        'attractions.clearAria': 'Clear search',
+        'attractions.picoTitle': 'PICO PARANÁ',
+        'attractions.picoDesc': 'The highest mountain in Southern Brazil (1,877m)',
+        'attractions.trailsTitle': 'VALLEY TRAILS',
+        'attractions.trailsDesc': 'Colonial history and ecological hikes',
+        'attractions.guaricicaTitle': 'GUARICICA EXPERIENCE',
+        'attractions.guaricicaDesc': 'Immersion in the Guaricica Nature Reserve (SPVS)',
+        'attractions.cachoeiraTitle': 'CACHOEIRA RIVER',
+        'attractions.cachoeiraDesc': 'Rapids, rafting, and natural swimming pools',
+        'attractions.nunesTitle': 'NUNES RIVER',
+        'attractions.nunesDesc': 'River tubing and refreshing family swims',
+        'attractions.birdsTitle': 'BIRDWATCHING',
+        'attractions.birdsDesc': 'Over 500 cataloged bird species in Antonina',
+        'attractions.emptyTitle': 'No attractions found',
+        'attractions.emptyHint': 'Try searching another keyword, such as "Pico", "River", or "Trails".',
+        'attractions.showAll': 'Show all attractions',
+        'gastronomy.heading': 'Gastronomy',
+        'gastronomy.shareAria': 'Share Gastronomy',
+        'gastronomy.intro': 'Discover traditional Barreado, rural cafés, famous banana candies, and local artisanal goods.',
+        'gastronomy.cafesTitle': 'CAFÉS & SNACK BARS',
+        'gastronomy.cafesDesc': 'Cozy stops in the heart of the Valley',
+        'gastronomy.localTitle': 'LOCAL PRODUCERS',
+        'gastronomy.localDesc': '100% natural banana candies & artisanal sweets',
+        'gastronomy.centerLoc': 'Antonina – Downtown',
+        'weather.heading': 'Weather & Safety',
+        'weather.subtitle': 'Real-time meteorological monitoring for Ecotourism',
+        'weather.liveTitle': 'Click to refresh weather and browser favicon',
+        'weather.liveSync': 'Syncing weather...',
+        'weather.liveUnavailable': 'Live weather unavailable',
+        'weather.liveToast': 'Weather and favicon updated:',
+        'weather.radarLive': 'Live Radar',
+        'weather.refTitle': '📍 Reference Point',
+        'weather.bayLoc': 'Bay (Antonina)',
+        'weather.layersTitle': 'Weather Layers',
+        'weather.layerWind': '💨 Wind & Gusts',
+        'weather.layerRain': '🌧️ Accumulated Rain',
+        'weather.layerRadar': '📡 Storm Radar',
+        'weather.layerTemp': '🌡️ Temperature',
+        'weather.loadingMap': 'Loading weather map...',
+        'weather.safetyTitle': 'Safety Protocols',
+        'weather.kayakTitle': '🛶 Kayaking (Bay)',
+        'weather.kayak1': 'Wind Limit: <span class="text-teal-300 font-bold">15–20 km/h</span>.',
+        'weather.kayak2': 'Pay extra attention to outgoing tides blowing against the wind.',
+        'weather.kayak3': 'Abort immediately if the radar shows red storm cells.',
+        'weather.riversTitle': '🏞️ Rivers & Waterfalls',
+        'weather.rivers1': 'Beware of <span class="text-emerald-300 font-bold">flash floods</span> even under sunny valley skies (check rain high in the mountains).',
+        'weather.rivers2': 'Muddy water or drifting leaves warn of a sudden rise in river level.',
+        'weather.raftingTitle': '🌊 Rafting & Tubing',
+        'weather.rafting1': 'Monitor the water gauge and river level around Cachoeira de Cima and Rio do Nunes.',
+        'weather.rafting2': 'Always wear an approved life vest and helmet with certified guides.',
+        'weather.hikingTitle': '🥾 Mountaineering & Trails',
+        'weather.hiking1': 'Winds <span class="text-amber-300 font-bold">&gt; 40 km/h</span> on peaks severely increase the risk of hypothermia.',
+        'weather.hiking2': 'Bring a flashlight, waterproof windbreaker, and share your itinerary.',
+        'weather.cond.storm': 'Thunderstorm',
+        'weather.cond.rain': 'Rain',
+        'weather.cond.cloudy': 'Cloudy',
+        'weather.cond.partlyCloudy': 'Partly Cloudy',
+        'weather.cond.clearNight': 'Clear Night',
+        'weather.cond.clearDay': 'Sunny / Clear',
+        'route.heading': 'How to Get Here',
+        'route.subtitle': 'GPS route and access recommendations to Vale do Gigante',
+        'route.gpsTitle': 'Plan GPS Route',
+        'route.gpsDesc': 'Choose your favorite app to start navigation from your current location:',
+        'route.gmaps': 'Open in Google Maps',
+        'route.gmapsSub': 'Supports offline map downloads',
+        'route.waze': 'Open in Waze',
+        'route.wazeSub': 'Real-time road alerts',
+        'route.coordsTitle': 'Exact Coordinates',
+        'route.copyAria': 'Copy coordinates',
+        'route.copy': 'Copy',
+        'route.loadingMap': 'Loading route map...',
+        'route.warningsTitle': 'Important Advisories',
+        'route.signalTitle': '📱 Mobile Signal',
+        'route.signal1': 'Mobile data signal in rural areas of the valley is <span class="text-amber-300 font-bold">limited or unavailable</span>.',
+        'route.signal2': 'Start GPS navigation <strong>before</strong> leaving highway BR-277 or downtown Antonina.',
+        'route.roadTitle': '🚗 Road Conditions',
+        'route.road1': 'Sections on unpaved rural gravel roads (PR-340 / Estrada do Cacatu & Bairro Alto).',
+        'route.road2': 'Slow down and respect local wildlife and residents.',
+        'route.busTitle': '🚌 Bus / Transit',
+        'route.bus1': 'Antonina municipal bus lines serve the rural valley with reduced schedules on weekends and holidays.',
+        'route.bus2': 'Check schedules at the Antonina bus station in advance.',
+        'nav.aria': 'Main Navigation',
+        'nav.home': 'Home',
+        'nav.attractions': 'Attractions',
+        'nav.adventures': 'Adventures',
+        'nav.lodging': 'Lodging',
+        'nav.gastronomy': 'Food',
+        'gallery.title': 'Photo Gallery',
+        'gallery.subtitle': 'Landscapes and experiences in Vale do Gigante • Antonina - PR',
+        'gallery.closeAria': 'Close photo gallery',
+        'gallery.closeZoomAria': 'Close enlarged preview',
+        'gallery.closeZoom': 'Close zoom',
+        'gallery.hint': 'Tap any photo to enlarge',
+        'gallery.p1Badge': 'Mountaineering',
+        'gallery.p1Title': 'Pico Paraná (1,877m)',
+        'gallery.p1Cap': 'Imposing peaks in the Serra do Mar',
+        'gallery.p1LightSub': 'Serra do Mar • The highest mountain in Southern Brazil',
+        'gallery.p2Badge': 'Adventure & Rivers',
+        'gallery.p2Title': 'Cachoeira do Saci',
+        'gallery.p2Cap': 'Crystal-clear waters for a nature swim',
+        'gallery.p2LightSub': 'Crystal-clear waters for a nature swim',
+        'gallery.p3Badge': 'Atlantic Forest',
+        'gallery.p3Title': 'Vale do Gigante',
+        'gallery.p3Cap': 'Ecological trails and conservation',
+        'gallery.p3LightSub': 'Immersion in the largest continuous stretch of Atlantic Forest',
+        'gallery.p4Badge': 'Leisure & Family',
+        'gallery.p4Title': 'Rio do Nunes',
+        'gallery.p4Cap': 'Kayaking and refreshing swims',
+        'gallery.p4LightSub': 'Kayaking and refreshing swims',
+        'gallery.p5Badge': 'Biodiversity',
+        'gallery.p5Title': 'Birdwatching',
+        'gallery.p5Cap': 'Ornithological sanctuary in the Atlantic Forest',
+        'gallery.p5LightSub': 'Over 500 species cataloged in Antonina-PR',
+        'gallery.p6Badge': 'Accommodation',
+        'gallery.p6Title': 'Ecolodges & Retreats',
+        'gallery.p6Cap': 'Bairro Alto, Cacatu and Rio do Nunes',
+        'gallery.p6LightSub': 'Cozy lodging integrated into the forest',
+        'emergency.btn': 'Emergency',
+        'emergency.openAria': 'Open emergency contacts in Antonina',
+        'emergency.closeAria': 'Close emergency contacts',
+        'emergency.title': 'Emergency Contacts',
+        'emergency.subtitle': 'Rescue, Civil Defense & Health in Antonina - PR',
+        'emergency.fireTitle': 'Fire Department / GOST',
+        'emergency.fireDesc': 'Search & rescue in forest, mountains, and rivers',
+        'emergency.civilTitle': 'Civil Defense (Antonina)',
+        'emergency.civilBadge': 'Weather Alert',
+        'emergency.civilDesc': 'Flash floods, flooding, landslides, and mountain alerts',
+        'emergency.civilDuty': 'Municipal Hotline: +55 (41) 3978-1055',
+        'emergency.localPhone': 'Local Line',
+        'emergency.hospDesc': 'Municipal Hospital & 24h ER • Downtown, Antonina - PR',
+        'emergency.call': 'Call',
+        'emergency.viewMap': 'View Map',
+        'emergency.samuTitle': 'SAMU (Medical Emergency)',
+        'emergency.samuDesc': 'Ambulance and pre-hospital emergency care on the Coast',
+        'emergency.policeTitle': 'Military & Environmental Police',
+        'emergency.policeDesc': 'Public safety and rural patrol / Green Force',
+        'emergency.gpsRefTitle': 'Reference Coordinates (Vale do Gigante)',
+        'emergency.copyGps': 'Copy GPS',
+        'emergency.tip': 'In areas without carrier signal, emergency calls (190/193/112) use any available tower.',
+        'modal.close': 'Close',
+        'toast.copied': 'Copied!',
+        'toast.copyError': 'Could not copy.',
+        'toast.coordsCopied': 'Coordinates copied!',
+        'toast.linkCopied': 'Page link copied!',
+        'share.links.title': 'Vale do Gigante - Antonina PR',
+        'share.links.text': 'Explore the Vale do Gigante Digital Guide in Antonina - PR!',
+        'share.parceiros.title': 'Adventures - Vale do Gigante',
+        'share.parceiros.text': 'Explore adventures with our partners in Vale do Gigante:',
+        'share.hospedagem.title': 'Lodging - Vale do Gigante',
+        'share.hospedagem.text': 'Find eco-retreats in Vale do Gigante:',
+        'share.atrativos.title': 'Attractions - Vale do Gigante',
+        'share.atrativos.text': 'Check out the top natural attractions in Vale do Gigante:',
+        'share.gastronomia.title': 'Gastronomy - Vale do Gigante',
+        'share.gastronomia.text': 'Discover the authentic flavors of Vale do Gigante:'
+      },
+      es: {
+        'meta.pageTitle': 'Vale do Gigante | Guía Oficial de Ecoturismo - Antonina PR',
+        'lang.ariaGroup': 'Seleccionar idioma',
+        'lang.changed': 'Idioma cambiado a Español',
+        'home.whatsapp': 'WhatsApp Oficial',
+        'home.shareAria': 'Compartir guía',
+        'home.tagline': 'Ecoturismo en el corazón de la Mata Atlántica',
+        'home.siteBtn': 'SITIO OFICIAL',
+        'home.sub.home': 'Página de Inicio',
+        'home.sub.trails': 'Atractivos y Senderos',
+        'home.sub.adventures': 'Aventuras y Cicloturismo',
+        'home.sub.lodging': 'Alojamiento',
+        'home.sub.gastronomy': 'Gastronomía',
+        'home.sub.blog': 'Blog y Consejos',
+        'home.instagram': 'INSTAGRAM OFICIAL',
+        'home.gallery': 'GALERÍA DE FOTOS',
+        'home.weather': 'PRONÓSTICO DEL TIEMPO',
+        'home.weatherChecking': 'Consultando el clima en vivo...',
+        'home.weatherNowPrefix': 'Ahora en Antonina:',
+        'home.route': 'CÓMO LLEGAR (RUTA GPS)',
+        'home.rights': '© 2026 • Todos los derechos reservados',
+        'adventures.heading': 'Aventuras',
+        'adventures.shareAria': 'Compartir Aventuras',
+        'adventures.intro': 'Habla directamente con nuestros operadores oficiales y reserva tu próxima experiencia en la naturaleza.',
+        'adventures.kayak': 'KAYAK',
+        'adventures.rafting': 'RAFTING',
+        'adventures.bike': 'CICLOTURISMO',
+        'adventures.trails': 'SENDEROS GUIADOS',
+        'adventures.tubing': 'TUBING EN RÍO',
+        'adventures.email': '¿Dudas o Alianzas? Envía un Correo',
+        'lodging.heading': 'Alojamiento',
+        'lodging.shareAria': 'Compartir Alojamiento',
+        'lodging.intro': 'Refugios acogedores, ecolodges y cabañas en medio de la exuberante Mata Atlántica.',
+        'attractions.heading': 'Atractivos',
+        'attractions.shareAria': 'Compartir Atractivos',
+        'attractions.intro': 'Bellezas naturales, picos imponentes, reservas ecológicas y ríos cristalinos de nuestra región.',
+        'attractions.searchPlaceholder': 'Buscar atractivo o actividad...',
+        'attractions.searchAria': 'Buscar atractivos por nombre',
+        'attractions.clearAria': 'Limpiar búsqueda',
+        'attractions.picoTitle': 'PICO PARANÁ',
+        'attractions.picoDesc': 'La montaña más alta del Sur de Brasil (1.877m)',
+        'attractions.trailsTitle': 'SENDEROS DEL VALLE',
+        'attractions.trailsDesc': 'Historia colonial y caminatas ecológicas',
+        'attractions.guaricicaTitle': 'EXPERIENCIA GUARICICA',
+        'attractions.guaricicaDesc': 'Inmersión en la Reserva Natural Guaricica (SPVS)',
+        'attractions.cachoeiraTitle': 'RÍO CACHOEIRA',
+        'attractions.cachoeiraDesc': 'Rápidos, rafting y piscinas naturales',
+        'attractions.nunesTitle': 'RÍO DO NUNES',
+        'attractions.nunesDesc': 'Tubing y baños refrescantes en familia',
+        'attractions.birdsTitle': 'AVISTAMIENTO DE AVES',
+        'attractions.birdsDesc': 'Más de 500 especies catalogadas en Antonina',
+        'attractions.emptyTitle': 'No se encontraron atractivos',
+        'attractions.emptyHint': 'Intenta buscar otro nombre, como "Pico", "Río" o "Senderos".',
+        'attractions.showAll': 'Mostrar todos los atractivos',
+        'gastronomy.heading': 'Gastronomía',
+        'gastronomy.shareAria': 'Compartir Gastronomía',
+        'gastronomy.intro': 'Descubre la tradición del Barreado, cafés rurales, los famosos dulces de banana y productos coloniales.',
+        'gastronomy.cafesTitle': 'CAFÉS Y MERIENDAS',
+        'gastronomy.cafesDesc': 'Paradas acogedoras en el corazón del Valle',
+        'gastronomy.localTitle': 'PRODUCTORES LOCALES',
+        'gastronomy.localDesc': 'Dulces de banana 100% naturales y artesanales',
+        'gastronomy.centerLoc': 'Antonina – Centro',
+        'weather.heading': 'Clima y Seguridad',
+        'weather.subtitle': 'Monitoreo meteorológico en tiempo real para Ecoturismo',
+        'weather.liveTitle': 'Haz clic para actualizar el clima y el favicon del navegador',
+        'weather.liveSync': 'Sincronizando clima...',
+        'weather.liveUnavailable': 'Clima en vivo no disponible',
+        'weather.liveToast': 'Clima y favicon actualizados:',
+        'weather.radarLive': 'Radar en Vivo',
+        'weather.refTitle': '📍 Punto de Referencia',
+        'weather.bayLoc': 'Bahía (Antonina)',
+        'weather.layersTitle': 'Capas Meteorológicas',
+        'weather.layerWind': '💨 Viento y Ráfagas',
+        'weather.layerRain': '🌧️ Lluvia Acumulada',
+        'weather.layerRadar': '📡 Radar de Tormentas',
+        'weather.layerTemp': '🌡️ Temperatura',
+        'weather.loadingMap': 'Cargando mapa meteorológico...',
+        'weather.safetyTitle': 'Protocolos de Seguridad',
+        'weather.kayakTitle': '🛶 Kayak (Bahía)',
+        'weather.kayak1': 'Viento Límite: <span class="text-teal-300 font-bold">15–20 km/h</span>.',
+        'weather.kayak2': 'Mucha atención a la marea bajante contra el viento.',
+        'weather.kayak3': 'Aborta de inmediato si el radar muestra celdas rojas.',
+        'weather.riversTitle': '🏞️ Ríos y Cascadas',
+        'weather.rivers1': 'Atención al riesgo de <span class="text-emerald-300 font-bold">crecidas súbitas</span> incluso con sol en el valle (revisa lluvias en la sierra).',
+        'weather.rivers2': 'Agua turbia u hojas bajando indican aumento repentino del caudal.',
+        'weather.raftingTitle': '🌊 Rafting y Tubing',
+        'weather.rafting1': 'Monitorea el nivel del río en la zona de Cachoeira de Cima y Río do Nunes.',
+        'weather.rafting2': 'Usa siempre chaleco homologado y casco con guías acreditados.',
+        'weather.hikingTitle': '🥾 Montañismo y Senderos',
+        'weather.hiking1': 'Vientos <span class="text-amber-300 font-bold">&gt; 40 km/h</span> en las cumbres aumentan gravemente el riesgo de hipotermia.',
+        'weather.hiking2': 'Lleva linterna, cortavientos impermeable e informa tu ruta.',
+        'weather.cond.storm': 'Tormenta',
+        'weather.cond.rain': 'Lluvia',
+        'weather.cond.cloudy': 'Nublado',
+        'weather.cond.partlyCloudy': 'Parc. Nublado',
+        'weather.cond.clearNight': 'Cielo Despejado',
+        'weather.cond.clearDay': 'Sol / Despejado',
+        'route.heading': 'Cómo Llegar',
+        'route.subtitle': 'Ruta GPS y recomendaciones de acceso al Vale do Gigante',
+        'route.gpsTitle': 'Trazar Ruta por GPS',
+        'route.gpsDesc': 'Elige tu aplicación favorita para iniciar la navegación desde tu ubicación actual:',
+        'route.gmaps': 'Abrir en Google Maps',
+        'route.gmapsSub': 'Permite descargar mapa sin conexión',
+        'route.waze': 'Abrir en Waze',
+        'route.wazeSub': 'Alertas de tráfico en tiempo real',
+        'route.coordsTitle': 'Coordenadas Exactas',
+        'route.copyAria': 'Copiar coordenadas',
+        'route.copy': 'Copiar',
+        'route.loadingMap': 'Cargando mapa de ruta...',
+        'route.warningsTitle': 'Avisos Importantes',
+        'route.signalTitle': '📱 Señal Móvil',
+        'route.signal1': 'La señal móvil en zonas rurales del valle es <span class="text-amber-300 font-bold">limitada o inexistente</span>.',
+        'route.signal2': 'Inicia la ruta en el GPS <strong>antes</strong> de salir de la BR-277 o del centro de Antonina.',
+        'route.roadTitle': '🚗 Estado del Camino',
+        'route.road1': 'Tramos en camino rural de ripio (PR-340 / Estrada do Cacatu y Bairro Alto).',
+        'route.road2': 'Reduce la velocidad, respeta la fauna silvestre y a los residentes locales.',
+        'route.busTitle': '🚌 Autobús / Transporte',
+        'route.bus1': 'Las líneas municipales de Antonina cubren la zona rural con horarios reducidos los fines de semana y feriados.',
+        'route.bus2': 'Consulta la terminal de Antonina con antelación.',
+        'nav.aria': 'Navegación Principal',
+        'nav.home': 'Inicio',
+        'nav.attractions': 'Atractivos',
+        'nav.adventures': 'Aventuras',
+        'nav.lodging': 'Alojamiento',
+        'nav.gastronomy': 'Gastronomía',
+        'gallery.title': 'Galería de Fotos',
+        'gallery.subtitle': 'Paisajes y experiencias en Vale do Gigante • Antonina - PR',
+        'gallery.closeAria': 'Cerrar galería de fotos',
+        'gallery.closeZoomAria': 'Cerrar vista ampliada',
+        'gallery.closeZoom': 'Cerrar zoom',
+        'gallery.hint': 'Toca cualquier foto para ampliar',
+        'gallery.p1Badge': 'Montañismo',
+        'gallery.p1Title': 'Pico Paraná (1.877m)',
+        'gallery.p1Cap': 'Cumbres imponentes en la Serra do Mar',
+        'gallery.p1LightSub': 'Serra do Mar • La montaña más alta del Sur de Brasil',
+        'gallery.p2Badge': 'Aventura y Ríos',
+        'gallery.p2Title': 'Cachoeira do Saci',
+        'gallery.p2Cap': 'Aguas cristalinas para baños de naturaleza',
+        'gallery.p2LightSub': 'Aguas cristalinas para baños de naturaleza',
+        'gallery.p3Badge': 'Mata Atlántica',
+        'gallery.p3Title': 'Vale do Gigante',
+        'gallery.p3Cap': 'Senderos ecológicos y conservación ambiental',
+        'gallery.p3LightSub': 'Inmersión en la mayor área continua de Mata Atlántica',
+        'gallery.p4Badge': 'Ocio y Familia',
+        'gallery.p4Title': 'Río do Nunes',
+        'gallery.p4Cap': 'Kayak y baños refrescantes',
+        'gallery.p4LightSub': 'Kayak y baños refrescantes',
+        'gallery.p5Badge': 'Biodiversidad',
+        'gallery.p5Title': 'Avistamiento de Aves',
+        'gallery.p5Cap': 'Santuario ornitológico en la Mata Atlántica',
+        'gallery.p5LightSub': 'Más de 500 especies catalogadas en Antonina-PR',
+        'gallery.p6Badge': 'Alojamiento',
+        'gallery.p6Title': 'Ecolodges y Refugios',
+        'gallery.p6Cap': 'Bairro Alto, Cacatu y Río do Nunes',
+        'gallery.p6LightSub': 'Alojamiento acogedor integrado en el bosque',
+        'emergency.btn': 'Emergencia',
+        'emergency.openAria': 'Abrir contactos de emergencia en Antonina',
+        'emergency.closeAria': 'Cerrar contactos de emergencia',
+        'emergency.title': 'Contactos de Emergencia',
+        'emergency.subtitle': 'Rescate, Defensa Civil y Salud en Antonina - PR',
+        'emergency.fireTitle': 'Cuerpo de Bomberos / GOST',
+        'emergency.fireDesc': 'Búsqueda y rescate en bosque, montaña y ríos',
+        'emergency.civilTitle': 'Defensa Civil (Antonina)',
+        'emergency.civilBadge': 'Alerta Clima',
+        'emergency.civilDesc': 'Crecidas súbitas, inundaciones, deslizamientos y alertas en la sierra',
+        'emergency.civilDuty': 'Guardia Municipal: +55 (41) 3978-1055',
+        'emergency.localPhone': 'Teléfono Fijo',
+        'emergency.hospDesc': 'Hospital Municipal y Urgencias 24h • Centro, Antonina - PR',
+        'emergency.call': 'Llamar',
+        'emergency.viewMap': 'Ver Mapa',
+        'emergency.samuTitle': 'SAMU (Urgencia Médica)',
+        'emergency.samuDesc': 'Ambulancia y atención prehospitalaria móvil en el Litoral',
+        'emergency.policeTitle': 'Policía Militar y Ambiental',
+        'emergency.policeDesc': 'Seguridad pública y patrulla rural / Fuerza Verde',
+        'emergency.gpsRefTitle': 'Coordenadas de Referencia (Vale do Gigante)',
+        'emergency.copyGps': 'Copiar GPS',
+        'emergency.tip': 'En zonas sin señal de tu operadora, las llamadas de emergencia (190/193/112) usan cualquier antena disponible.',
+        'modal.close': 'Cerrar',
+        'toast.copied': '¡Copiado!',
+        'toast.copyError': 'No se pudo copiar.',
+        'toast.coordsCopied': '¡Coordenadas copiadas!',
+        'toast.linkCopied': '¡Enlace de la página copiado!',
+        'share.links.title': 'Vale do Gigante - Antonina PR',
+        'share.links.text': '¡Conoce la Guía Digital de Vale do Gigante en Antonina - PR!',
+        'share.parceiros.title': 'Aventuras - Vale do Gigante',
+        'share.parceiros.text': 'Explora aventuras con nuestros operadores en Vale do Gigante:',
+        'share.hospedagem.title': 'Alojamiento - Vale do Gigante',
+        'share.hospedagem.text': 'Encuentra refugios ecológicos en Vale do Gigante:',
+        'share.atrativos.title': 'Atractivos - Vale do Gigante',
+        'share.atrativos.text': 'Descubre los principales atractivos naturales de Vale do Gigante:',
+        'share.gastronomia.title': 'Gastronomía - Vale do Gigante',
+        'share.gastronomia.text': 'Descubre los sabores auténticos de Vale do Gigante:'
+      }
+    };
+
+    const GALLERY_PHOTOS = {
+      'pico-parana': {
+        src: 'https://guia.valedogigante.com.br/galeria_fotos/picoparana.jpg',
+        titleKey: 'gallery.p1Title',
+        subKey: 'gallery.p1LightSub'
+      },
+      'cachoeira-saci': {
+        src: 'https://guia.valedogigante.com.br/galeria_fotos/cachoeira_saci.jpg',
+        titleKey: 'gallery.p2Title',
+        subKey: 'gallery.p2LightSub'
+      },
+      'vale-gigante': {
+        src: 'https://guia.valedogigante.com.br/galeria_fotos/valedogigante.jpg',
+        titleKey: 'gallery.p3Title',
+        subKey: 'gallery.p3LightSub'
+      },
+      'rio-nunes': {
+        src: 'https://guia.valedogigante.com.br/galeria_fotos/caiaque.jpg',
+        titleKey: 'gallery.p4Title',
+        subKey: 'gallery.p4LightSub'
+      },
+      'aves': {
+        src: 'https://guia.valedogigante.com.br/galeria_fotos/GUARA2.jpg',
+        titleKey: 'gallery.p5Title',
+        subKey: 'gallery.p5LightSub'
+      },
+      'ecolodges': {
+        src: 'https://guia.valedogigante.com.br/galeria_fotos/casamata.jpg',
+        titleKey: 'gallery.p6Title',
+        subKey: 'gallery.p6LightSub'
+      }
+    };
+
+    function detectInitialLanguage() {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const queryLang = (params.get('lang') || '').toLowerCase().slice(0, 2);
+        if (SUPPORTED_LANGS.includes(queryLang)) return queryLang;
+      } catch (_) {}
+      try {
+        const saved = localStorage.getItem('vale_lang');
+        if (saved && SUPPORTED_LANGS.includes(saved)) return saved;
+      } catch (_) {}
+      return 'pt';
+    }
+
+    let currentLang = detectInitialLanguage();
+    let lastWeatherData = null;
+    let activeGalleryPhotoId = null;
+
+    function t(key) {
+      const dict = TRANSLATIONS[currentLang] || TRANSLATIONS.pt;
+      return dict[key] ?? TRANSLATIONS.pt[key] ?? key;
+    }
+
+    function setLanguage(lang, showToastMsg = true) {
+      if (!SUPPORTED_LANGS.includes(lang)) lang = 'pt';
+      currentLang = lang;
+      try {
+        localStorage.setItem('vale_lang', lang);
+      } catch (_) {}
+
+      document.documentElement.lang = lang === 'pt' ? 'pt-BR' : lang;
+      const ogLocale = document.querySelector('meta[property="og:locale"]');
+      if (ogLocale) {
+        ogLocale.setAttribute('content', lang === 'pt' ? 'pt_BR' : lang === 'en' ? 'en_US' : 'es_ES');
+      }
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        el.textContent = t(el.getAttribute('data-i18n'));
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        el.innerHTML = t(el.getAttribute('data-i18n-html'));
+      });
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        el.setAttribute('placeholder', t(el.getAttribute('data-i18n-placeholder')));
+      });
+      document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+        el.setAttribute('aria-label', t(el.getAttribute('data-i18n-aria')));
+      });
+      document.querySelectorAll('[data-i18n-title]').forEach(el => {
+        el.setAttribute('title', t(el.getAttribute('data-i18n-title')));
+      });
+
+      document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+        const isActive = btn.getAttribute('data-lang-btn') === lang;
+        btn.setAttribute('aria-pressed', String(isActive));
+        if (isActive) {
+          btn.classList.add('bg-emerald-500', 'text-slate-950', 'shadow-sm');
+          btn.classList.remove('text-emerald-300/80', 'hover:text-white');
+        } else {
+          btn.classList.remove('bg-emerald-500', 'text-slate-950', 'shadow-sm');
+          btn.classList.add('text-emerald-300/80', 'hover:text-white');
+        }
+      });
+
+      if (lastWeatherData) {
+        renderWeatherDisplay(lastWeatherData, false);
+      } else {
+        document.title = t('meta.pageTitle');
+      }
+
+      if (activeGalleryPhotoId) {
+        openGalleryPhoto(activeGalleryPhotoId);
+      }
+
+      const searchInput = document.getElementById('atrativos-search');
+      if (searchInput && searchInput.value) {
+        filterAtrativos(searchInput.value);
+      }
+
+      if (showToastMsg) {
+        showToast(t('lang.changed'));
+      }
+    }
+
     // --- STATE ---
     const VALID_TABS = ['links', 'atrativos', 'parceiros', 'hospedagem', 'gastronomia', 'clima', 'rota'];
     let windyLoaded = false;
@@ -1572,13 +2329,13 @@
         document.execCommand('copy');
         showToast(successMessage);
       } catch (err) {
-        showToast('Não foi possível copiar.');
+        showToast(t('toast.copyError'));
       }
       document.body.removeChild(textarea);
     }
 
     function copyCoord() {
-      copyText('-25.430564, -48.760243', 'Coordenadas copiadas!');
+      copyText('-25.430564, -48.760243', t('toast.coordsCopied'));
     }
 
     // 4. Share Logic
@@ -1587,8 +2344,12 @@
       if (navigator.share) {
         navigator.share({ title, text, url: shareUrl }).catch(() => {});
       } else {
-        copyText(shareUrl, 'Link da página copiado!');
+        copyText(shareUrl, t('toast.linkCopied'));
       }
+    }
+
+    function shareSection(sectionKey) {
+      shareProfile(t(`share.${sectionKey}.title`), t(`share.${sectionKey}.text`));
     }
 
     // 5. Windy Map Logic (Lazy Loaded & Active State Highlighting)
@@ -1646,26 +2407,26 @@
     function classifyWeatherCode(wmoCode, isDay) {
       // WMO Weather interpretation codes (WW)
       if ([95, 96, 99].includes(wmoCode)) {
-        return { type: 'storm', label: 'Tempestade', border: '#f59e0b' };
+        return { type: 'storm', label: t('weather.cond.storm'), border: '#f59e0b' };
       }
       if ([51, 53, 55, 56, 57, 61, 63, 65, 66, 67, 80, 81, 82].includes(wmoCode)) {
-        return { type: 'rain', label: 'Chuva', border: '#38bdf8' };
+        return { type: 'rain', label: t('weather.cond.rain'), border: '#38bdf8' };
       }
       if ([3, 45, 48].includes(wmoCode)) {
-        return { type: 'cloudy', label: 'Nublado', border: '#94a3b8' };
+        return { type: 'cloudy', label: t('weather.cond.cloudy'), border: '#94a3b8' };
       }
       if (wmoCode === 2) {
         return {
           type: isDay ? 'partly-cloudy' : 'clear-night',
-          label: 'Parc. Nublado',
+          label: t('weather.cond.partlyCloudy'),
           border: '#34d399'
         };
       }
       // Codes 0, 1 (Clear / Mainly Clear)
       if (isDay === 0) {
-        return { type: 'clear-night', label: 'Céu Limpo', border: '#818cf8' };
+        return { type: 'clear-night', label: t('weather.cond.clearNight'), border: '#818cf8' };
       }
-      return { type: 'clear-day', label: 'Sol / Céu Limpo', border: '#fbbf24' };
+      return { type: 'clear-day', label: t('weather.cond.clearDay'), border: '#fbbf24' };
     }
 
     function drawWeatherFaviconDataUrl(weatherInfo, tempC) {
@@ -1804,6 +2565,50 @@
       return canvas.toDataURL('image/png');
     }
 
+    function renderWeatherDisplay(currentWeather, showFeedbackToast = false) {
+      if (!currentWeather) return;
+      const { temperature_2m, weather_code, is_day, wind_speed_10m } = currentWeather;
+      const weatherInfo = classifyWeatherCode(weather_code, is_day);
+      const faviconDataUrl = drawWeatherFaviconDataUrl(weatherInfo, temperature_2m);
+
+      if (faviconDataUrl) {
+        let faviconEl = document.getElementById('dynamic-favicon') || document.querySelector("link[rel*='icon']");
+        if (!faviconEl) {
+          faviconEl = document.createElement('link');
+          faviconEl.id = 'dynamic-favicon';
+          faviconEl.rel = 'icon';
+          document.head.appendChild(faviconEl);
+        }
+        faviconEl.type = 'image/png';
+        faviconEl.href = faviconDataUrl;
+
+        const previewImg = document.getElementById('live-favicon-preview');
+        if (previewImg) previewImg.src = faviconDataUrl;
+      }
+
+      const tempRounded = Math.round(temperature_2m);
+      const windRounded = Math.round(wind_speed_10m);
+      const summaryText = `${tempRounded}°C • ${weatherInfo.label} (${windRounded} km/h)`;
+
+      // Update Clima header badge
+      const summaryEl = document.getElementById('live-weather-summary');
+      if (summaryEl) summaryEl.textContent = summaryText;
+
+      // Update Home button badge
+      const homeBadge = document.getElementById('home-weather-live-badge');
+      if (homeBadge) {
+        homeBadge.textContent = `${t('home.weatherNowPrefix')} ${summaryText}`;
+        homeBadge.classList.remove('hidden');
+      }
+
+      // Update Page Title with live temperature & condition
+      document.title = `${tempRounded}°C ${weatherInfo.label} | Vale do Gigante - Antonina PR`;
+
+      if (showFeedbackToast) {
+        showToast(`${t('weather.liveToast')} ${summaryText}`);
+      }
+    }
+
     async function updateWeatherFavicon(lat = -25.2591, lon = -48.7405, showFeedbackToast = false) {
       try {
         const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code,is_day,wind_speed_10m,precipitation&timezone=America%2FSao_Paulo`;
@@ -1812,49 +2617,11 @@
         const data = await response.json();
 
         if (!data || !data.current) return;
-        const { temperature_2m, weather_code, is_day, wind_speed_10m } = data.current;
-        const weatherInfo = classifyWeatherCode(weather_code, is_day);
-        const faviconDataUrl = drawWeatherFaviconDataUrl(weatherInfo, temperature_2m);
-
-        if (faviconDataUrl) {
-          let faviconEl = document.getElementById('dynamic-favicon') || document.querySelector("link[rel*='icon']");
-          if (!faviconEl) {
-            faviconEl = document.createElement('link');
-            faviconEl.id = 'dynamic-favicon';
-            faviconEl.rel = 'icon';
-            document.head.appendChild(faviconEl);
-          }
-          faviconEl.type = 'image/png';
-          faviconEl.href = faviconDataUrl;
-
-          const previewImg = document.getElementById('live-favicon-preview');
-          if (previewImg) previewImg.src = faviconDataUrl;
-        }
-
-        const tempRounded = Math.round(temperature_2m);
-        const windRounded = Math.round(wind_speed_10m);
-        const summaryText = `${tempRounded}°C • ${weatherInfo.label} (${windRounded} km/h)`;
-
-        // Update Clima header badge
-        const summaryEl = document.getElementById('live-weather-summary');
-        if (summaryEl) summaryEl.textContent = summaryText;
-
-        // Update Home button badge
-        const homeBadge = document.getElementById('home-weather-live-badge');
-        if (homeBadge) {
-          homeBadge.textContent = `Agora em Antonina: ${summaryText}`;
-          homeBadge.classList.remove('hidden');
-        }
-
-        // Update Page Title with live temperature & condition
-        document.title = `${tempRounded}°C ${weatherInfo.label} | Vale do Gigante - Antonina PR`;
-
-        if (showFeedbackToast) {
-          showToast(`Clima e favicon atualizados: ${summaryText}`);
-        }
+        lastWeatherData = data.current;
+        renderWeatherDisplay(lastWeatherData, showFeedbackToast);
       } catch (err) {
         const summaryEl = document.getElementById('live-weather-summary');
-        if (summaryEl) summaryEl.textContent = 'Clima ao vivo indisponível';
+        if (summaryEl) summaryEl.textContent = t('weather.liveUnavailable');
       }
     }
 
@@ -1958,6 +2725,13 @@
       }
     }
 
+    function openGalleryPhoto(photoId) {
+      const photo = GALLERY_PHOTOS[photoId];
+      if (!photo) return;
+      activeGalleryPhotoId = photoId;
+      openGalleryLightbox(photo.src, t(photo.titleKey), t(photo.subKey));
+    }
+
     function openGalleryLightbox(src, title, subtitle) {
       const box = document.getElementById('gallery-lightbox');
       const img = document.getElementById('gallery-lightbox-img');
@@ -1973,6 +2747,7 @@
     }
 
     function closeGalleryLightbox() {
+      activeGalleryPhotoId = null;
       const box = document.getElementById('gallery-lightbox');
       if (box) box.classList.add('hidden');
     }
@@ -2033,6 +2808,7 @@
 
     // Fetch live weather and update browser favicon on load and every 10 minutes
     window.addEventListener('DOMContentLoaded', () => {
+      setLanguage(currentLang, false);
       updateWeatherFavicon(currentWindyLat, currentWindyLon, false);
       setInterval(() => {
         updateWeatherFavicon(currentWindyLat, currentWindyLon, false);
