@@ -920,7 +920,7 @@
         </div>
       </header>
 
-      <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full">
         <!-- Controls -->
         <aside class="col-span-1 flex flex-col gap-2.5">
           <!-- Busca por Cidade ou Coordenadas (Serra do Mar) -->
@@ -1034,44 +1034,6 @@
             <div data-i18n="weather.loadingMap" class="text-xs text-emerald-400/80 animate-pulse">Carregando mapa meteorológico...</div>
           </div>
         </section>
-
-        <!-- Safety Guides -->
-        <aside class="col-span-1 flex flex-col gap-3 lg:h-[580px] overflow-y-auto scrollbar-hide pb-4">
-          <h3 data-i18n="weather.safetyTitle" class="text-xs font-bold text-emerald-400/90 uppercase tracking-wider mb-0.5">Protocolos de Segurança</h3>
-
-          <div class="glass-panel p-4 rounded-xl border-l-4 border-l-teal-400">
-            <h4 data-i18n="weather.kayakTitle" class="font-bold text-teal-100 text-sm mb-2 flex items-center gap-2">🛶 Caiaque (Baía)</h4>
-            <ul class="text-xs text-emerald-200/85 space-y-1.5 pl-4 list-disc">
-              <li data-i18n-html="weather.kayak1">Vento Limite: <span class="text-teal-300 font-bold">15–20 km/h</span>.</li>
-              <li data-i18n="weather.kayak2">Atenção redobrada à maré vazante contra o vento.</li>
-              <li data-i18n="weather.kayak3">Aborte imediatamente se o radar indicar células vermelhas.</li>
-            </ul>
-          </div>
-
-          <div class="glass-panel p-4 rounded-xl border-l-4 border-l-emerald-400">
-            <h4 data-i18n="weather.riversTitle" class="font-bold text-emerald-100 text-sm mb-2 flex items-center gap-2">🏞️ Rios & Cachoeiras</h4>
-            <ul class="text-xs text-emerald-200/85 space-y-1.5 pl-4 list-disc">
-              <li data-i18n-html="weather.rivers1">Atenção ao risco de <span class="text-emerald-300 font-bold">Cabeças d'Água</span> mesmo com sol no vale (verifique chuva no alto da Serra).</li>
-              <li data-i18n="weather.rivers2">Água turva ou folhas descendo indicam aumento repentino de nível.</li>
-            </ul>
-          </div>
-
-          <div class="glass-panel p-4 rounded-xl border-l-4 border-l-lime-400">
-            <h4 data-i18n="weather.raftingTitle" class="font-bold text-lime-100 text-sm mb-2 flex items-center gap-2">🌊 Rafting & Boia Cross</h4>
-            <ul class="text-xs text-emerald-200/85 space-y-1.5 pl-4 list-disc">
-              <li data-i18n="weather.rafting1">Monitore a régua e o nível na região de Cachoeira de Cima e Rio do Nunes.</li>
-              <li data-i18n="weather.rafting2">Sempre utilize colete homologado e capacete com condutores credenciados.</li>
-            </ul>
-          </div>
-          
-          <div class="glass-panel p-4 rounded-xl border-l-4 border-l-amber-500">
-            <h4 data-i18n="weather.hikingTitle" class="font-bold text-amber-100 text-sm mb-2 flex items-center gap-2">🥾 Montanhismo & Trilhas</h4>
-            <ul class="text-xs text-emerald-200/85 space-y-1.5 pl-4 list-disc">
-              <li data-i18n-html="weather.hiking1">Ventos <span class="text-amber-300 font-bold">&gt; 40 km/h</span> nos cumes elevam severamente o risco de hipotermia.</li>
-              <li data-i18n="weather.hiking2">Leve lanterna, corta-vento impermeável e avise sobre seu roteiro.</li>
-            </ul>
-          </div>
-        </aside>
       </div>
 
       <!-- 24h Temperature Forecast Bar Chart (D3.js Data Visualization) -->
@@ -1111,6 +1073,46 @@
             <div data-i18n="weather.chartLoading" class="text-xs text-emerald-400/80 animate-pulse">Carregando previsão das próximas 24 horas...</div>
           </div>
           <div id="temp-chart-tooltip" class="pointer-events-none hidden absolute z-20 px-3 py-2 rounded-xl bg-[#040d09]/95 border border-emerald-400/50 shadow-xl text-xs whitespace-nowrap backdrop-blur-md"></div>
+        </div>
+      </section>
+
+      <!-- Safety Guides -->
+      <section class="mt-6 w-full pb-4" aria-labelledby="weather-safety-title">
+        <h3 id="weather-safety-title" data-i18n="weather.safetyTitle" class="text-xs font-bold text-emerald-400/90 uppercase tracking-wider mb-3">Protocolos de Segurança</h3>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          <div class="glass-panel p-4 rounded-xl border-l-4 border-l-teal-400">
+            <h4 data-i18n="weather.kayakTitle" class="font-bold text-teal-100 text-sm mb-2 flex items-center gap-2">🛶 Caiaque (Baía)</h4>
+            <ul class="text-xs text-emerald-200/85 space-y-1.5 pl-4 list-disc">
+              <li data-i18n-html="weather.kayak1">Vento Limite: <span class="text-teal-300 font-bold">15–20 km/h</span>.</li>
+              <li data-i18n="weather.kayak2">Atenção redobrada à maré vazante contra o vento.</li>
+              <li data-i18n="weather.kayak3">Aborte imediatamente se o radar indicar células vermelhas.</li>
+            </ul>
+          </div>
+
+          <div class="glass-panel p-4 rounded-xl border-l-4 border-l-emerald-400">
+            <h4 data-i18n="weather.riversTitle" class="font-bold text-emerald-100 text-sm mb-2 flex items-center gap-2">🏞️ Rios & Cachoeiras</h4>
+            <ul class="text-xs text-emerald-200/85 space-y-1.5 pl-4 list-disc">
+              <li data-i18n-html="weather.rivers1">Atenção ao risco de <span class="text-emerald-300 font-bold">Cabeças d'Água</span> mesmo com sol no vale (verifique chuva no alto da Serra).</li>
+              <li data-i18n="weather.rivers2">Água turva ou folhas descendo indicam aumento repentino de nível.</li>
+            </ul>
+          </div>
+
+          <div class="glass-panel p-4 rounded-xl border-l-4 border-l-lime-400">
+            <h4 data-i18n="weather.raftingTitle" class="font-bold text-lime-100 text-sm mb-2 flex items-center gap-2">🌊 Rafting & Boia Cross</h4>
+            <ul class="text-xs text-emerald-200/85 space-y-1.5 pl-4 list-disc">
+              <li data-i18n="weather.rafting1">Monitore a régua e o nível na região de Cachoeira de Cima e Rio do Nunes.</li>
+              <li data-i18n="weather.rafting2">Sempre utilize colete homologado e capacete com condutores credenciados.</li>
+            </ul>
+          </div>
+          
+          <div class="glass-panel p-4 rounded-xl border-l-4 border-l-amber-500">
+            <h4 data-i18n="weather.hikingTitle" class="font-bold text-amber-100 text-sm mb-2 flex items-center gap-2">🥾 Montanhismo & Trilhas</h4>
+            <ul class="text-xs text-emerald-200/85 space-y-1.5 pl-4 list-disc">
+              <li data-i18n-html="weather.hiking1">Ventos <span class="text-amber-300 font-bold">&gt; 40 km/h</span> nos cumes elevam severamente o risco de hipotermia.</li>
+              <li data-i18n="weather.hiking2">Leve lanterna, corta-vento impermeável e avise sobre seu roteiro.</li>
+            </ul>
+          </div>
         </div>
       </section>
     </section>
