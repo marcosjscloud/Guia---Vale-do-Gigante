@@ -57,6 +57,9 @@
 
   <!-- Tailwind CSS via CDN (Zero Build Dependency para cPanel) -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- D3.js v7 via CDN for Weather Data Visualization -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
   
   <!-- Fonts Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -813,7 +816,7 @@
       </p>
 
       <div class="w-full flex flex-col gap-3.5 mb-8">
-        <a href="https://valedogigante.com.br/cafeaventuras/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
+        <a href="https://valedogigante.com.br/gastronomia/" target="_blank" rel="noopener noreferrer" class="glass-button w-full min-h-[72px] px-4 py-3.5 rounded-2xl flex items-center justify-between gap-3 group relative overflow-hidden">
           <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:scale-105 transition-all shrink-0">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2v2"/><path d="M14 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/><path d="M6 2v2"/></svg>
           </div>
@@ -1070,6 +1073,46 @@
           </div>
         </aside>
       </div>
+
+      <!-- 24h Temperature Forecast Bar Chart (D3.js Data Visualization) -->
+      <section class="mt-6 w-full glass-panel rounded-2xl p-4 sm:p-5 border border-emerald-500/30" aria-labelledby="temp-chart-title">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+          <div>
+            <h3 id="temp-chart-title" class="text-sm sm:text-base font-bold text-white flex items-center gap-2">
+              <span class="w-7 h-7 rounded-lg bg-amber-400/15 border border-amber-400/35 flex items-center justify-center text-amber-300 shrink-0">
+                <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 3v18h18"/><rect x="7" y="10" width="3" height="7" rx="1"/><rect x="12" y="6" width="3" height="11" rx="1"/><rect x="17" y="13" width="3" height="4" rx="1"/></svg>
+              </span>
+              <span data-i18n="weather.chartTitle">Variação de Temperatura (Próximas 24h)</span>
+            </h3>
+            <p class="text-xs text-emerald-300/85 mt-1">
+              <span data-i18n="weather.chartSubtitle">Previsão horária para planejamento em</span>
+              <span id="temp-chart-location" class="font-semibold text-emerald-100">Vale do Gigante • Antonina - PR</span>
+            </p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2 text-xs">
+            <div class="px-2.5 py-1 rounded-lg bg-sky-500/15 border border-sky-400/30 text-sky-200 font-semibold">
+              <span data-i18n="weather.chartMin">Mín:</span>
+              <span id="temp-chart-min" class="font-bold text-white">--°C</span>
+            </div>
+            <div class="px-2.5 py-1 rounded-lg bg-amber-500/15 border border-amber-400/35 text-amber-200 font-semibold">
+              <span data-i18n="weather.chartMax">Máx:</span>
+              <span id="temp-chart-max" class="font-bold text-white">--°C</span>
+            </div>
+            <div class="px-2.5 py-1 rounded-lg bg-emerald-500/20 border border-emerald-400/40 text-emerald-200 font-semibold">
+              <span data-i18n="weather.chartNow">Agora:</span>
+              <span id="temp-chart-now" class="font-bold text-white">--°C</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative w-full">
+          <div id="temp-chart-container" role="img" aria-label="Gráfico de barras de variação de temperatura nas próximas 24 horas" data-i18n-aria="weather.chartAria" class="w-full h-[230px] sm:h-[260px] flex items-center justify-center">
+            <div data-i18n="weather.chartLoading" class="text-xs text-emerald-400/80 animate-pulse">Carregando previsão das próximas 24 horas...</div>
+          </div>
+          <div id="temp-chart-tooltip" class="pointer-events-none hidden absolute z-20 px-3 py-2 rounded-xl bg-[#040d09]/95 border border-emerald-400/50 shadow-xl text-xs whitespace-nowrap backdrop-blur-md"></div>
+        </div>
+      </section>
     </section>
 
     <!-- ========================================== -->
@@ -1693,6 +1736,17 @@
         'weather.cond.partlyCloudy': 'Parc. Nublado',
         'weather.cond.clearNight': 'Céu Limpo',
         'weather.cond.clearDay': 'Sol / Céu Limpo',
+        'weather.chartTitle': 'Variação de Temperatura (Próximas 24h)',
+        'weather.chartSubtitle': 'Previsão horária para planejamento em',
+        'weather.chartLoading': 'Carregando previsão das próximas 24 horas...',
+        'weather.chartUnavailable': 'Previsão horária indisponível no momento.',
+        'weather.chartMin': 'Mín:',
+        'weather.chartMax': 'Máx:',
+        'weather.chartNow': 'Agora:',
+        'weather.chartRainProb': 'Chuva',
+        'weather.chartToday': 'Hoje',
+        'weather.chartTomorrow': 'Amanhã',
+        'weather.chartAria': 'Gráfico de barras com a variação de temperatura prevista para as próximas 24 horas',
         'route.heading': 'Como Chegar',
         'route.subtitle': 'Rota GPS e recomendações de acesso ao Vale do Gigante',
         'route.gpsTitle': 'Traçar Rota por GPS',
@@ -1902,6 +1956,17 @@
         'weather.cond.partlyCloudy': 'Partly Cloudy',
         'weather.cond.clearNight': 'Clear Night',
         'weather.cond.clearDay': 'Sunny / Clear',
+        'weather.chartTitle': 'Temperature Variation (Next 24h)',
+        'weather.chartSubtitle': 'Hourly forecast for trip planning in',
+        'weather.chartLoading': 'Loading 24-hour forecast...',
+        'weather.chartUnavailable': 'Hourly forecast unavailable right now.',
+        'weather.chartMin': 'Min:',
+        'weather.chartMax': 'Max:',
+        'weather.chartNow': 'Now:',
+        'weather.chartRainProb': 'Rain',
+        'weather.chartToday': 'Today',
+        'weather.chartTomorrow': 'Tomorrow',
+        'weather.chartAria': 'Bar chart showing the predicted temperature variation for the next 24 hours',
         'route.heading': 'How to Get Here',
         'route.subtitle': 'GPS route and access recommendations to Vale do Gigante',
         'route.gpsTitle': 'Plan GPS Route',
@@ -2111,6 +2176,17 @@
         'weather.cond.partlyCloudy': 'Parc. Nublado',
         'weather.cond.clearNight': 'Cielo Despejado',
         'weather.cond.clearDay': 'Sol / Despejado',
+        'weather.chartTitle': 'Variación de Temperatura (Próximas 24h)',
+        'weather.chartSubtitle': 'Pronóstico horario para planificar en',
+        'weather.chartLoading': 'Cargando pronóstico de las próximas 24 horas...',
+        'weather.chartUnavailable': 'Pronóstico horario no disponible ahora.',
+        'weather.chartMin': 'Mín:',
+        'weather.chartMax': 'Máx:',
+        'weather.chartNow': 'Ahora:',
+        'weather.chartRainProb': 'Lluvia',
+        'weather.chartToday': 'Hoy',
+        'weather.chartTomorrow': 'Mañana',
+        'weather.chartAria': 'Gráfico de barras con la variación de temperatura prevista para las próximas 24 horas',
         'route.heading': 'Cómo Llegar',
         'route.subtitle': 'Ruta GPS y recomendaciones de acceso al Vale do Gigante',
         'route.gpsTitle': 'Trazar Ruta por GPS',
@@ -2257,6 +2333,8 @@
 
     let currentLang = detectInitialLanguage();
     let lastWeatherData = null;
+    let lastHourlyForecast = null;
+    let currentWeatherLocationName = 'Vale do Gigante • Antonina - PR';
     let activeGalleryPhotoId = null;
 
     function t(key) {
@@ -2309,6 +2387,10 @@
         renderWeatherDisplay(lastWeatherData, false);
       } else {
         document.title = t('meta.pageTitle');
+      }
+
+      if (lastHourlyForecast) {
+        renderTemperatureChart(lastHourlyForecast);
       }
 
       if (activeGalleryPhotoId) {
@@ -2372,9 +2454,14 @@
       if (scrollArea) scrollArea.scrollTo({ top: 0, behavior: 'smooth' });
 
       // Lazy load maps when their tabs are opened
-      if (tabId === 'clima' && !windyLoaded) {
-        updateWindyMap();
-        windyLoaded = true;
+      if (tabId === 'clima') {
+        if (!windyLoaded) {
+          updateWindyMap();
+          windyLoaded = true;
+        }
+        if (lastHourlyForecast) {
+          requestAnimationFrame(() => renderTemperatureChart(lastHourlyForecast));
+        }
       }
       if (tabId === 'rota' && !googleMapLoaded) {
         loadGoogleMap();
@@ -2529,6 +2616,9 @@
       currentWindyLat = lat;
       currentWindyLon = lon;
       windyLoaded = true;
+      currentWeatherLocationName = btnId === 'loc-baia'
+        ? 'Baía de Antonina • Antonina - PR'
+        : 'Vale do Gigante • Antonina - PR';
       ['loc-baia', 'loc-vale'].forEach(id => {
         const el = document.getElementById(id);
         if (el) el.classList.toggle('control-active', id === btnId);
@@ -2545,6 +2635,7 @@
 
       currentWindyLat = parsedLat;
       currentWindyLon = parsedLon;
+      currentWeatherLocationName = label;
       windyLoaded = true;
 
       ['loc-baia', 'loc-vale'].forEach(id => {
@@ -3091,9 +3182,286 @@
       }
     }
 
+    function extractNext24HoursForecast(data) {
+      if (!data || !data.hourly || !Array.isArray(data.hourly.time) || !Array.isArray(data.hourly.temperature_2m)) {
+        return [];
+      }
+
+      const times = data.hourly.time;
+      const temps = data.hourly.temperature_2m;
+      const rainProbs = data.hourly.precipitation_probability || [];
+      const codes = data.hourly.weather_code || [];
+
+      const currentTimeStr = data.current && data.current.time ? data.current.time : times[0];
+      const currentHourPrefix = currentTimeStr.slice(0, 13);
+      const currentDateStr = currentTimeStr.slice(0, 10);
+
+      let startIndex = times.findIndex(ts => ts.slice(0, 13) >= currentHourPrefix);
+      if (startIndex === -1) startIndex = 0;
+
+      const sliceEnd = Math.min(startIndex + 24, times.length);
+      const points = [];
+      for (let i = startIndex; i < sliceEnd; i++) {
+        const ts = times[i];
+        const hourStr = ts.slice(11, 13);
+        const hourNum = parseInt(hourStr, 10);
+        const tempVal = Number(temps[i]);
+        if (Number.isNaN(tempVal)) continue;
+
+        points.push({
+          idx: points.length,
+          timeStr: ts,
+          hourNum,
+          hourLabel: `${hourStr}h`,
+          fullHour: ts.slice(11, 16),
+          dayOffset: ts.slice(0, 10) === currentDateStr ? 0 : 1,
+          temp: tempVal,
+          rainProb: Number(rainProbs[i] ?? 0),
+          weatherCode: Number(codes[i] ?? 0)
+        });
+      }
+
+      return points;
+    }
+
+    function renderTemperatureChart(points) {
+      const container = document.getElementById('temp-chart-container');
+      const tooltipEl = document.getElementById('temp-chart-tooltip');
+      const locEl = document.getElementById('temp-chart-location');
+      const minEl = document.getElementById('temp-chart-min');
+      const maxEl = document.getElementById('temp-chart-max');
+      const nowEl = document.getElementById('temp-chart-now');
+
+      if (!container) return;
+      if (locEl) locEl.textContent = currentWeatherLocationName;
+
+      if (!Array.isArray(points) || points.length === 0) {
+        container.textContent = '';
+        const msg = document.createElement('div');
+        msg.className = 'text-xs text-emerald-300/75';
+        msg.textContent = t('weather.chartUnavailable');
+        container.appendChild(msg);
+        return;
+      }
+
+      const temps = points.map(p => p.temp);
+      const minTemp = Math.min(...temps);
+      const maxTemp = Math.max(...temps);
+      const minIndex = points.findIndex(p => p.temp === minTemp);
+      const maxIndex = points.findIndex(p => p.temp === maxTemp);
+
+      if (minEl) minEl.textContent = `${Math.round(minTemp)}°C`;
+      if (maxEl) maxEl.textContent = `${Math.round(maxTemp)}°C`;
+      if (nowEl) nowEl.textContent = `${Math.round(points[0].temp)}°C`;
+
+      if (typeof d3 === 'undefined') {
+        container.textContent = '';
+        const msg = document.createElement('div');
+        msg.className = 'text-xs text-amber-300/80';
+        msg.textContent = t('weather.chartUnavailable');
+        container.appendChild(msg);
+        return;
+      }
+
+      d3.select(container).selectAll('*').remove();
+      if (tooltipEl) tooltipEl.classList.add('hidden');
+
+      const totalWidth = Math.max(container.clientWidth || 720, 310);
+      const totalHeight = Math.max(container.clientHeight || 240, 220);
+      const margin = { top: 26, right: 12, bottom: 30, left: 38 };
+      const innerWidth = Math.max(totalWidth - margin.left - margin.right, 180);
+      const innerHeight = Math.max(totalHeight - margin.top - margin.bottom, 120);
+
+      const svg = d3.select(container)
+        .append('svg')
+        .attr('viewBox', `0 0 ${totalWidth} ${totalHeight}`)
+        .attr('width', '100%')
+        .attr('height', '100%')
+        .style('overflow', 'visible');
+
+      const defs = svg.append('defs');
+      const colorScale = d3.scaleLinear()
+        .domain([10, 18, 25, 33])
+        .range(['#38bdf8', '#34d399', '#fbbf24', '#fb923c'])
+        .clamp(true);
+
+      points.forEach((p, i) => {
+        const grad = defs.append('linearGradient')
+          .attr('id', `temp-bar-grad-${i}`)
+          .attr('x1', '0%').attr('y1', '0%')
+          .attr('x2', '0%').attr('y2', '100%');
+        const topColor = colorScale(p.temp);
+        grad.append('stop').attr('offset', '0%').attr('stop-color', topColor).attr('stop-opacity', 0.95);
+        grad.append('stop').attr('offset', '100%').attr('stop-color', '#065f46').attr('stop-opacity', 0.35);
+      });
+
+      const g = svg.append('g')
+        .attr('transform', `translate(${margin.left},${margin.top})`);
+
+      const x = d3.scaleBand()
+        .domain(points.map(d => d.idx))
+        .range([0, innerWidth])
+        .padding(0.24);
+
+      const yMinDomain = Math.floor(minTemp - 2);
+      const yMaxDomain = Math.ceil(maxTemp + 2);
+      const y = d3.scaleLinear()
+        .domain([yMinDomain, yMaxDomain])
+        .nice()
+        .range([innerHeight, 0]);
+
+      // Horizontal Gridlines & Y-Axis
+      const yAxis = d3.axisLeft(y)
+        .ticks(5)
+        .tickSize(-innerWidth)
+        .tickFormat(d => `${d}°`);
+
+      const yAxisGroup = g.append('g').call(yAxis);
+      yAxisGroup.select('.domain').remove();
+      yAxisGroup.selectAll('.tick line')
+        .attr('stroke', 'rgba(52, 211, 153, 0.14)')
+        .attr('stroke-dasharray', '3,3');
+      yAxisGroup.selectAll('.tick text')
+        .attr('fill', 'rgba(167, 243, 208, 0.78)')
+        .attr('font-size', '10px')
+        .attr('font-family', 'Inter, sans-serif')
+        .attr('dx', '-4');
+
+      // X-Axis (every 2h or 3h depending on screen width)
+      const step = innerWidth < 500 ? 3 : 2;
+      const tickIndices = points.filter((_, i) => i === 0 || i % step === 0).map(d => d.idx);
+      const xAxis = d3.axisBottom(x)
+        .tickValues(tickIndices)
+        .tickSize(0)
+        .tickFormat(idx => {
+          const p = points[idx];
+          if (!p) return '';
+          return idx === 0 ? (currentLang === 'en' ? 'Now' : currentLang === 'es' ? 'Ahora' : 'Agora') : p.hourLabel;
+        });
+
+      const xAxisGroup = g.append('g')
+        .attr('transform', `translate(0,${innerHeight})`)
+        .call(xAxis);
+      xAxisGroup.select('.domain')
+        .attr('stroke', 'rgba(52, 211, 153, 0.28)');
+      xAxisGroup.selectAll('.tick text')
+        .attr('fill', idx => idx === 0 ? '#fde68a' : 'rgba(167, 243, 208, 0.85)')
+        .attr('font-weight', idx => idx === 0 ? '700' : '500')
+        .attr('font-size', '10px')
+        .attr('font-family', 'Inter, sans-serif')
+        .attr('dy', '12');
+
+      function showBarTooltip(event, d) {
+        if (!tooltipEl) return;
+        const isDay = d.hourNum >= 6 && d.hourNum < 19 ? 1 : 0;
+        const cond = classifyWeatherCode(d.weatherCode, isDay);
+        const dayText = d.dayOffset === 0 ? t('weather.chartToday') : t('weather.chartTomorrow');
+
+        tooltipEl.textContent = '';
+
+        const headerDiv = document.createElement('div');
+        headerDiv.className = 'font-bold text-emerald-200 mb-0.5';
+        headerDiv.textContent = `${d.fullHour} • ${dayText}`;
+
+        const tempDiv = document.createElement('div');
+        tempDiv.className = 'text-sm font-extrabold text-white';
+        tempDiv.textContent = `${d.temp.toFixed(1)}°C`;
+
+        const metaDiv = document.createElement('div');
+        metaDiv.className = 'text-[11px] text-emerald-300/90 mt-0.5';
+        metaDiv.textContent = `${cond.label} • 💧 ${t('weather.chartRainProb')}: ${d.rainProb}%`;
+
+        tooltipEl.appendChild(headerDiv);
+        tooltipEl.appendChild(tempDiv);
+        tooltipEl.appendChild(metaDiv);
+        tooltipEl.classList.remove('hidden');
+
+        const barCenterX = margin.left + x(d.idx) + x.bandwidth() / 2;
+        const barTopY = margin.top + y(d.temp);
+        const tooltipW = tooltipEl.offsetWidth || 130;
+        const clampedLeft = Math.min(
+          Math.max(barCenterX - tooltipW / 2, 4),
+          Math.max(totalWidth - tooltipW - 4, 4)
+        );
+        const clampedTop = Math.max(barTopY - 64, 0);
+
+        tooltipEl.style.left = `${clampedLeft}px`;
+        tooltipEl.style.top = `${clampedTop}px`;
+      }
+
+      function hideBarTooltip() {
+        if (tooltipEl) tooltipEl.classList.add('hidden');
+      }
+
+      // Draw temperature bars
+      const bars = g.selectAll('.temp-bar')
+        .data(points)
+        .enter()
+        .append('rect')
+        .attr('class', 'temp-bar')
+        .attr('x', d => x(d.idx))
+        .attr('width', x.bandwidth())
+        .attr('rx', 4)
+        .attr('ry', 4)
+        .attr('y', innerHeight)
+        .attr('height', 0)
+        .attr('fill', d => `url(#temp-bar-grad-${d.idx})`)
+        .attr('stroke', d => d.idx === 0 ? '#fde68a' : 'rgba(255,255,255,0.12)')
+        .attr('stroke-width', d => d.idx === 0 ? 1.5 : 0.75)
+        .style('cursor', 'pointer')
+        .on('mouseenter', function(event, d) {
+          d3.select(this).attr('stroke', '#ffffff').attr('stroke-width', 1.6);
+          showBarTooltip(event, d);
+        })
+        .on('mouseleave', function(event, d) {
+          d3.select(this)
+            .attr('stroke', d.idx === 0 ? '#fde68a' : 'rgba(255,255,255,0.12)')
+            .attr('stroke-width', d.idx === 0 ? 1.5 : 0.75);
+          hideBarTooltip();
+        })
+        .on('click', function(event, d) {
+          showBarTooltip(event, d);
+        });
+
+      bars.transition()
+        .duration(520)
+        .delay((_, i) => i * 16)
+        .attr('y', d => y(d.temp))
+        .attr('height', d => Math.max(innerHeight - y(d.temp), 2));
+
+      // Label peak Max & Min temperatures above their bars
+      const highlightPoints = [
+        { point: points[maxIndex], color: '#fcd34d' },
+        ...(minIndex !== maxIndex ? [{ point: points[minIndex], color: '#7dd3fc' }] : [])
+      ];
+
+      g.selectAll('.peak-label')
+        .data(highlightPoints)
+        .enter()
+        .append('text')
+        .attr('class', 'peak-label')
+        .attr('x', d => x(d.point.idx) + x.bandwidth() / 2)
+        .attr('y', d => Math.max(y(d.point.temp) - 6, 10))
+        .attr('text-anchor', 'middle')
+        .attr('fill', d => d.color)
+        .attr('font-size', '10px')
+        .attr('font-weight', '800')
+        .attr('font-family', 'Inter, sans-serif')
+        .text(d => `${Math.round(d.point.temp)}°`);
+    }
+
+    let chartResizeTimer = null;
+    window.addEventListener('resize', () => {
+      if (!lastHourlyForecast) return;
+      const climaTab = document.getElementById('tab-clima');
+      if (!climaTab || !climaTab.classList.contains('active')) return;
+      if (chartResizeTimer) clearTimeout(chartResizeTimer);
+      chartResizeTimer = setTimeout(() => renderTemperatureChart(lastHourlyForecast), 150);
+    });
+
     async function updateWeatherFavicon(lat = -25.2591, lon = -48.7405, showFeedbackToast = false) {
       try {
-        const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code,is_day,wind_speed_10m,precipitation&timezone=America%2FSao_Paulo`;
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code,is_day,wind_speed_10m,precipitation&hourly=temperature_2m,precipitation_probability,weather_code&forecast_days=2&timezone=America%2FSao_Paulo`;
         const response = await fetch(url);
         if (!response.ok) throw new Error('Falha ao consultar Open-Meteo');
         const data = await response.json();
@@ -3101,9 +3469,18 @@
         if (!data || !data.current) return;
         lastWeatherData = data.current;
         renderWeatherDisplay(lastWeatherData, showFeedbackToast);
+
+        const hourlyPoints = extractNext24HoursForecast(data);
+        if (hourlyPoints.length > 0) {
+          lastHourlyForecast = hourlyPoints;
+          renderTemperatureChart(lastHourlyForecast);
+        }
       } catch (err) {
         const summaryEl = document.getElementById('live-weather-summary');
         if (summaryEl) summaryEl.textContent = t('weather.liveUnavailable');
+        if (!lastHourlyForecast) {
+          renderTemperatureChart([]);
+        }
       }
     }
 
